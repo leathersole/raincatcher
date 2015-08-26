@@ -14,8 +14,15 @@ function buildTemplates(moduleName) {
         console.log(err);
         throw new Error(err);
       }
+      var indexFileContents = '';
       _.each(files, function(file) {
         buildTemplate(moduleName, file);
+        indexFileContents += 'require(\'./' + file + '.js\');\n';
+      });
+      fs.writeFile('lib/index.js', indexFileContents, 'utf8', function(err) {
+        if (err) {
+          console.log(err);
+        }
       });
     });
 
@@ -35,13 +42,11 @@ function buildTemplate(moduleName, file) {
     inputAlias = inputAlias.replace(/\\/g, '/');
     var output = html2js(inputAlias, content, moduleName, moduleVar);
 
-    if (outputFile) {
-      fs.writeFile(outputFile, output, 'utf8', function(err) {
-        if (err) {
-          console.log(err);
-        }
-      });
-    }
+    fs.writeFile(outputFile, output, 'utf8', function(err) {
+      if (err) {
+        console.log(err);
+      }
+    });
   });
 }
 
