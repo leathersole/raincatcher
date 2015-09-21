@@ -8,7 +8,7 @@
     "mediator"
   ],
   "author": "Brian Leathem",
-  "license": "ISC",
+  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
   "dependencies": {
     "lodash": "^3.10.1",
     "mediator-js": "^0.9.9"
