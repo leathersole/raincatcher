@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-mediator",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "An implementation of the mediator pattern for use with WFM",
   "main": "ng-module.js",
   "keywords": [
