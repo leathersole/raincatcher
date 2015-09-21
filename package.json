@@ -1,5 +1,5 @@
 {
-  "name": "wfm-vehicle-inspection",
+  "name": "fh-wfm-vehicle-inspection",
   "version": "0.0.1",
   "description": "An vehicle-inspection module for WFM",
   "main": "vehicle-inspection.js",
@@ -12,5 +12,5 @@
     "workorder"
   ],
   "author": "Brian Leathem",
-  "license": "ISC"
+  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved."
 }
