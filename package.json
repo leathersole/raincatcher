@@ -1,5 +1,5 @@
 {
-  "name": "wfm-risk-assessment",
+  "name": "fh-wfm-risk-assessment",
   "version": "0.0.1",
   "description": "A risk assessment module for WFM",
   "main": "risk-assessment.js",
@@ -12,7 +12,7 @@
     "risk-assessment"
   ],
   "author": "Brian Leathem",
-  "license": "ISC",
+  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
   "devDependencies": {
     "wfm-template-build": "bleathem/wfm-template-build"
   }
