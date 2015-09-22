@@ -1,5 +1,5 @@
 {
-  "name": "wfm-template-build",
+  "name": "fh-wfm-template-build",
   "version": "0.0.1",
   "description": "A build tool for WFM modules",
   "bin": {
@@ -11,7 +11,7 @@
     "build"
   ],
   "author": "Brian Leathem",
-  "license": "ISC",
+  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
   "dependencies": {
     "lodash": "^3.10.1",
     "minimist": "^1.1.3",
