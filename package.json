@@ -22,5 +22,8 @@
     "should": "^7.0.4",
     "wfm-mediator": "file:../wfm-mediator",
     "wfm-template-build": "bleathem/wfm-template-build"
+  },
+  "peerDependencies": {
+    "express": "^4.0.0"
   }
 }
