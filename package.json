@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-workorder",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "An workorder module for WFM",
   "main": "workorder.js",
   "scripts": {
@@ -14,9 +14,6 @@
   ],
   "author": "Brian Leathem",
   "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
-  "devDependencies": {
-    "express": "^4.13.3"
-  },
   "devDependencies": {
     "body-parser": "^1.13.3",
     "mocha": "^2.2.5",
