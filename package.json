@@ -15,14 +15,17 @@
   "author": "Brian Leathem",
   "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
   "dependencies": {
-    "express": "^4.13.3"
+    "angular": "^1.4.6",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
+    "ng-feedhenry": "^0.2.53"
   },
   "devDependencies": {
     "body-parser": "^1.13.3",
     "mocha": "^2.2.5",
     "request": "^2.61.0",
     "should": "^7.0.4",
-    "wfm-mediator": "file:../wfm-mediator",
-    "wfm-template-build": "bleathem/wfm-template-build"
+    "fh-wfm-mediator": "~0.0.4",
+    "fh-wfm-template-build": "~0.0.1"
   }
 }

@@ -1,10 +1,11 @@
 'use strict';
 
-var angular = require('angular');
+// var angular = require('angular');
 var _ = require('lodash');
 var config = require('./config');
+require('ng-feedhenry');
 
-var ngModule = angular.module('wfm.workorder', ['wfm.core.mediator']);
+var ngModule = angular.module('wfm.workorder', ['wfm.core.mediator', 'ngFeedHenry']);
 
 require('./lib');
 
@@ -38,7 +39,7 @@ var getStatusIcon = function(workorder) {
   return statusIcon;
 }
 
-ngModule.factory('workOrderManager', function($q, $http) {
+ngModule.factory('workOrderManager', function($q, FHCloud) {
   var workOrderManager = {};
   var workorders;
 
@@ -51,8 +52,8 @@ ngModule.factory('workOrderManager', function($q, $http) {
   }
 
   var fetch = function() {
-    return $http.get(config.apiHost + config.apiPath).then(function(response) {
-      workorders = response.data;
+    return FHCloud.get(config.apiPath).then(function(response) {
+      workorders = response;
       workorders.forEach(function(workorder) {
         if (workorder.finishTimestamp) {
           workorder.finishTimestamp = new Date(workorder.finishTimestamp);
@@ -73,8 +74,8 @@ ngModule.factory('workOrderManager', function($q, $http) {
       });
       return asyncValue(workorder);
     } else {
-      return $http.get(config.apiHost + config.apiPath + '/' + id).then(function(response) {
-        var workorder = response.data;
+      return FHCloud.get(config.apiPath + '/' + id).then(function(response) {
+        var workorder = response;
         if (workorder.finishTimestamp) {
           workorder.finishTimestamp = new Date(workorder.finishTimestamp);
         }
@@ -84,24 +85,24 @@ ngModule.factory('workOrderManager', function($q, $http) {
   };
 
   workOrderManager.save = function(workorder) {
-    return $http.put(config.apiHost + config.apiPath + '/' + workorder.id, workorder)
+    return FHCloud.put(config.apiPath + '/' + workorder.id, workorder)
     .then(function(response) {
-      return $http.get(config.apiHost + config.apiPath);
+      return FHCloud.get(config.apiPath);
     })
     .then(function(response) {
-      workorders = response.data;
+      workorders = response;
       return workorder;
     });
   };
 
   workOrderManager.create = function(workorder) {
-    return $http.post(config.apiHost + config.apiPath, workorder)
+    return FHCloud.post(config.apiPath, workorder)
     .then(function(response) {
-      workorder = response.data;
-      return $http.get(config.apiHost + config.apiPath);
+      workorder = response;
+      return FHCloud.get(config.apiPath);
     })
     .then(function(response) {
-      workorders = response.data;
+      workorders = response;
       return workorder;
     });
   };
