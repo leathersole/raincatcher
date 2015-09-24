@@ -85,7 +85,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
   };
 
   workOrderManager.save = function(workorder) {
-    return FHCloud.put(config.apiPath + '/' + workorder.id, workorder)
+    return FHCloud.put(config.apiPath + '/' + workorder.id, angular.toJson(workorder))
     .then(function(response) {
       return FHCloud.get(config.apiPath);
     })
