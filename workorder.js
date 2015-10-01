@@ -39,9 +39,21 @@ var getStatusIcon = function(workorder) {
   return statusIcon;
 }
 
+function transformDataSet(synData) {
+  var workOrders = [];
+  for (var key in synData) {
+    //putting the array of workorders in the original format again
+    var tempObj = {};
+    tempObj = synData[key].data;
+    tempObj.finishTimestamp = new Date(tempObj.finishTimestamp);
+    workOrders.push(tempObj);
+  }
+  return workOrders;
+}
 ngModule.factory('workOrderManager', function($q, FHCloud) {
   var workOrderManager = {};
   var workorders;
+
 
   var removeLocalVars = function(workorder) {
     _.keys(workorder).filter(function(key) {
@@ -58,7 +70,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
         });
       });
     };
-  }
+  };
 
   var asyncValue = function(value) {
     var deferred = $q.defer();
@@ -66,66 +78,113 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
       deferred.resolve(value);
     },0);
     return deferred.promise;
-  }
+  };
+
+  //init the sync
+  $fh.sync.init(config.syncOptions);
+
+  //manage the dataSet
+  $fh.sync.manage(config.datasetId, {}, query_params, meta_data, function(){
+    console.log(config.datasetId + " managed by the sync service ");
+  });
+
+  //provide listeners for sync notifications
+  $fh.sync.notify(function(notification){
+    var code = notification.code
+    if('delta_received' === code){
+      $fh.sync.doList(config.datasetId,
+          function (res) {
+            var workOrders = transformDataSet(res);
+            mediator.publish('workorders:refresh', workOrders);
+          },
+          function (err) {
+            console.log('Error result from list:', JSON.stringify(err));
+          });
+
+    } else {
+      //choose other notifications the app is interested in and provide callbacks
+    }
+  });
+
+  var asyncListWorkOrders = function() {
+    var d = $q.defer();
+    $fh.sync.doList(config.datasetId,
+        function (res) {
+          var workOrders = transformDataSet(res);
+          d.resolve(workOrders);
+        },
+        function (err) {
+          d.reject(err);
+        });
+    return d.promise;
+  };
+
+  var asyncCreateWorkOrder = function(workorder) {
+    var d = $q.defer();
+    $fh.sync.doCreate(config.datasetId,workorder,
+        function (res) {
+          d.resolve(res);
+        },
+        function (err) {
+          d.reject(err);
+        });
+    return d.promise;
+  };
+
+  var asyncSaveWorkOrder = function(workorder) {
+    var d = $q.defer();
+    $fh.sync.doUpdate(config.datasetId,workorder,
+        function (res) {
+          d.resolve(res);
+        },
+        function (err) {
+          d.reject(err);
+        });
+    return d.promise;
+  };
+
+  var asyncGetWorkOrder = function(id) {
+    var d = $q.defer();
+    $fh.sync.doRead(config.datasetId, id,
+        function (res) {
+          if (res.data.finishTimestamp) {
+            res.data.finishTimestamp = new Date(res.data.finishTimestamp);
+          }
+          d.resolve(res.data);
+        },
+        function (err) {
+          d.reject(err);
+        });
+    return d.promise;
+  };
 
   var fetch = function() {
-    return FHCloud.get(config.apiPath).then(function(response) {
-      workorders = response;
-      workorders.forEach(function(workorder) {
-        removeLocalVars(workorder);
-        if (workorder.finishTimestamp) {
-          workorder.finishTimestamp = new Date(workorder.finishTimestamp);
-        };
-      });
-      return workorders;
-    });
+    return asyncListWorkOrders().then(function(response){return response;});
   };
 
   workOrderManager.getList = function() {
-    return workorders ? asyncValue(workorders) : fetch();
+    return fetch();
   };
 
   workOrderManager.get = function(id) {
-    if (workorders) {
-      var workorder = _.find(workorders, function(_workorder) {
-        return _workorder.id == id;
-      });
-      return asyncValue(workorder);
-    } else {
-      return FHCloud.get(config.apiPath + '/' + id).then(function(response) {
-        var workorder = response;
-        removeLocalVars(workorder);
-        if (workorder.finishTimestamp) {
-          workorder.finishTimestamp = new Date(workorder.finishTimestamp);
-        }
-        return workorder;
-      });
-    }
+    return asyncGetWorkOrder(id)
+        .then(function(response) {
+          return response;
+        });
   };
 
   workOrderManager.save = function(workorder) {
-    removeLocalVars(workorder);
-    return FHCloud.put(config.apiPath + '/' + workorder.id, angular.toJson(workorder))
-    .then(function(response) {
-      return FHCloud.get(config.apiPath);
-    })
-    .then(function(response) {
-      workorders = response;
-      return workorder;
-    });
+    return asyncSaveWorkOrder()
+        .then(function(response) {
+          return response;
+        });
   };
 
   workOrderManager.create = function(workorder) {
-    removeLocalVars(workorder);
-    return FHCloud.post(config.apiPath, workorder)
-    .then(function(response) {
-      workorder = response;
-      return FHCloud.get(config.apiPath);
-    })
-    .then(function(response) {
-      workorders = response;
-      return workorder;
-    });
+    return asyncCreateWorkOrder()
+        .then(function(response) {
+          return response;
+        });
   };
 
   return workOrderManager;
@@ -264,9 +323,6 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
     }
   , controllerAs: 'ctrl'
   };
-})
-
-
-;
+});
 
 module.exports = 'wfm.workorder';
