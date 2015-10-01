@@ -1,12 +1,65 @@
 'use strict';
 
-var express = require('express')
-  , config = require('./config')
-  ;
+var express = require('express'),
+    config = require('./config'),
+    mbaasApi = require('fh-mbaas-api');
 
 function initRouter(mediator) {
+
+  var dataListHandler = function(dataset_id, query_params, cb, meta_data){
+    mediator.publish('workorders:load');
+    mediator.promise('workorders:loaded').then(function(data) {
+      var syncData = {};
+      data.forEach(function(workorder) {
+        syncData[workorder.id] = workorder;
+      });
+      return cb(null, syncData);
+    });
+  };
+
+  var dataCreateHandler = function(datasetId, data, cb, meta_data) {
+    var ts = new Date().getTime();  // TODO: replace this with a proper uniqe (eg. a cuid)
+    var workorder = data;
+    workorder.createdTs = ts;
+    mediator.publish('workorder:create', workorder);
+    mediator.promise('workorder:created:' + ts).then(function(createdWorkorder) {
+      var res = {
+        "uid" : createdWorkorder.id,
+        "data" : createdWorkorder
+      }
+      return cb(null, res);
+    });
+  };
+
+  var dataSaveHandler = function(datasetId, uid, data, cb, meta_data) {
+    mediator.publish('workorder:save', workorder);
+    mediator.promise('workorder:saved:' + uid).then(function(updatedWorker) {
+      return cb(null, updatedWorker);
+    });
+  };
+
+  var dataGetHandler = function(datasetId, uid, data, cb, meta_data) {
+    mediator.publish('workorder:load', uid);
+    mediator.promise('workorder:loaded:' + uid).then(function(loadedWorker) {
+      return cb(null, loadedWorker);
+    });
+  };
+
+  //start the sync service
+  mbaasApi.sync.init(config.datasetId, config.syncOptions, function(err) {
+    if (err) {
+      console.error(err);
+    } else {
+      mbaasApi.sync.handleList(config.datasetId, dataListHandler);
+      mbaasApi.sync.handleCreate(config.datasetId, dataCreateHandler);
+      mbaasApi.sync.handleUpdate(config.datasetId, dataSaveHandler);
+      mbaasApi.sync.handleRead(config.datasetId, dataGetHandler);
+    }
+  });
+
   var router = express.Router();
-  router.route('/').get(function(req, res, next) {
+ //This is probably not needed anymore after using sync service
+/*  router.route('/').get(function(req, res, next) {
     mediator.once('workorders:loaded', function(data) {
       res.json(data);
     });
@@ -36,7 +89,7 @@ function initRouter(mediator) {
       res.json(createdWorkorder);
     });
     mediator.publish('workorder:create', workorder);
-  })
+  })*/
 
   return router;
 };
