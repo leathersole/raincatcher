@@ -1,7 +1,12 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h3>
+      <span>Workorders</span>
+    </h3>
+  </div>
+</md-toolbar>
+
 <md-list class="jobs-list">
-  <md-list-item ng-click="goToPerson()" class="list-header">
-    <p>Workorders</p>
-  </md-list-item>
   <md-list-item ng-repeat="workorder in list" ng-click="ctrl.selectWorkorder($event, workorder)" class="md-3-line" >
     <div class="md-list-item-text">
       <h3>{{workorder.type}} - {{workorder.id}}</h3>
