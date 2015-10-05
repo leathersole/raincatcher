@@ -1,0 +1,12 @@
+<md-list class="jobs-list">
+  <md-list-item ng-click="goToPerson()" class="list-header">
+    <p>Workorders</p>
+  </md-list-item>
+  <md-list-item ng-repeat="workorder in list" ng-click="ctrl.selectWorkorder($event, workorder)" class="md-3-line" >
+    <div class="md-list-item-text">
+      <h3>{{workorder.type}} - {{workorder.id}}</h3>
+      <h4>{{workorder.title}}</h4>
+      <p>{{workorder.address}}</p>
+    </div>
+  </md-list-item>
+</md-list>

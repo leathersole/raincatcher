@@ -152,10 +152,10 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
   };
 })
 
-.directive('workorderPorterTable', function($templateCache, mediator) {
+.directive('workorderPortalList', function($templateCache, mediator) {
   return {
     restrict: 'E'
-  , template: $templateCache.get('wfm-template/workorder-portal-table.tpl.html')
+  , template: $templateCache.get('wfm-template/workorder-portal-list.tpl.html')
   , scope: {
       list : '=list'
     }
