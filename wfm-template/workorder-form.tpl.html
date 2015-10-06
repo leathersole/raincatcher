@@ -1,20 +1,20 @@
 
 <md-toolbar class="content-toolbar md-primary">
   <div class="md-toolbar-tools">
-    <h3>Edit work order ID {{ctrl.model.id}}</h3> 
+    <h3>Edit work order ID {{ctrl.model.id}}</h3>
   </div>
 </md-toolbar>
 
 
 <form name="workorderForm" ng-submit="ctrl.done(workorderForm.$valid)" novalidate layout-padding layout-margin>
-  
+
   <!--
   <md-input-container>
     <label for="workorderState">Status</label>
     <input type="text" id="inputWorkorderType" name="workorderStatus" ng-model="ctrl.model.status" disabled="true">
   </md-input-container>
   -->
-  
+
   <md-input-container>
     <label for="workorderType">Type</label>
     <md-select ng-model="ctrl.userState" placeholder="Job Order" id="workorderType">
@@ -23,35 +23,45 @@
        <md-option value="Type 03">Type 03</md-option>
        <md-option value="Type 04">Type 04</md-option>
      </md-select>
-    <!--    
+    <!--
     <input type="text"  id="inputWorkorderType" name="workorderType" ng-model="ctrl.model.type" disabled="true">
-    -->  
+    -->
   </md-input-container>
-  <md-input-container ng-class="{ 'has-error' : workorderForm.title.$invalid && !workorderForm.title.$pristine }">
+  <md-input-container>
     <label for="inputTitle">Title</label>
     <input type="text" id="inputTitle" name="title" placeholder="Title" ng-model="ctrl.model.title" required>
-    <p ng-show="workorderForm.title.$invalid && !workorderForm.title.$pristine">A title is required.</p>
+    <div ng-messages="workorderForm.title.$error">
+      <div ng-message="required">A title is required.</div>
+    </div>
   </md-input-container>
-  <md-input-container ng-class="{ 'has-error' : workorderForm.address.$invalid && !workorderForm.address.$pristine }">
+  <md-input-container>
     <label for="inputAddress">Address</label>
     <input type="text"  id="inputAddress" name="address" placeholder="Address" ng-model="ctrl.model.address" required>
-    <p ng-show="addressForm.address.$invalid && !addressForm.address.$pristine" class="help-block">An address is required.</p>
+    <div ng-messages="workorderForm.address.$error">
+      <div ng-message="required">An address is required.</div>
+    </div>
   </md-input-container>
-  <md-input-container ng-class="{ 'has-error' : workorderForm.finishDate.$invalid && !workorderForm.finishDate.$pristine }">
+  <md-input-container>
     <label for="inputFinishDate" >Finish Date</label>
     <input type="date"  id="inputFinishDate" name="finishDate" ng-model="ctrl.model.finishDate" required>
-    <p ng-show="workorderForm.finishDate.$invalid && !workorderForm.finishDate.$pristine" class="help-block">A finish date is required.</p>
+    <div ng-messages="workorderForm.finishDate.$error">
+      <div ng-message="required">A finish date is required.</div>
+    </div>
   </md-input-container>
-  <md-input-container ng-class="{ 'has-error' : workorderForm.finishTime.$invalid && !workorderForm.finishTime.$pristine }">
+  <md-input-container>
     <label for="inputFinishTime" >Finish Time</label>
     <input type="time"  id="inputFinishTime" name="finishTime" ng-model="ctrl.model.finishTime" required>
-    <p ng-show="workorderForm.finishTime.$invalid && !workorderForm.finishTime.$pristine" class="help-block">A finish time is required.</p>
+    <div ng-messages="workorderForm.finishTime.$error">
+      <div ng-message="required">A finish time is required.</div>
+    </div>
   </md-input-container>
   <md-input-container ng-class="{ 'has-error' : workorderForm.summary.$invalid && !workorderForm.summary.$pristine }">
     <label for="inputSummary" >City</label>
     <textarea  id="inputSummary" name="summary" placeholder="Summary" ng-model="ctrl.model.summary" required md-maxlength="150"></textarea>
-    
-    <p ng-show="workorderForm.city.$invalid && !workorderForm.city.$pristine" class="help-block">A summary is required.</p>
+
+    <div ng-messages="workorderForm.summary.$error">
+      <div ng-message="required">A summary date is required.</div>
+    </div>
   </md-input-container>
 
   <md-button type="submit" class="md-raised md-primary" ng-disabled="workorderForm.$invalid">Edit Workorder</md-button>
