@@ -37,7 +37,7 @@ ngModule.directive('vehicleInspectionForm', function($templateCache, mediator) {
     var self = this;
     self.model = {};
     self.done = function() {
-      mediator.publish('wfm:vehicle-inspection:done', self.model);
+      mediator.publish('workflow:step:done', self.model);
     }
   }
   , controllerAs: 'ctrl'

@@ -12,5 +12,14 @@
     "workorder"
   ],
   "author": "Brian Leathem",
-  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved."
+  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
+  "dependencies": {
+    "angular": "^1.4.6",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "fh-wfm-mediator": "~0.0.4",
+    "fh-wfm-template-build": "~0.0.1"
+  }
 }
