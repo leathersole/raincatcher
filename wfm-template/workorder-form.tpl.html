@@ -8,14 +8,17 @@
 
 <form name="workorderForm" ng-submit="ctrl.done(workorderForm.$valid)" novalidate layout-padding layout-margin>
   
+  <!--
   <md-input-container>
     <label for="workorderState">Status</label>
     <input type="text" id="inputWorkorderType" name="workorderStatus" ng-model="ctrl.model.status" disabled="true">
   </md-input-container>
+  -->
+  
   <md-input-container>
     <label for="workorderType">Type</label>
     <md-select ng-model="ctrl.userState" placeholder="Job Order" id="workorderType">
-       <md-option value="Type 01">Type 01</md-option>
+       <md-option value="Type 01">Job Order</md-option>
        <md-option value="Type 02">Type 02</md-option>
        <md-option value="Type 03">Type 03</md-option>
        <md-option value="Type 04">Type 04</md-option>
@@ -27,7 +30,7 @@
   <md-input-container ng-class="{ 'has-error' : workorderForm.title.$invalid && !workorderForm.title.$pristine }">
     <label for="inputTitle">Title</label>
     <input type="text" id="inputTitle" name="title" placeholder="Title" ng-model="ctrl.model.title" required>
-    <p ng-show="workorderForm.title.$invalid && !workorderForm.title.$pristine" class="help-block">A title is required.</p>
+    <p ng-show="workorderForm.title.$invalid && !workorderForm.title.$pristine">A title is required.</p>
   </md-input-container>
   <md-input-container ng-class="{ 'has-error' : workorderForm.address.$invalid && !workorderForm.address.$pristine }">
     <label for="inputAddress">Address</label>
@@ -46,7 +49,8 @@
   </md-input-container>
   <md-input-container ng-class="{ 'has-error' : workorderForm.summary.$invalid && !workorderForm.summary.$pristine }">
     <label for="inputSummary" >City</label>
-    <input type="text"  id="inputSummary" name="summary" placeholder="City" ng-model="ctrl.model.summary" required>
+    <textarea  id="inputSummary" name="summary" placeholder="Summary" ng-model="ctrl.model.summary" required md-maxlength="150"></textarea>
+    
     <p ng-show="workorderForm.city.$invalid && !workorderForm.city.$pristine" class="help-block">A summary is required.</p>
   </md-input-container>
 
