@@ -43,6 +43,23 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
   var workOrderManager = {};
   var workorders;
 
+  var removeLocalVars = function(workorder) {
+    _.keys(workorder).filter(function(key) {
+      return key.indexOf('_') === 0;
+    }).forEach(function(localKey) {
+      delete workorder[localKey];
+    });
+    if (workorder.steps) {
+      _.values(workorder.steps).forEach(function(step) {
+        _.keys(step.submission).filter(function(key) {
+          return key.indexOf('_') === 0;
+        }).forEach(function(localKey) {
+          delete step.submission[localKey];
+        });
+      });
+    };
+  }
+
   var asyncValue = function(value) {
     var deferred = $q.defer();
     setTimeout(function() {
@@ -55,10 +72,11 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
     return FHCloud.get(config.apiPath).then(function(response) {
       workorders = response;
       workorders.forEach(function(workorder) {
+        removeLocalVars(workorder);
         if (workorder.finishTimestamp) {
           workorder.finishTimestamp = new Date(workorder.finishTimestamp);
-        }
-      })
+        };
+      });
       return workorders;
     });
   };
@@ -76,6 +94,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
     } else {
       return FHCloud.get(config.apiPath + '/' + id).then(function(response) {
         var workorder = response;
+        removeLocalVars(workorder);
         if (workorder.finishTimestamp) {
           workorder.finishTimestamp = new Date(workorder.finishTimestamp);
         }
@@ -85,6 +104,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
   };
 
   workOrderManager.save = function(workorder) {
+    removeLocalVars(workorder);
     return FHCloud.put(config.apiPath + '/' + workorder.id, angular.toJson(workorder))
     .then(function(response) {
       return FHCloud.get(config.apiPath);
@@ -96,6 +116,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
   };
 
   workOrderManager.create = function(workorder) {
+    removeLocalVars(workorder);
     return FHCloud.post(config.apiPath, workorder)
     .then(function(response) {
       workorder = response;
