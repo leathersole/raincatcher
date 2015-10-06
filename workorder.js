@@ -162,6 +162,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
   , controller: function() {
       var self = this;
       self.selectWorkorder = function(event, workorder) {
+        self.selectedWorkorderId = workorder.id;
         mediator.publish('workorder:selected', workorder);
         event.preventDefault();
       }
