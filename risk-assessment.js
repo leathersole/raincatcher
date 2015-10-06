@@ -52,7 +52,7 @@ ngModule.directive('riskAssessmentForm', function($templateCache, mediator) {
         // TODO: attach a Base64 encoded string of the signature image to the model
         var canvas = $element[0].getElementsByTagName('canvas')[0];
         self.model.signature = canvas.toDataURL();
-        mediator.publish('wfm:risk-assessment:done', self.model);
+        mediator.publish('workflow:step:done', self.model);
       };
     }
   , controllerAs: 'ctrl'
