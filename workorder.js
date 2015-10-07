@@ -243,10 +243,12 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
   , template: $templateCache.get('wfm-template/workorder-form.tpl.html')
   , scope: {
     workorder : '=value'
+  , workflows: '='
     }
   , controller: function($scope) {
       var self = this;
       self.model = angular.copy($scope.workorder);
+      self.workflows = $scope.workflows;
       if (self.model.finishTimestamp) {
         self.model.finishDate = new Date(self.model.finishTimestamp);
         self.model.finishTime = new Date(self.model.finishTimestamp);

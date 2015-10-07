@@ -1,10 +1,14 @@
-
 <md-toolbar class="content-toolbar md-primary">
   <div class="md-toolbar-tools">
     <h3>Edit work order ID {{ctrl.model.id}}</h3>
+    <md-button class="md-icon-button" aria-label="{{ctrl.workorder.status}}">
+      <md-tooltip>
+        {{ctrl.workorder.status}}
+      </md-tooltip>
+      <md-icon md-font-set="material-icons">{{ctrl.getStatusIcon(ctrl.workorder.status)}}</md-icon>
+    </md-button>
   </div>
 </md-toolbar>
-
 
 <form name="workorderForm" ng-submit="ctrl.done(workorderForm.$valid)" novalidate layout-padding layout-margin>
 
@@ -15,17 +19,21 @@
   </md-input-container>
   -->
 
+
   <md-input-container>
     <label for="workorderType">Type</label>
-    <md-select ng-model="ctrl.userState" placeholder="Job Order" id="workorderType">
-       <md-option value="Type 01">Job Order</md-option>
+    <md-select ng-model="ctrl.model.type" name="workorderType" placeholder="Job Order" id="workorderType">
+       <md-option value="Job Order">Job Order</md-option>
        <md-option value="Type 02">Type 02</md-option>
        <md-option value="Type 03">Type 03</md-option>
        <md-option value="Type 04">Type 04</md-option>
      </md-select>
-    <!--
-    <input type="text"  id="inputWorkorderType" name="workorderType" ng-model="ctrl.model.type" disabled="true">
-    -->
+  </md-input-container>
+  <md-input-container>
+    <label for="workorderType">Workflow</label>
+    <md-select ng-model="ctrl.model.workflowId" name="workflow" placeholder="Workflow" id="workflow">
+       <md-option ng-repeat="workflow in ctrl.workflows" value="{{workflow.id}}">{{workflow.id}} - {{workflow.title}}</md-option>
+     </md-select>
   </md-input-container>
   <md-input-container>
     <label for="inputTitle">Title</label>
