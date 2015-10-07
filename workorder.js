@@ -168,7 +168,8 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
     restrict: 'E'
   , template: $templateCache.get('wfm-template/workorder-portal-view.tpl.html')
   , scope: {
-      workorder: '=value'
+      workorder: '=workorder'
+    , workflow: '=workflow'
     }
   };
 })
