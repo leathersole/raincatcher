@@ -7,11 +7,12 @@
     </div>
   </md-list-item>
 
-  <md-list-item class="md-2-line">
+  <md-list-item class="md-2-line" ng-click="navigateTo('data usage', $event)">
     <md-icon md-font-set="material-icons">cached</md-icon>
     <div class="md-list-item-text">
       <h3>{{workflow.id}} - {{workflow.title}}</h3>
       <p>Workflow Id</p>
+      <md-icon md-font-set="material-icons" class="md-secondary">keyboard_arrow_right</md-icon>
     </div>
   </md-list-item>
 
