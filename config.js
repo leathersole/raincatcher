@@ -5,8 +5,8 @@ module.exports = {
   apiPath: '/api/wfm/workorder',
   datasetId : 'workOrdersList',
   syncOptions : {
-    "sync_frequency" : 2,
-    "storage_strategy": "dom"
+    "sync_frequency" : 5,
+    "storage_strategy": "dom",
+    "do_console_log": true
   }
-
 }
