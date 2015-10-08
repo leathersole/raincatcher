@@ -50,7 +50,7 @@ function transformDataSet(synData) {
     }
     return workOrders;
 }
-ngModule.factory('workOrderManager', function($q, FHCloud) {
+ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
     var workOrderManager = {};
     var workorders;
 
@@ -97,15 +97,16 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
     //provide listeners for sync notifications
     $fh.sync.notify(function(notification){
         var code = notification.code
-        console.log("CODE IS : " + code);
-        $fh.sync.doList(config.datasetId,
-            function (res) {
-                var workOrders = transformDataSet(res);
-            },
-            function (err) {
-                console.log('Error result from list:', JSON.stringify(err));
-            });
-
+        if(code == "delta_received") {
+            $fh.sync.doList(config.datasetId,
+                function (res) {
+                    var workOrders = transformDataSet(res);
+                    mediator.publish("workorders:refreshed", workOrders);
+                },
+                function (err) {
+                    console.log('Error result from list:', JSON.stringify(err));
+                });
+        }
 
     });
 
@@ -192,7 +193,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
     };
 
     workOrderManager.create = function(workorder) {
-        return asyncCreateWorkOrder()
+        return asyncCreateWorkOrder(workorder)
             .then(function(response) {
                 return response;
             });

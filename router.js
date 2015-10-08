@@ -8,7 +8,6 @@ function initSync(mediator, mbaasApi){
     var syncData = {};
     mediator.publish('workorders:load');
     return mediator.promise('workorders:loaded').then(function(data) {
-      console.log("in worders loaded");
       data.forEach(function(workorder) {
         syncData[workorder.id] = workorder;
       });
