@@ -249,11 +249,13 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
       var self = this;
       self.model = angular.copy($scope.workorder);
       self.workflows = $scope.workflows;
+      self.submitted = false;
       if (self.model.finishTimestamp) {
         self.model.finishDate = new Date(self.model.finishTimestamp);
         self.model.finishTime = new Date(self.model.finishTimestamp);
       };
       self.done = function(isValid) {
+        self.submitted = true;
         if (isValid) {
           self.model.finishTimestamp = new Date(self.model.finishDate); // TODO: incorporate self.model.finishTime
           delete self.model.finishDate;

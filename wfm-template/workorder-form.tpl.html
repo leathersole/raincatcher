@@ -1,6 +1,6 @@
 <md-toolbar class="content-toolbar md-primary">
   <div class="md-toolbar-tools">
-    <h3>Edit work order ID {{ctrl.model.id}}</h3>
+    <h3>{{ctrl.model.id ? 'Update' : 'Create'}} work order ID {{ctrl.model.id}}</h3>
     <md-button class="md-icon-button" aria-label="{{ctrl.workorder.status}}">
       <md-tooltip>
         {{ctrl.workorder.status}}
@@ -38,39 +38,39 @@
   <md-input-container>
     <label for="inputTitle">Title</label>
     <input type="text" id="inputTitle" name="title" placeholder="Title" ng-model="ctrl.model.title" required>
-    <div ng-messages="workorderForm.title.$error">
+    <div ng-messages="workorderForm.title.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">
       <div ng-message="required">A title is required.</div>
     </div>
   </md-input-container>
   <md-input-container>
     <label for="inputAddress">Address</label>
     <input type="text"  id="inputAddress" name="address" placeholder="Address" ng-model="ctrl.model.address" required>
-    <div ng-messages="workorderForm.address.$error">
+    <div ng-messages="workorderForm.address.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">
       <div ng-message="required">An address is required.</div>
     </div>
   </md-input-container>
   <md-input-container>
     <label for="inputFinishDate" >Finish Date</label>
     <input type="date"  id="inputFinishDate" name="finishDate" ng-model="ctrl.model.finishDate" required>
-    <div ng-messages="workorderForm.finishDate.$error">
+    <div ng-messages="workorderForm.finishDate.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">
       <div ng-message="required">A finish date is required.</div>
     </div>
   </md-input-container>
   <md-input-container>
     <label for="inputFinishTime" >Finish Time</label>
     <input type="time"  id="inputFinishTime" name="finishTime" ng-model="ctrl.model.finishTime" required>
-    <div ng-messages="workorderForm.finishTime.$error">
+    <div ng-messages="workorderForm.finishTime.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">
       <div ng-message="required">A finish time is required.</div>
     </div>
   </md-input-container>
   <md-input-container ng-class="{ 'has-error' : workorderForm.summary.$invalid && !workorderForm.summary.$pristine }">
-    <label for="inputSummary" >City</label>
+    <label for="inputSummary">Summary</label>
     <textarea  id="inputSummary" name="summary" placeholder="Summary" ng-model="ctrl.model.summary" required md-maxlength="150"></textarea>
 
-    <div ng-messages="workorderForm.summary.$error">
+    <div ng-messages="workorderForm.summary.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">
       <div ng-message="required">A summary date is required.</div>
     </div>
   </md-input-container>
 
-  <md-button type="submit" class="md-raised md-primary" ng-disabled="workorderForm.$invalid">Edit Workorder</md-button>
+  <md-button type="submit" class="md-raised md-primary">{{ctrl.model.id ? 'Update' : 'Create'}} Workorder</md-button>
 </form>
