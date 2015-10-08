@@ -46,12 +46,8 @@ function initSync(mediator, mbaasApi){
 
   };
 
-  var options = {
-    "sync_frequency": 10, // How often to synchronise data with the back end data store in seconds. Default: 10s
-    "logLevel":"info" // The level of logging. Can be usful for debugging. Valid options including: 'silly', 'verbose', 'info', 'warn', 'debug', 'error'
-  };
   //start the sync service
-  mbaasApi.sync.init(config.datasetId, options, function(err) {
+  mbaasApi.sync.init(config.datasetId, config.syncOptions, function(err) {
     if (err) {
       console.error(err);
     } else {
@@ -104,10 +100,6 @@ function initRouter(mediator, mbaasApi) {
 module.exports = function(mediator, app, mbaasApi) {
   var router = initRouter(mediator, mbaasApi);
   initSync(mediator, mbaasApi);
-
-
-
-
   app.use(config.apiPath, router);
 
 };

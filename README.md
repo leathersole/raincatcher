@@ -31,6 +31,7 @@ The module listens for, and responds with the following mediator events:
 | `workorder:new` | `workorder:new:done` |
 |  | `workorder:selected` |
 |  | `workorder:edited` |
+|  | `workorder:refreshed` |
 
 ### Integration
 
