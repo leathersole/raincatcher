@@ -171,6 +171,12 @@ ngModule.factory('workOrderManager', function($q, FHCloud) {
       workorder: '=workorder'
     , workflow: '=workflow'
     }
+  , controller: function(mediator) {
+      this.selectWorkflow = function(workflow) {
+        mediator.publish('workflow:selected', workflow);
+      };
+    }
+  , controllerAs: 'ctrl'
   };
 })
 
