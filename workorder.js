@@ -14,7 +14,7 @@ var getStatusIcon = function(workorder) {
     return '';
   }
   var statusIcon;
-  switch (workorder.status) {
+  switch(workorder.status) {
     case 'In Progress':
       statusIcon = 'ion-load-d';
       break;
@@ -68,8 +68,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
           delete step.submission[localKey];
         });
       });
-    }
-    ;
+    };
   };
 
   var asyncValue = function(value) {
@@ -229,7 +228,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
     $timeout(function() {
       var workorder = {
         type: 'Job Order'
-        , status: 'New'
+      , status: 'New'
       };
       mediator.publish('workorder:new:done', workorder);
     })
@@ -239,10 +238,10 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
 .directive('workorderPortalView', function($templateCache, mediator) {
   return {
     restrict: 'E'
-    , template: $templateCache.get('wfm-template/workorder-portal-view.tpl.html')
-    , scope: {
+  , template: $templateCache.get('wfm-template/workorder-portal-view.tpl.html')
+  , scope: {
       workorder: '=workorder'
-      , workflow: '=workflow'
+    , workflow: '=workflow'
     }
   };
 })
@@ -250,11 +249,11 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
 .directive('workorderPortalList', function($templateCache, mediator) {
   return {
     restrict: 'E'
-    , template: $templateCache.get('wfm-template/workorder-portal-list.tpl.html')
-    , scope: {
-      list: '=list'
+  , template: $templateCache.get('wfm-template/workorder-portal-list.tpl.html')
+  , scope: {
+      list : '=list'
     }
-    , controller: function() {
+  , controller: function() {
       var self = this;
       self.selectWorkorder = function(event, workorder) {
         self.selectedWorkorderId = workorder.id;
@@ -262,18 +261,18 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
         event.preventDefault();
       }
     }
-    , controllerAs: 'ctrl'
+  , controllerAs: 'ctrl'
   };
 })
 
 .directive('workorderList', function($templateCache, mediator) {
   return {
     restrict: 'E'
-    , template: $templateCache.get('wfm-template/workorder-list.tpl.html')
-    , scope: {
-      workorders: '='
+  , template: $templateCache.get('wfm-template/workorder-list.tpl.html')
+  , scope: {
+      workorders : '='
     }
-    , controller: function() {
+  , controller: function() {
       var self = this;
       self.getStatusIcon = getStatusIcon;
       self.isWorkorderShown = function(workorder) {
@@ -287,46 +286,45 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
         }
       }
     }
-    , controllerAs: 'ctrl'
+  , controllerAs: 'ctrl'
   };
 })
 
 .directive('workorderListItem', function($templateCache, mediator) {
   return {
     restrict: 'E'
-    , template: $templateCache.get('wfm-template/workorder-list-item.tpl.html')
-    , scope: {
-      workorder: '=workorder'
+  , template: $templateCache.get('wfm-template/workorder-list-item.tpl.html')
+  , scope: {
+    workorder : '=workorder'
     }
-    , controller: function($scope) {
+  , controller: function($scope) {
       var self = this;
-      self.showSelectButton = !!$scope.$parent.workorders;
+      self.showSelectButton = !! $scope.$parent.workorders;
       self.selectWorkorder = function(event, workorder) {
         mediator.publish('workorder:selected', workorder);
         event.preventDefault();
       }
     }
-    , controllerAs: 'ctrl'
+  , controllerAs: 'ctrl'
   };
 })
 
 .directive('workorderForm', function($templateCache, mediator) {
   return {
     restrict: 'E'
-    , template: $templateCache.get('wfm-template/workorder-form.tpl.html')
-    , scope: {
-      workorder: '=value'
-      , workflows: '='
+  , template: $templateCache.get('wfm-template/workorder-form.tpl.html')
+  , scope: {
+    workorder : '=value'
+  , workflows: '='
     }
-    , controller: function($scope) {
+  , controller: function($scope) {
       var self = this;
       self.model = angular.copy($scope.workorder);
       self.workflows = $scope.workflows;
       if (self.model.finishTimestamp) {
         self.model.finishDate = new Date(self.model.finishTimestamp);
         self.model.finishTime = new Date(self.model.finishTimestamp);
-      }
-      ;
+      };
       self.done = function(isValid) {
         if (isValid) {
           self.model.finishTimestamp = new Date(self.model.finishDate); // TODO: incorporate self.model.finishTime
@@ -336,7 +334,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
         }
       }
     }
-    , controllerAs: 'ctrl'
+  , controllerAs: 'ctrl'
   };
 })
 
