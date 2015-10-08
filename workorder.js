@@ -71,14 +71,6 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
     };
   };
 
-  var asyncValue = function(value) {
-    var deferred = $q.defer();
-    setTimeout(function() {
-      deferred.resolve(value);
-    }, 0);
-    return deferred.promise;
-  };
-
   //init the sync
   $fh.sync.init(config.syncOptions);
 
@@ -163,17 +155,12 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
   };
 
   var fetch = function() {
-    return asyncListWorkOrders().then(function(response) {
-      return response;
-    });
+    return asyncListWorkOrders();
   };
 
 
   workOrderManager.get = function(id) {
-    return asyncGetWorkOrder(id)
-    .then(function(response) {
-      return response;
-    });
+    return asyncGetWorkOrder(id);
   };
 
   workOrderManager.getList = function() {
@@ -181,24 +168,15 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
   };
 
   workOrderManager.get = function(id) {
-    return asyncGetWorkOrder(id)
-    .then(function(response) {
-      return response;
-    });
+    return asyncGetWorkOrder(id);
   };
 
   workOrderManager.save = function(workorder) {
-    return asyncSaveWorkOrder(workorder)
-    .then(function(response) {
-      return response;
-    });
+    return asyncSaveWorkOrder(workorder);
   };
 
   workOrderManager.create = function(workorder) {
-    return asyncCreateWorkOrder(workorder)
-    .then(function(response) {
-      return response;
-    });
+    return asyncCreateWorkOrder(workorder);
   };
 
   return workOrderManager;
