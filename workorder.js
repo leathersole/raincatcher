@@ -40,18 +40,18 @@ var getStatusIcon = function(workorder) {
 }
 
 function transformDataSet(syncData) {
-  var workOrders = [];
+  var workorders = [];
   for (var key in syncData) {
     //putting the array of workorders in the original format again
     var tempObj = {};
     tempObj = syncData[key].data;
     tempObj.finishTimestamp = new Date(tempObj.finishTimestamp);
-    workOrders.push(tempObj);
+    workorders.push(tempObj);
   }
-  return workOrders;
+  return workorders;
 }
-ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
-  var workOrderManager = {};
+ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
+  var workorderManager = {};
   var workorders;
 
   var removeLocalVars = function(workorder) {
@@ -79,7 +79,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
     console.log(config.datasetId + " managed by the sync service ");
     $fh.sync.doList(config.datasetId,
     function(res) {
-      var workOrders = transformDataSet(res);
+      var workorders = transformDataSet(res);
     },
     function(err) {
       console.log('Error result from list:', JSON.stringify(err));
@@ -92,8 +92,8 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
     if (code == "delta_received") {
       $fh.sync.doList(config.datasetId,
       function(res) {
-        var workOrders = transformDataSet(res);
-        mediator.publish("workorders:refreshed", workOrders);
+        var workorders = transformDataSet(res);
+        mediator.publish("workorders:refreshed", workorders);
       },
       function(err) {
         console.log('Error result from list:', JSON.stringify(err));
@@ -102,12 +102,12 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
 
   });
 
-  var asyncListWorkOrders = function() {
+  var asyncListWorkorders = function() {
     var d = $q.defer();
     $fh.sync.doList(config.datasetId,
     function(res) {
-      var workOrders = transformDataSet(res);
-      d.resolve(workOrders);
+      var workorders = transformDataSet(res);
+      d.resolve(workorders);
     },
     function(err) {
       d.reject(err);
@@ -115,7 +115,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
     return d.promise;
   };
 
-  var asyncCreateWorkOrder = function(workorder) {
+  var asyncCreateWorkorder = function(workorder) {
     var d = $q.defer();
     $fh.sync.doCreate(config.datasetId, workorder,
     function(res) {
@@ -127,7 +127,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
     return d.promise;
   };
 
-  var asyncSaveWorkOrder = function(workorder) {
+  var asyncSaveWorkorder = function(workorder) {
     var d = $q.defer();
     $fh.sync.doUpdate(config.datasetId, workorder.id, workorder,
     function(res) {
@@ -139,7 +139,7 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
     return d.promise;
   };
 
-  var asyncGetWorkOrder = function(id) {
+  var asyncGetWorkorder = function(id) {
     var d = $q.defer();
     $fh.sync.doRead(config.datasetId, id,
     function(res) {
@@ -155,50 +155,50 @@ ngModule.factory('workOrderManager', function($q, FHCloud, mediator) {
   };
 
   var fetch = function() {
-    return asyncListWorkOrders();
+    return asyncListWorkorders();
   };
 
 
-  workOrderManager.get = function(id) {
-    return asyncGetWorkOrder(id);
+  workorderManager.get = function(id) {
+    return asyncGetWorkorder(id);
   };
 
-  workOrderManager.getList = function() {
+  workorderManager.getList = function() {
     return fetch();
   };
 
-  workOrderManager.get = function(id) {
-    return asyncGetWorkOrder(id);
+  workorderManager.get = function(id) {
+    return asyncGetWorkorder(id);
   };
 
-  workOrderManager.save = function(workorder) {
-    return asyncSaveWorkOrder(workorder);
+  workorderManager.save = function(workorder) {
+    return asyncSaveWorkorder(workorder);
   };
 
-  workOrderManager.create = function(workorder) {
-    return asyncCreateWorkOrder(workorder);
+  workorderManager.create = function(workorder) {
+    return asyncCreateWorkorder(workorder);
   };
 
-  return workOrderManager;
+  return workorderManager;
 })
-.run(function($timeout, mediator, workOrderManager) {
+.run(function($timeout, mediator, workorderManager) {
   mediator.subscribe('workorder:load', function(data) {
-    workOrderManager.get(data).then(function(workorder) {
+    workorderManager.get(data).then(function(workorder) {
       mediator.publish('workorder:loaded', workorder);
     })
   });
   mediator.subscribe('workorders:load', function() {
-    workOrderManager.getList().then(function(workorders) {
+    workorderManager.getList().then(function(workorders) {
       mediator.publish('workorders:loaded', workorders);
     })
   });
   mediator.subscribe('workorder:save', function(data) {
-    workOrderManager.save(data).then(function(workorder) {
+    workorderManager.save(data).then(function(workorder) {
       mediator.publish('workorder:saved', workorder);
     })
   });
   mediator.subscribe('workorder:create', function(data) {
-    workOrderManager.create(data).then(function(workorder) {
+    workorderManager.create(data).then(function(workorder) {
       mediator.publish('workorder:created', workorder);
     })
   });
