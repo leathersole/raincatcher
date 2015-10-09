@@ -89,15 +89,12 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
   //provide listeners for sync notifications
   $fh.sync.notify(function(notification) {
     var code = notification.code
-    if (code == "delta_received") {
-      $fh.sync.doList(config.datasetId,
-      function(res) {
-        var workorders = transformDataSet(res);
-        mediator.publish("workorders:refreshed", workorders);
-      },
-      function(err) {
-        console.log('Error result from list:', JSON.stringify(err));
-      });
+
+    if (code == "record_delta_received" && notification.message == "create") {
+      asyncGetWorkorder(notification.uid).then( function(result) {mediator.publish('workorder:created', result);});
+    }
+    if (code == "record_delta_received" && notification.message == "update") {
+      asyncGetWorkorder(notification.uid).then( function(result) {mediator.publish('workorder:saved', result);});
     }
 
   });
