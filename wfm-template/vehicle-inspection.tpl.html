@@ -1,25 +1,21 @@
-<div class="vehicle-inspection">
-  <ion-item class="item-divider">
+<md-list class="vehicle-inspection">
+  <md-list-item class="item-divider">
     Vehicle Inspection
-  </ion-item>
-  <ion-item>
-    <div class="item-icon-left">
-      <i class="icon ion-waterdrop"></i>
-      Fuel
+  </md-list-item>
+  <md-list-item>
+    <md-icon md-font-set="material-icons">local_gas_station</md-icon>
+    Fuel
+    <div>
+      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.fuel">check_circle</md-icon>
+      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.fuel">cancel</md-icon>
     </div>
-    <div class="item-icon-right">
-      <i class="icon ion-checkmark" ng-show="vehicleInspection.fuel"></i>
-      <i class="icon ion-close" ng-show="! vehicleInspection.fuel"></i>
+  </md-list-item>
+  <md-list-item>
+    <md-icon md-font-set="material-icons">album</md-icon>
+    Tires
+    <div>
+      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.tires">check_circle</md-icon>
+      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.tires">cancel</md-icon>
     </div>
-  </ion-item>
-  <ion-item>
-    <div class="item-icon-left">
-      <i class="icon ion-disc"></i>
-      Tires
-    </div>
-    <div class="item-icon-right">
-      <i class="icon ion-checkmark" ng-show="vehicleInspection.tires"></i>
-      <i class="icon ion-close" ng-show="! vehicleInspection.tires"></i>
-    </div>
-  </ion-item>
-</div>
+  </md-list-item>
+</md-list>

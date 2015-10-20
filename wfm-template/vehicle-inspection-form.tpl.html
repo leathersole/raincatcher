@@ -1,13 +1,17 @@
-<div class="vehicle-inspection">
-  <ion-toggle ng-model="ctrl.model.fuel" toggle-class="toggle-calm">
-    <i class="icon ion-waterdrop"></i>
-    Fuel
-  </ion-toggle>
-  <ion-toggle ng-model="ctrl.model.tires" toggle-class="toggle-calm">
-    <i class="icon ion-disc"></i>
-    Tires
-  </ion-toggle>
-  <ion-item>
-    <button class="button button-positive button-full" on-touch="ctrl.done()">Submit</button>
-  </ion-item>
-</div>
+<md-list class="vehicle-inspection">
+  <md-list-item>
+    <md-switch ng-model="ctrl.model.fuel">
+      <md-icon md-font-set="material-icons">local_gas_station</md-icon>
+      Fuel
+    </md-switch>
+  </md-list-item>
+  <md-list-item>
+    <md-switch ng-model="ctrl.model.tires">
+      <md-icon md-font-set="material-icons">album</md-icon>
+      Tires
+    </md-switch>
+  </md-list-item>
+  <md-list-item>
+    <button class="button button-positive button-full" ng-click="ctrl.done()">Submit</button>
+  </md-list-item>
+</md-list>
