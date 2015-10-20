@@ -5,9 +5,7 @@
   <md-list-item>
     <div>
       <md-icon md-font-set="material-icons">local_gas_station</md-icon>
-      Fuel
-      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.fuel">check_circle</md-icon>
-      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.fuel">cancel</md-icon>
+      Fuel: {{vehicleInspection.fuel}}
     </div>
   </md-list-item>
   <md-list-item>
@@ -16,6 +14,14 @@
       Tires
       <md-icon md-font-set="material-icons" ng-show="vehicleInspection.tires">check_circle</md-icon>
       <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.tires">cancel</md-icon>
+    </div>
+  </md-list-item>
+  <md-list-item>
+    <div>
+      <md-icon md-font-set="material-icons">brightness_low</md-icon>
+      Lights
+      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.lights">check_circle</md-icon>
+      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.lights">cancel</md-icon>
     </div>
   </md-list-item>
 </md-list>
