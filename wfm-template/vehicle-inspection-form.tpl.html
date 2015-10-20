@@ -1,15 +1,23 @@
 <md-list class="vehicle-inspection">
   <md-list-item>
-    <md-switch ng-model="ctrl.model.fuel">
+    <div>
       <md-icon md-font-set="material-icons">local_gas_station</md-icon>
       Fuel
-    </md-switch>
+      <md-radio-group ng-model="ctrl.model.fuel">
+        <md-radio-button style="display: inline" ng-value="false" aria-label="Fail">Fail</md-radio-button>
+        <md-radio-button style="display: inline" ng-value="true" aria-label="Pass">Pass</md-radio-button>
+      </md-radio-group>
+    </div>
   </md-list-item>
   <md-list-item>
-    <md-switch ng-model="ctrl.model.tires">
+    <div>
       <md-icon md-font-set="material-icons">album</md-icon>
       Tires
-    </md-switch>
+      <md-radio-group ng-model="ctrl.model.tires">
+        <md-radio-button style="display: inline" ng-value="false" aria-label="Fail">Fail</md-radio-button>
+        <md-radio-button style="display: inline" ng-value="true" aria-label="Pass">Pass</md-radio-button>
+      </md-radio-group>
+    </div>
   </md-list-item>
   <md-list-item>
     <button class="button button-positive button-full" ng-click="ctrl.done()">Submit</button>
