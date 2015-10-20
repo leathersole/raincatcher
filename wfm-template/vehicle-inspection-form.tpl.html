@@ -8,12 +8,12 @@
   <md-grid-tile>Empty</md-grid-tile>
   <md-grid-tile>Full</md-grid-tile>
   <md-grid-tile md-colspan="2">
-    <md-radio-group ng-model="ctrl.model.fuel">
-      <md-radio-button style="display: inline; margin: 5px" value="0%" aria-label="0%"></md-radio-button>
-      <md-radio-button style="display: inline; margin: 5px" value="25%" aria-label="25%"></md-radio-button>
-      <md-radio-button style="display: inline; margin: 5px" value="50%" aria-label="50%"></md-radio-button>
-      <md-radio-button style="display: inline; margin: 5px" value="75%" aria-label="75%"></md-radio-button>
-      <md-radio-button style="display: inline; margin: 5px" value="100%" aria-label="100%"></md-radio-button>
+    <md-radio-group ng-model="ctrl.model.fuel" class="fuel">
+      <md-radio-button value="0%" aria-label="0%"></md-radio-button>
+      <md-radio-button value="25%" aria-label="25%"></md-radio-button>
+      <md-radio-button value="50%" aria-label="50%"></md-radio-button>
+      <md-radio-button value="75%" aria-label="75%"></md-radio-button>
+      <md-radio-button value="100%" aria-label="100%"></md-radio-button>
     </md-radio-group>
   </md-grid-tile>
 
@@ -25,8 +25,8 @@
   </md-grid-tile>
   <md-grid-tile md-rowspan="2" md-colspan="2">
     <md-radio-group ng-model="ctrl.model.tires">
-      <md-radio-button style="display: inline" ng-value="false" aria-label="Fail">Fail</md-radio-button>
-      <md-radio-button style="display: inline" ng-value="true" aria-label="Pass">Pass</md-radio-button>
+      <md-radio-button ng-value="false" aria-label="Fail">Fail</md-radio-button>
+      <md-radio-button ng-value="true" aria-label="Pass">Pass</md-radio-button>
     </md-radio-group>
   </md-grid-tile>
 
@@ -38,8 +38,8 @@
   </md-grid-tile>
   <md-grid-tile md-rowspan="2" md-colspan="2">
     <md-radio-group ng-model="ctrl.model.lights">
-      <md-radio-button style="display: inline" ng-value="false" aria-label="Fail">Fail</md-radio-button>
-      <md-radio-button style="display: inline" ng-value="true" aria-label="Pass">Pass</md-radio-button>
+      <md-radio-button ng-value="false" aria-label="Fail">Fail</md-radio-button>
+      <md-radio-button ng-value="true" aria-label="Pass">Pass</md-radio-button>
     </md-radio-group>
   </md-grid-tile>
 

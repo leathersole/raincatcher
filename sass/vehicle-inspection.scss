@@ -1,6 +1,12 @@
 .vehicle-inspection {
-  i {
-    margin-right: 10px;
+  md-radio-button {
+    display: inline;
+  }
+
+  .fuel {
+    md-radio-button {
+      margin: 5px;
+    }
   }
 }
 
