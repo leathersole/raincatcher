@@ -191,7 +191,7 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
   });
   mediator.subscribe('workorder:save', function(data) {
     workorderManager.save(data).then(function(workorder) {
-      mediator.publish('workorder:saved', workorder);
+      mediator.publish('workorder:saved:' + workorder.id, workorder);
     })
   });
   mediator.subscribe('workorder:create', function(data) {
@@ -240,6 +240,7 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
         self.selectedWorkorderId = workorder.id;
         mediator.publish('workorder:selected', workorder);
         event.preventDefault();
+        event.stopPropagation();
       }
     }
   , controllerAs: 'ctrl'
@@ -260,6 +261,7 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
         self.selectedWorkorderId = workorder.id;
         mediator.publish('workorder:selected', workorder);
         event.preventDefault();
+        event.stopPropagation();
       }
       self.isWorkorderShown = function(workorder) {
         return self.shownWorkorder === workorder;
@@ -282,6 +284,7 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
       self.selectWorkorder = function(event, workorder) {
         mediator.publish('workorder:selected', workorder);
         event.preventDefault();
+        event.stopPropagation();
       }
     }
   , controllerAs: 'ctrl'
