@@ -1,6 +1,5 @@
 'use strict';
 
-var angular = require('angular');
 var canvasDrawr = require('./canvas-drawr');
 
 var ngModule = angular.module('wfm.risk-assessment', ['wfm.core.mediator'])
@@ -45,15 +44,19 @@ ngModule.directive('riskAssessmentForm', function($templateCache, mediator) {
       var self = this;
       $scope.riskAssessmentStep = 0
       self.model = {};
-      self.answerComplete = function(answer) {
+      self.answerComplete = function(event, answer) {
         self.model.complete = answer;
         $scope.riskAssessmentStep++;
+        event.preventDefault();
+        event.stopPropagation();
       };
-      self.done = function() {
+      self.done = function(event) {
         // TODO: attach a Base64 encoded string of the signature image to the model
         var canvas = $element[0].getElementsByTagName('canvas')[0];
         self.model.signature = canvas.toDataURL();
         mediator.publish('workflow:step:done', self.model);
+        event.preventDefault();
+        event.stopPropagation();
       };
     }
   , controllerAs: 'ctrl'
