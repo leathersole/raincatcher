@@ -1,6 +1,5 @@
 'use strict';
 
-var angular = require('angular');
 var _ = require('lodash');
 
 var ngModule = angular.module('wfm.vehicle-inspection', ['wfm.core.mediator']);
@@ -36,8 +35,10 @@ ngModule.directive('vehicleInspectionForm', function($templateCache, mediator) {
   , controller: function() {
     var self = this;
     self.model = {};
-    self.done = function() {
+    self.done = function(event) {
       mediator.publish('workflow:step:done', self.model);
+      event.preventDefault();
+      event.stopPropagation();
     }
   }
   , controllerAs: 'ctrl'
