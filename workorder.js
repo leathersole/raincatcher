@@ -190,8 +190,8 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
     })
   });
   mediator.subscribe('workorder:save', function(data) {
-    workorderManager.save(data).then(function(workorder) {
-      mediator.publish('workorder:saved:' + workorder.id, workorder);
+    workorderManager.save(data).then(function(syncResult) {
+      mediator.publish('workorder:saved:' + syncResult.uid, syncResult); // TODO: unwrap the sync result, extracting the workorder
     })
   });
   mediator.subscribe('workorder:create', function(data) {
