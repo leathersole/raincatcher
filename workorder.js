@@ -114,6 +114,7 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
 
   var asyncCreateWorkorder = function(workorder) {
     var d = $q.defer();
+    removeLocalVars(workorder);
     $fh.sync.doCreate(config.datasetId, workorder,
     function(res) {
       d.resolve(res);
@@ -126,6 +127,7 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
 
   var asyncSaveWorkorder = function(workorder) {
     var d = $q.defer();
+    removeLocalVars(workorder);
     $fh.sync.doUpdate(config.datasetId, workorder.id, workorder,
     function(res) {
       d.resolve(res);
