@@ -13,26 +13,24 @@
     </md-list-item>
 
     <md-list-item class="md-2-line" >
-      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.tires" class="success">check_circle</md-icon>
-      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.tires" class="danger">cancel</md-icon>
+      <md-icon md-font-set="material-icons" ng-if="vehicleInspection.tires" class="success">check_circle</md-icon>
+      <md-icon md-font-set="material-icons" ng-if="! vehicleInspection.tires" class="danger">cancel</md-icon>
       <div class="md-list-item-text">
-        <h3 ng-show="vehicleInspection.tires">Pass</h3>
-        <h3 ng-show="! vehicleInspection.tires">Fail</h3>
+        <h3 ng-if="vehicleInspection.tires">Pass</h3>
+        <h3 ng-if="! vehicleInspection.tires">Fail</h3>
         <p>Tires</p>
       </div>
     <md-divider></md-divider>
     </md-list-item>
 
     <md-list-item class="md-2-line" >
-      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.tires" class="success">check_circle</md-icon>
-      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.tires" class="danger">cancel</md-icon>
+      <md-icon md-font-set="material-icons" ng-if="vehicleInspection.tires" class="success">check_circle</md-icon>
+      <md-icon md-font-set="material-icons" ng-if="! vehicleInspection.tires" class="danger">cancel</md-icon>
       <div class="md-list-item-text">
-        <h3 ng-show="vehicleInspection.tires">Pass</h3>
-        <h3 ng-show="! vehicleInspection.tires">Fail</h3>
+        <h3 ng-if="vehicleInspection.tires">Pass</h3>
+        <h3 ng-if="! vehicleInspection.tires">Fail</h3>
         <p>Lights</p>
       </div>
-    <md-divider></md-divider>
     </md-list-item>
 
 </md-list>
-
