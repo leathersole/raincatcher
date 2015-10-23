@@ -212,43 +212,6 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
   });
 })
 
-.directive('workorderPortalView', function($templateCache, mediator) {
-  return {
-    restrict: 'E'
-  , template: $templateCache.get('wfm-template/workorder-portal-view.tpl.html')
-  , scope: {
-      workorder: '=workorder'
-    , workflow: '=workflow'
-    }
-  , controller: function(mediator) {
-      this.selectWorkflow = function(workflow) {
-        mediator.publish('workflow:selected', workflow);
-      };
-    }
-  , controllerAs: 'ctrl'
-  };
-})
-
-.directive('workorderPortalList', function($templateCache, mediator) {
-  return {
-    restrict: 'E'
-  , template: $templateCache.get('wfm-template/workorder-portal-list.tpl.html')
-  , scope: {
-      list : '=list'
-    }
-  , controller: function() {
-      var self = this;
-      self.selectWorkorder = function(event, workorder) {
-        self.selectedWorkorderId = workorder.id;
-        mediator.publish('workorder:selected', workorder);
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    }
-  , controllerAs: 'ctrl'
-  };
-})
-
 .directive('workorderList', function($templateCache, mediator) {
   return {
     restrict: 'E'
@@ -273,10 +236,10 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
   };
 })
 
-.directive('workorderListItem', function($templateCache, mediator) {
+.directive('workorder', function($templateCache, mediator) {
   return {
     restrict: 'E'
-  , template: $templateCache.get('wfm-template/workorder-list-item.tpl.html')
+  , template: $templateCache.get('wfm-template/workorder.tpl.html')
   , scope: {
     workorder : '=workorder'
     }
