@@ -1,6 +1,9 @@
   <div layout>
-    <div flex="30" layout layout-align="start center" style="padding-left: 16px;">
-      <span class="md-body-2">Fuel (%)</span>
+    <div flex="40" layout layout-align="start center" style="padding-left: 16px;">
+      <span class="md-body-2">
+        <md-icon md-font-set="material-icons">account_box</md-icon>
+        Fuel (%)
+      </span>
     </div>
     <md-slider flex md-discrete ng-model="ctrl.model.fuel" step="25" min="0" max="100" aria-label="rating">
     </md-slider>
@@ -9,8 +12,11 @@
     <md-divider></md-divider>
 
   <div layout>
-    <div flex="20" layout  layout-margin layout-padding layout-align="start center">
-      <span class="md-body-2">Tires</span>
+    <div flex="30" layout  layout-margin layout-padding layout-align="start center">
+      <span class="md-body-2">
+        <md-icon md-font-set="material-icons">account_box</md-icon>      
+        Tires
+      </span>
     </div>
     <div flex layout-align="start start">
       <md-radio-group layout ng-model="ctrl.model.tires">
@@ -23,8 +29,11 @@
     <md-divider></md-divider>
 
   <div layout>
-    <div flex="20" layout  layout-margin layout-padding layout-align="start center">
-      <span class="md-body-2">Lights</span>
+    <div flex="30" layout  layout-margin layout-padding layout-align="start center">
+      <span class="md-body-2">
+        <md-icon md-font-set="material-icons">account_box</md-icon>      
+        Lights
+      </span>
     </div>
     <div flex layout-align="start start">
       <md-radio-group layout ng-model="ctrl.model.lights">
