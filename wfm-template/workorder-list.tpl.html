@@ -8,6 +8,7 @@
 
 <md-list>
   <md-list-item ng-repeat="workorder in list" ng-click="ctrl.selectWorkorder($event, workorder)" class="md-3-line" ng-class="{active: ctrl.selectedWorkorderId === workorder.id}" >
+    <workorder-status flex="15" status="workorder.status"></workorder-status>
     <div class="md-list-item-text">
       <h3>{{workorder.type}} - {{workorder.id}}</h3>
       <h4>{{workorder.title}}</h4>

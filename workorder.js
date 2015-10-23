@@ -9,32 +9,29 @@ var ngModule = angular.module('wfm.workorder', ['wfm.core.mediator', 'ngFeedHenr
 
 require('./lib');
 
-var getStatusIcon = function(workorder) {
-  if (! workorder) {
-    return '';
-  }
+var getStatusIcon = function(status) {
   var statusIcon;
-  switch(workorder.status) {
+  switch(status) {
     case 'In Progress':
-      statusIcon = 'ion-load-d';
+      statusIcon = 'autorenew';
       break;
     case 'Complete':
-      statusIcon = 'ion-ios-checkmark-outline';
+      statusIcon = 'assignment_turned_in';
       break;
     case 'Aborted':
-      statusIcon = 'ion-ios-close-outline';
+      statusIcon = 'assignment_late';
       break;
     case 'On Hold':
-      statusIcon = 'ion-ios-minus-outline';
+      statusIcon = 'pause';
       break;
     case 'Unassigned':
-      statusIcon = 'ion-ios-help-outline';
+      statusIcon = 'assignment_ind';
       break;
     case 'New':
-      statusIcon = 'ion-ios-plus-outline';
+      statusIcon = 'new_releases';
       break;
     default:
-      statusIcon = 'ion-ios-circle-outline';
+      statusIcon = 'radio_button_unchecked';
   }
   return statusIcon;
 }
@@ -221,7 +218,9 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
     }
   , controller: function() {
       var self = this;
-      self.getStatusIcon = getStatusIcon;
+      self.getStatusIcon = function() {
+        return getStatusIcon(ctrl.workorder.status);
+      };
       self.selectWorkorder = function(event, workorder) {
         self.selectedWorkorderId = workorder.id;
         mediator.publish('workorder:selected', workorder);
@@ -287,7 +286,18 @@ ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
   };
 })
 
-
-;
+.directive('workorderStatus', function($templateCache, mediator) {
+  return {
+    restrict: 'E'
+  , template: '<md-icon md-font-set="material-icons">{{statusIcon}}</md-icon>'
+  , scope: {
+      status : '=status'
+    }
+  , controller: function($scope) {
+      $scope.statusIcon = getStatusIcon($scope.status);
+    }
+  , controllerAs: 'ctrl'
+  }
+})
 
 module.exports = 'wfm.workorder';
