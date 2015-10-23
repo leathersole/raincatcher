@@ -1,15 +1,29 @@
-<md-list class="risk-assessment">
-  <md-list-item>
-    <md-subheader class="md-no-sticky"><h3>Risk Assessment</h3></md-subheader>
-  </md-list-item>
-  <md-list-item>
-    Risk Assessment complete
-    <md-icon md-font-set="material-icons" ng-show="riskAssessment.complete">check_circle</md-icon>
-    <md-icon md-font-set="material-icons" ng-show="! riskAssessment.complete">cancel</md-icon>
-  </md-list-item>
+  <md-subheader>Risk Assessment</md-subheader>
+  
+  
+  <md-list class="risk-assessment">
 
-  <md-list-item layout="column">
-    <md-subheader class="md-no-sticky">Signature:</md-subheader>
-    <img src="{{riskAssessment.signature}}"></img>
-  </md-list-item>
+    <md-list-item class="md-2-line" >
+      <md-icon md-font-set="material-icons" ng-show="riskAssessment.complete" class="success">check_circle</md-icon>
+      <md-icon md-font-set="material-icons" ng-show="! riskAssessment.complete" class="danger">cancel</md-icon>
+      <div class="md-list-item-text">
+        <h3 ng-show="riskAssessment.complete">Complete</h3>
+        <h3 ng-show="! riskAssessment.complete">Uncompleted</h3>
+        <p>Risk Assessment</p>
+      </div>
+    <md-divider></md-divider>
+    </md-list-item>
+
+    <md-list-item class="md-2-line" >
+      <md-icon md-font-set="material-icons">gesture</md-icon>
+      <div class="md-list-item-text">
+        <h3><img src="{{riskAssessment.signature}}"></img></h3>
+        <p>Risk Assessment signature</p>
+      </div>
+    <md-divider></md-divider>
+    </md-list-item>
+
 </md-list>
+
+  
+  
