@@ -1,22 +1,15 @@
-<div class="risk-assessment">
-  <ion-item class="item-divider">
-    Risk Assessment
-  </ion-item>
-  <ion-item>
-    <div class="item-icon-left">
-      <i class="icon ion-alert-circled"></i>
-      Risk Assessment complete
-    </div>
-    <div class="item-icon-right">
-      <i class="icon ion-checkmark" ng-show="riskAssessment.complete"></i>
-      <i class="icon ion-close" ng-show="! riskAssessment.complete"></i>
-    </div>
-  </ion-item>
-  <ion-item class="item-icon-left">
-    <i class="icon ion-edit"></i>
-    Signature
-  </ion-item>
-  <ion-item>
+<md-list class="risk-assessment">
+  <md-list-item>
+    <md-subheader class="md-no-sticky"><h3>Risk Assessment</h3></md-subheader>
+  </md-list-item>
+  <md-list-item>
+    Risk Assessment complete
+    <md-icon md-font-set="material-icons" ng-show="riskAssessment.complete">check_circle</md-icon>
+    <md-icon md-font-set="material-icons" ng-show="! riskAssessment.complete">cancel</md-icon>
+  </md-list-item>
+
+  <md-list-item layout="column">
+    <md-subheader class="md-no-sticky">Signature:</md-subheader>
     <img src="{{riskAssessment.signature}}"></img>
-  </ion-item>
-</div>
+  </md-list-item>
+</md-list>
