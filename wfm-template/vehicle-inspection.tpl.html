@@ -1,34 +1,38 @@
-<md-list class="risk-assessment">
-  <md-list-item>
-    <md-subheader class="md-no-sticky"><h3>Vehicle Inspection</h3></md-subheader>
-  </md-list-item>
-  <md-list-item>
-    <div flex="40" style="padding-left: 16px;">
+
+  <md-subheader>Vehicle Inspection</md-subheader>
+
+  <md-list class="risk-assessment">
+
+    <md-list-item class="md-2-line" >
       <md-icon md-font-set="material-icons">local_gas_station</md-icon>
-      Fuel:
-    </div>
-    <div>
-       {{vehicleInspection.fuel}} %
-    </div>
-  </md-list-item>
-  <md-list-item>
-    <div flex="40" style="padding-left: 16px;">
-      <md-icon md-font-set="material-icons">album</md-icon>
-      Tires
-    </div>
-    <div>
-      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.tires" style="color:green">check_circle</md-icon>
-      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.tires" style="color:red">cancel</md-icon>
-    </div>
-  </md-list-item>
-  <md-list-item>
-    <div flex="40" style="padding-left: 16px;">
-      <md-icon md-font-set="material-icons">brightness_low</md-icon>
-      Lights
-    </div>
-    <div>
-      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.lights" style="color:green">check_circle</md-icon>
-      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.lights" style="color:red">cancel</md-icon>
-    </div>
-  </md-list-item>
+      <div class="md-list-item-text">
+        <h3>{{vehicleInspection.fuel}} %</h3>
+        <p>Fuel</p>
+      </div>
+    <md-divider></md-divider>
+    </md-list-item>
+
+    <md-list-item class="md-2-line" >
+      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.tires" class="success">check_circle</md-icon>
+      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.tires" class="danger">cancel</md-icon>
+      <div class="md-list-item-text">
+        <h3 ng-show="vehicleInspection.tires">Pass</h3>
+        <h3 ng-show="! vehicleInspection.tires">Fail</h3>
+        <p>Tires</p>
+      </div>
+    <md-divider></md-divider>
+    </md-list-item>
+
+    <md-list-item class="md-2-line" >
+      <md-icon md-font-set="material-icons" ng-show="vehicleInspection.tires" class="success">check_circle</md-icon>
+      <md-icon md-font-set="material-icons" ng-show="! vehicleInspection.tires" class="danger">cancel</md-icon>
+      <div class="md-list-item-text">
+        <h3 ng-show="vehicleInspection.tires">Pass</h3>
+        <h3 ng-show="! vehicleInspection.tires">Fail</h3>
+        <p>Lights</p>
+      </div>
+    <md-divider></md-divider>
+    </md-list-item>
+
 </md-list>
+
