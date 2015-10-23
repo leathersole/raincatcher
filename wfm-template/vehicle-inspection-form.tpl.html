@@ -1,3 +1,49 @@
+
+
+  <div layout>
+    <div flex="30" layout layout-align="start center" style="padding-left: 16px;">
+      <span class="md-body-2">Fuel</span>
+    </div>
+    <md-slider flex md-discrete ng-model="rating1" step="1" min="1" max="5" aria-label="rating">
+    </md-slider>
+  </div>
+
+    <md-divider></md-divider>
+
+  <div layout>
+    <div flex="20" layout  layout-margin layout-padding layout-align="start center">
+      <span class="md-body-2">Tires</span>
+    </div>
+    <div flex layout-align="start start">  
+      <md-radio-group layout>
+        <md-radio-button value="Fail" >Fail</md-radio-button>
+        <md-radio-button value="Pass"> Pass </md-radio-button>
+      </md-radio-group>
+    </div>
+  </div>
+
+    <md-divider></md-divider>
+
+  <div layout>
+    <div flex="20" layout  layout-margin layout-padding layout-align="start center">
+      <span class="md-body-2">Lights</span>
+    </div>
+    <div flex layout-align="start start">  
+      <md-radio-group layout>
+        <md-radio-button value="Fail" >Fail</md-radio-button>
+        <md-radio-button value="Pass"> Pass </md-radio-button>
+      </md-radio-group>
+    </div>
+  </div>
+  
+  
+    <div class="workflow-actions md-padding md-whiteframe-z4">
+      <md-button class="md-primary md-hue-1">Back</md-button>
+      <md-button class="md-primary" ng-click="ctrl.done($event)">Continue</md-button>
+    </div><!-- workflow-actions-->
+
+<!--
+
 <md-grid-list class="vehicle-inspection-form" md-cols="3" md-row-height="1.5rem">
   <md-grid-tile md-rowspan="2">
     <div>
@@ -47,3 +93,5 @@
     <md-button ng-click="ctrl.done($event)" class="md-raised md-primary">Submit</md-button>
   </md-grid-tile>
 </md-grid-list>
+
+-->
