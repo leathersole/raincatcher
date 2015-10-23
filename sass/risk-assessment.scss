@@ -1,3 +1,11 @@
 risk-assessment-signature canvas{
   border: 1px solid $divider-text-color;
 }
+
+.with-image{
+  img{
+    margin-top: 16px;
+    width: 100%;
+    display: inline-block;
+    }
+}
