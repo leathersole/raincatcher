@@ -58,7 +58,7 @@ var CanvasDrawrMouse = function (element, options) {
   }
 };
 
-var CanvasDrawr = function(element, options, $document, $ionicScrollDelegate) {
+var CanvasDrawr = function(element, options, $document) {
   var canvas = element[0].getElementsByTagName('canvas')[0];
   var ctx = canvas.getContext('2d');
   canvas.style.width = '100%'
@@ -88,17 +88,9 @@ var CanvasDrawr = function(element, options, $document, $ionicScrollDelegate) {
       //set pX and pY from first click
       canvasNg.on('touchstart', self.preDraw);
       canvasNg.on('touchmove', self.draw);
-      canvasNg.on('touchend', function(event) {
-        if ($ionicScrollDelegate) {
-          $ionicScrollDelegate.freezeAllScrolls(false);
-        }
-      });
     },
 
     preDraw: function(event) {
-      if ($ionicScrollDelegate) {
-        $ionicScrollDelegate.freezeAllScrolls(true);
-      }
       rect = canvas.getBoundingClientRect();
       offset = {
         top: rect.top + $document[0].body.scrollTop,

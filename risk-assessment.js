@@ -20,20 +20,6 @@ ngModule.directive('riskAssessment', function($templateCache, mediator) {
   };
 })
 
-ngModule.directive('riskAssessmentPortalView', function($templateCache, mediator) {
-  return {
-    restrict: 'E'
-  , template: $templateCache.get('wfm-template/risk-assessment-portal-view.tpl.html')
-  , scope: {
-      riskAssessment: "=value"
-    }
-  , controller: function($element, $scope) {
-      var self = this;
-    }
-  , controllerAs: 'ctrl'
-  };
-})
-
 ngModule.directive('riskAssessmentForm', function($templateCache, mediator) {
   return {
     restrict: 'E'
@@ -67,14 +53,13 @@ ngModule.directive('riskAssessmentSignature', function($templateCache, $document
 
   return {
     restrict: 'E'
-  , template: '<div class="appform-portal-signature-field" style="display: flex; flex-grow: 1;"><canvas></canvas></div>'
+  , template: '<div class="appform-signature-field" style="display: flex; flex-grow: 1;"><canvas></canvas></div>'
   , scope: {
       options: '='
     }
   , link: function (scope, element, attrs) {
       var options = scope.options || {};
-      var $ionicScrollDelegate = $injector.has('ionicScrollDelegate') ? $injector.get('ionicScrollDelegate') : null;
-      var drawr = new canvasDrawr.CanvasDrawr(element, options, $document, $ionicScrollDelegate);
+      var drawr = new canvasDrawr.CanvasDrawr(element, options, $document);
     }
   };
 })
