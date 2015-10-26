@@ -3,6 +3,7 @@
 // var angular = require('angular');
 var _ = require('lodash');
 var config = require('./config');
+var sync = require('./lib/sync-client');
 require('ng-feedhenry');
 
 var ngModule = angular.module('wfm.workorder', ['wfm.core.mediator', 'ngFeedHenry']);
@@ -36,166 +37,57 @@ var getStatusIcon = function(status) {
   return statusIcon;
 }
 
-function transformDataSet(syncData) {
-  var workorders = [];
-  for (var key in syncData) {
-    //putting the array of workorders in the original format again
-    var tempObj = {};
-    tempObj = syncData[key].data;
-    tempObj.finishTimestamp = new Date(tempObj.finishTimestamp);
-    workorders.push(tempObj);
-  }
-  return workorders;
-}
+sync.init();
+
 ngModule.factory('workorderManager', function($q, FHCloud, mediator) {
   var workorderManager = {};
-  var workorders;
 
-  var removeLocalVars = function(workorder) {
-    _.keys(workorder).filter(function(key) {
-      return key.indexOf('_') === 0;
-    }).forEach(function(localKey) {
-      delete workorder[localKey];
-    });
-    if (workorder.steps) {
-      _.values(workorder.steps).forEach(function(step) {
-        _.keys(step.submission).filter(function(key) {
-          return key.indexOf('_') === 0;
-        }).forEach(function(localKey) {
-          delete step.submission[localKey];
-        });
-      });
-    };
+  workorderManager.read = function(id) {
+    return $q.when(sync.read(id));
   };
 
-  //init the sync
-  $fh.sync.init(config.syncOptions);
-
-  //manage the dataSet
-  $fh.sync.manage(config.datasetId, {}, {}, {}, function() {
-    console.log(config.datasetId + " managed by the sync service ");
-    $fh.sync.doList(config.datasetId,
-    function(res) {
-      var workorders = transformDataSet(res);
-    },
-    function(err) {
-      console.log('Error result from list:', JSON.stringify(err));
-    });
-  });
-
-  //provide listeners for sync notifications
-  $fh.sync.notify(function(notification) {
-    var code = notification.code
-
-    if (code == "record_delta_received" && notification.message == "create") {
-      asyncGetWorkorder(notification.uid).then( function(result) {mediator.publish('workorder:created', result);});
-    }
-    if (code == "record_delta_received" && notification.message == "update") {
-      asyncGetWorkorder(notification.uid).then( function(result) {mediator.publish('workorder:saved', result);});
-    }
-
-  });
-
-  var asyncListWorkorders = function() {
-    var d = $q.defer();
-    $fh.sync.doList(config.datasetId,
-    function(res) {
-      var workorders = transformDataSet(res);
-      d.resolve(workorders);
-    },
-    function(err) {
-      d.reject(err);
-    });
-    return d.promise;
+  workorderManager.list = function() {
+    return $q.when(sync.list());
   };
 
-  var asyncCreateWorkorder = function(workorder) {
-    var d = $q.defer();
-    removeLocalVars(workorder);
-    $fh.sync.doCreate(config.datasetId, workorder,
-    function(res) {
-      d.resolve(res);
-    },
-    function(err) {
-      d.reject(err);
-    });
-    return d.promise;
-  };
-
-  var asyncSaveWorkorder = function(workorder) {
-    var d = $q.defer();
-    removeLocalVars(workorder);
-    $fh.sync.doUpdate(config.datasetId, workorder.id, workorder,
-    function(res) {
-      d.resolve(res);
-    },
-    function(err) {
-      d.reject(err);
-    });
-    return d.promise;
-  };
-
-  var asyncGetWorkorder = function(id) {
-    var d = $q.defer();
-    $fh.sync.doRead(config.datasetId, id,
-    function(res) {
-      if (res.data.finishTimestamp) {
-        res.data.finishTimestamp = new Date(res.data.finishTimestamp);
-      }
-      d.resolve(res.data);
-    },
-    function(err) {
-      d.reject(err);
-    });
-    return d.promise;
-  };
-
-  var fetch = function() {
-    return asyncListWorkorders();
-  };
-
-
-  workorderManager.get = function(id) {
-    return asyncGetWorkorder(id);
-  };
-
-  workorderManager.getList = function() {
-    return fetch();
-  };
-
-  workorderManager.get = function(id) {
-    return asyncGetWorkorder(id);
-  };
-
-  workorderManager.save = function(workorder) {
-    return asyncSaveWorkorder(workorder);
+  workorderManager.update = function(workorder) {
+    return $q.when(sync.update(workorder));
   };
 
   workorderManager.create = function(workorder) {
-    return asyncCreateWorkorder(workorder);
+    return $q.when(sync.create(workorder));
   };
 
   return workorderManager;
 })
+
 .run(function($timeout, mediator, workorderManager) {
   mediator.subscribe('workorder:load', function(data) {
-    workorderManager.get(data).then(function(workorder) {
+    workorderManager.read(data).then(function(workorder) {
       mediator.publish('workorder:loaded', workorder);
+    }, function(error) {
+      console.error(error);
     })
   });
   mediator.subscribe('workorders:load', function() {
-    workorderManager.getList().then(function(workorders) {
+    workorderManager.list().then(function(workorders) {
       mediator.publish('workorders:loaded', workorders);
+    }, function(error) {
+      console.error(error);
     })
   });
   mediator.subscribe('workorder:save', function(data) {
-    workorderManager.save(data).then(function(syncResult) {
+    workorderManager.update(data).then(function(syncResult) {
       mediator.publish('workorder:saved:' + syncResult.uid, syncResult); // TODO: unwrap the sync result, extracting the workorder
+    }, function(error) {
+      console.error(error);
     })
   });
   mediator.subscribe('workorder:create', function(data) {
     workorderManager.create(data).then(function(workorder) {
       mediator.publish('workorder:created', workorder);
+    }, function(error) {
+      console.error(error);
     })
   });
   mediator.subscribe('workorder:new', function(data) {

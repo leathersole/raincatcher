@@ -19,7 +19,8 @@
     "express": "^4.13.3",
     "fh-wfm-template-build": "0.0.3",
     "lodash": "^3.10.1",
-    "ng-feedhenry": "^0.2.53"
+    "ng-feedhenry": "^0.2.53",
+    "q": "^1.4.1"
   },
   "devDependencies": {
     "body-parser": "^1.13.3",
