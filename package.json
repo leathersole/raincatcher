@@ -4,8 +4,8 @@
   "description": "An workorder module for WFM",
   "main": "workorder.js",
   "scripts": {
-    "build": "wfm-template-build -m 'wfm.workorder'",
-    "watch": "wfm-template-build -w -m 'wfm.workorder'",
+    "build": "wfm-template-build -m 'wfm.workorder.directives'",
+    "watch": "wfm-template-build -w -m 'wfm.workorder.directives'",
     "test": "mocha test/router.spec.js"
   },
   "keywords": [

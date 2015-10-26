@@ -1,8 +1,8 @@
 var ngModule;
 try {
-  ngModule = angular.module('wfm.workorder');
+  ngModule = angular.module('wfm.workorder.directives');
 } catch (e) {
-  ngModule = angular.module('wfm.workorder', []);
+  ngModule = angular.module('wfm.workorder.directives', []);
 }
 
 ngModule.run(['$templateCache', function ($templateCache) {

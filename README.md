@@ -2,12 +2,14 @@
 
 A workorder module for FeedHenry WFM.
 
+## Client-side usage
+
 ## Dependencies
 This module depends on the [fh-wfm-mediator](https://www.npmjs.com/package/fh-wfm-mediator) WFM module.
 
-## Browserify usage in an angular.js client
+### Using the Mediator-based API in an angular.js client (via broswerify)
 
-### Setup
+#### Setup
 This module is packaged in a CommonJS format, exporting the name of the Angular namespace.  The module can be included in an angular.js as follows:
 
 ```javascript
@@ -18,7 +20,7 @@ angular.module('app', [
 ])
 ```
 
-### Client side events
+#### Client side events
 The module listens for, and responds with the following mediator events:
 
 | Listens for | Responds with |
@@ -32,9 +34,9 @@ The module listens for, and responds with the following mediator events:
 |  | `workorder:selected` |
 |  | `workorder:edited` |
 
-### Integration
+#### Integration
 
-#### Angular controller
+##### Angular controller
 Events can be broadcast and listened for in angular controllers using the fh-wfm-mediator API.
 
 Example:
@@ -55,7 +57,7 @@ Example:
 })
 ```
 
-#### Ui-router integration
+##### Ui-router integration
 This module provides nice integration with the [ui-router](https://github.com/angular-ui/ui-router) project.
 
 Listen to events to trigger navigation:
@@ -84,6 +86,31 @@ Use the ui-router `resolve` API to pre-load data before rendering a page:
       }
     })
 ```
+### Using the Angular service directly (via broswerify)
+
+An Angular service API is also provided to directly expose the methods backing the Mediator event.
+
+To use the angular service, declare a dependency, and inject the service as follows:
+
+```javascript
+angular.module('app', [
+, require('fh-wfm-workorder/lib/angular/ng-modules/sync-service'), ... ])
+
+.controller('WorkorderCtrl', function(workorderSync) {
+  ...
+}
+
+```
+
+#### `workorderSync` API
+The workorderSync API methods all return Promises.
+
+| workorderSync method | Description |
+| -------------------- | ----------- |
+| `workorderSync.list` | list all workorders |
+| `workorderSync.create(workorder)` | create a workorder |
+| `workorderSync.read(workorderId)` | read a workorder |
+| `workorderSync.update(workorder)` | update a workorder |
 
 ## Usage in an express backend
 
@@ -93,14 +120,16 @@ The server-side component of this WFM module exports a function that takes expre
 ```javascript
 var express = require('express')
   , app = express()
+  , mbaasExpress = mbaasApi.mbaasExpress()
   , mediator = require('fh-wfm-mediator/mediator')
   ;
 
 // configure the express app
 ...
 
+// setup the wfm workorder sync server
+require('fh-wfm-workorder/server')(mediator, app, mbaasExpress);
 // setup the wfm routes
-require('fh-wfm-workorder/router')(mediator, app);
 require('fh-wfm-workflow/router')(mediator, app);
 ```
 
@@ -169,3 +198,41 @@ module.exports = function(mediator) {
   });
 }
 ```
+
+## Using a REST API instead of $fh.sync
+
+By default the above usage instructions uses the FeedHenry sync functionality to co-ordinate the clients with the cloud.  Alternatively, one can use a REST API for cloud and client co-oridnation.  This is achieved by changing only which files are included:
+
+On the client, when using the Mediator API:
+
+```javascript
+angular.module('app', [
+, require('fh-wfm-mediator')
+, require('fh-wfm-workorder/lib/angular/workorder-rest')
+...
+])
+```
+
+or when using the Angular service directly:
+
+```javascript
+angular.module('app', [
+, require('fh-wfm-workorder/lib/angular/ng-modules/rest-service')
+...
+])
+```
+
+On the server, once must also activate the workorder router:
+
+```javascript
+var express = require('express')
+  , app = express()
+  , mediator = require('fh-wfm-mediator/mediator')
+  ;
+
+...
+
+require('fh-wfm-workorder/lib/router')(mediator, app);
+````
+
+Neither the clinet, nor the server-side APIs differ with this change.
