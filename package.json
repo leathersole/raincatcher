@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-template-build",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A build tool for WFM modules",
   "bin": {
     "wfm-template-build": "./cli.js"
