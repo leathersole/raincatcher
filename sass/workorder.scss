@@ -1,0 +1,25 @@
+// todo: central place for variables
+
+$success: #388E3C; //green700
+$danger: #F44336; //red 500
+$warning: #FFC107; // amber 500
+
+.workorder-item{
+  .md-list-item-inner{
+    align-items: stretch!important; 
+  }
+}
+
+workorder-status{
+  width: 30px;
+  md-icon{
+    vertical-align: top;
+    .success{ color:   $success  }
+    .danger{  color:   $danger   }
+    .warning{ color:   $warning  }
+  }
+}
+
+.md-list-item-text{
+  margin-left: 26px!important;
+}
