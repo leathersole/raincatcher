@@ -9,7 +9,7 @@ function buildTemplates(moduleName) {
     throw new Error('buildTemplates must be invoked with a moduleName parameter');
   }
   fs.readdir('wfm-template', function(err, files) {
-    fs.mkdir('lib', '0775', function(err) {
+    fs.mkdir('dist', '0775', function(err) {
       if (err && err.code != 'EEXIST') {
         console.log(err);
         throw new Error(err);
@@ -19,7 +19,7 @@ function buildTemplates(moduleName) {
         buildTemplate(moduleName, file);
         indexFileContents += 'require(\'./' + file + '.js\');\n';
       });
-      fs.writeFile('lib/index.js', indexFileContents, 'utf8', function(err) {
+      fs.writeFile('dist/index.js', indexFileContents, 'utf8', function(err) {
         if (err) {
           console.log(err);
         }
