@@ -32,7 +32,7 @@ function buildTemplates(moduleName) {
 function buildTemplate(moduleName, file) {
   var template = 'wfm-template/' + file;
   var inputFile =  './' + template;
-  var outputFile = 'lib/' + file + '.js';
+  var outputFile = 'dist/' + file + '.js';
   var moduleVar = 'ngModule';
 
   console.log('Processing template:', inputFile);
