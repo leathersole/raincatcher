@@ -7,7 +7,7 @@ require('ng-feedhenry');
 
 var ngModule = angular.module('wfm.workorder', ['wfm.core.mediator', 'ngFeedHenry']);
 
-require('./lib');
+require('./dist');
 
 var getStatusIcon = function(status) {
   var statusIcon;
