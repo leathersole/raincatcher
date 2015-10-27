@@ -8,18 +8,19 @@ $warning: #FFC107; // amber 500
   .md-list-item-inner{
     align-items: stretch!important; 
   }
-}
-
-workorder-status{
-  width: 30px;
-
-    &.success md-icon{ color:   $success  }
-    &.danger md-icon{  color:   $danger   }
-    &.warning md-icon{ color:   $warning  }
-
-  md-icon{
-    vertical-align: top;
+  
+  workorder-status{
+    width: 30px;
+  
+      &.success md-icon{ color:   $success  }
+      &.danger md-icon{  color:   $danger   }
+      &.warning md-icon{ color:   $warning  }
+  
+    md-icon{
+      vertical-align: top;
+    }
   }
+
 }
 
 .md-list-item-text{
