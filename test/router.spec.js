@@ -26,7 +26,7 @@ describe('Rest API:', function () {
 
   it('retrieve all workorders', function(done) {
     mediator.once('workorders:load', function() {
-      mediator.publish('workorders:loaded', testData);
+      mediator.publish('done:workorders:load', testData);
     });
     var url = 'http://localhost:9001' + config.apiPath;
     var req = request.get(url, function (err, res, body) {
@@ -48,7 +48,7 @@ describe('Rest API:', function () {
 
   it('retrieve a workorder', function(done) {
     mediator.once('workorder:load', function(id) {
-      mediator.publish('workorder:loaded:' + id, testData[id]);
+      mediator.publish('done:workorder:load:' + id, testData[id]);
     });
 
     var url = 'http://localhost:9001' + config.apiPath + '/0';
@@ -72,7 +72,7 @@ describe('Rest API:', function () {
   it('save a workorder', function(done) {
     mediator.once('workorder:save', function(workorder) {
       testData[workorder.index] = workorder;
-      mediator.publish('workorder:saved:' + workorder.id, workorder);
+      mediator.publish('done:workorder:save:' + workorder.id, workorder);
     });
     var url = 'http://localhost:9001' + config.apiPath + '/1';
     var newData = _.clone(testData[1]);
@@ -96,7 +96,7 @@ describe('Rest API:', function () {
     before(function() {
       load = function(id) {
         setTimeout(function() {
-          mediator.publish('workorder:loaded:' + id, testData[id]);
+          mediator.publish('done:workorder:load:' + id, testData[id]);
         }, 20);
       };
       mediator.subscribe('workorder:load', load);

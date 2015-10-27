@@ -25,10 +25,10 @@ The module listens for, and responds with the following mediator events:
 
 | Listens for | Responds with |
 | ----------- | ------------- |
-| `workorder:load` | `workorder:loaded` |
-| `workorders:load` | `workorders:loaded` |
-| `workorder:save` | `workorder:saved` |
-| `workorder:save` | `workorder:saved` |
+| `workorder:load` | `done:workorder:load` |
+| `workorders:load` | `done:workorders:load` |
+| `workorder:save` | `done:workorder:save` |
+| `workorder:save` | `done:workorder:save` |
 | `workorder:create` | `workorder:created` |
 | `workorder:new` | `workorder:new:done` |
 |  | `workorder:selected` |
@@ -48,7 +48,7 @@ Example:
 
   mediator.subscribe('workorder:edited', function(workorder) {
     mediator.publish('workorder:save', workorder);
-    mediator.once('workorder:saved', function(workorder) {
+    mediator.once('done:workorder:save', function(workorder) {
       $state.go('app.workorder', {
         workorderId: workorder.id
       });
@@ -81,7 +81,7 @@ Use the ui-router `resolve` API to pre-load data before rendering a page:
       resolve: {
         workorder: function(mediator, $stateParams) {
           mediator.publish('workorder:load', $stateParams.workorderId);
-          return mediator.promise('workorder:loaded');
+          return mediator.promise('done:workorder:load');
         }
       }
     })
@@ -138,9 +138,9 @@ the module broadcasts, and listens for the following events
 
 | Listens for | Responds with |
 | ----------- | ------------- |
-| `workorders:load` | `workorders:loaded` |
-| `workorder:load` | `workorder:loaded` |
-| `workorder:save` | `workorder:saved` |
+| `workorders:load` | `done:workorders:load` |
+| `workorder:load` | `done:workorder:load` |
+| `workorder:save` | `done:workorder:save` |
 | `workorder:create` | `workorder:created` |
 
 ### Integrating
@@ -164,7 +164,7 @@ module.exports = function(mediator) {
   console.log('Subscribing to mediator topic: workorders:load');
   mediator.subscribe('workorders:load', function() {
     setTimeout(function() {
-      mediator.publish('workorders:loaded', workorders);
+      mediator.publish('done:workorders:load', workorders);
     }, 0);
   });
 
@@ -173,7 +173,7 @@ module.exports = function(mediator) {
       var workorder = _.find(workorders, function(_workorder) {
         return _workorder.id == id;
       });
-      mediator.publish('workorder:loaded:' + id, workorder);
+      mediator.publish('done:workorder:load:' + id, workorder);
     }, 0);
   });
 
@@ -184,7 +184,7 @@ module.exports = function(mediator) {
       });
       workorders[index] = workorder;
       console.log('Saved workorder:', workorder);
-      mediator.publish('workorder:saved:' + workorder.id, workorder);
+      mediator.publish('done:workorder:save:' + workorder.id, workorder);
     }, 0);
   });
 
