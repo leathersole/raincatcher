@@ -49,7 +49,7 @@ mediator.request = function(topic, parameter, options) {
     deferred.reject(error);
   });
 
-  mediator.publish(topics.request);
+  mediator.publish(topics.request, parameter);
 
   timeout = setTimeout(function() {
     if (!complete) {
