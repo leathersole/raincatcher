@@ -30,7 +30,7 @@ The module listens for, and responds with the following mediator events:
 | `workorder:save` | `done:workorder:save` |
 | `workorder:save` | `done:workorder:save` |
 | `workorder:create` | `done:workorder:create` |
-| `workorder:new` | `workorder:new:done` |
+| `workorder:new` | `done:workorder:new` |
 |  | `workorder:selected` |
 |  | `workorder:edited` |
 
