@@ -6,15 +6,15 @@ var request = require('request')
   , bodyParser = require('body-parser')
   , http = require('http')
   , should = require('should')
-  , mediator = require('wfm-mediator/mediator')
-  , config = require('../config')
+  , mediator = require('fh-wfm-mediator/mediator')
+  , config = require('../lib/config')
   , _ = require('lodash')
   ;
 
 app.use(bodyParser.json());
 
 // wfm routes
-require('../router')(mediator, app);
+require('../lib/router')(mediator, app);
 
 var testData = [ {id: 0, value: 'one'}, {id: 1, value: 'two'}, {id: 2, value: 'three'} ];
 
