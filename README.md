@@ -29,7 +29,7 @@ The module listens for, and responds with the following mediator events:
 | `workorders:load` | `done:workorders:load` |
 | `workorder:save` | `done:workorder:save` |
 | `workorder:save` | `done:workorder:save` |
-| `workorder:create` | `workorder:created` |
+| `workorder:create` | `done:workorder:create` |
 | `workorder:new` | `workorder:new:done` |
 |  | `workorder:selected` |
 |  | `workorder:edited` |
@@ -141,7 +141,7 @@ the module broadcasts, and listens for the following events
 | `workorders:load` | `done:workorders:load` |
 | `workorder:load` | `done:workorder:load` |
 | `workorder:save` | `done:workorder:save` |
-| `workorder:create` | `workorder:created` |
+| `workorder:create` | `done:workorder:create` |
 
 ### Integrating
 The application will listen for the above events, and respond with the appropriate data attached to the corresponding response event.
@@ -193,7 +193,7 @@ module.exports = function(mediator) {
       workorder.id = workorders.length;
       workorders.push(workorder);
       console.log('Created workorder:', workorder);
-      mediator.publish('workorder:created:' + workorder.createdTs, workorder);
+      mediator.publish('done:workorder:create:' + workorder.createdTs, workorder);
     }, 0);
   });
 }
