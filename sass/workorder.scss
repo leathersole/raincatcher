@@ -12,11 +12,13 @@ $warning: #FFC107; // amber 500
 
 workorder-status{
   width: 30px;
+
+    &.success md-icon{ color:   $success  }
+    &.danger md-icon{  color:   $danger   }
+    &.warning md-icon{ color:   $warning  }
+
   md-icon{
     vertical-align: top;
-    .success{ color:   $success  }
-    .danger{  color:   $danger   }
-    .warning{ color:   $warning  }
   }
 }
 

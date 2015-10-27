@@ -9,7 +9,13 @@
 <md-list>
   <md-list-item ng-repeat="workorder in list" ng-click="ctrl.selectWorkorder($event, workorder)" class="md-3-line workorder-item" ng-class="{active: ctrl.selectedWorkorderId === workorder.id}" >
   
-  
+<!-- 
+  TODO: change class name according to the color: 
+    "success" = green 
+    danger = "red" 
+    warning = "yellow"
+    no class = grey
+  -->
   <workorder-status class="success" status="workorder.status"></workorder-status>
 
     <div class="md-list-item-text">

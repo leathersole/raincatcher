@@ -18,7 +18,13 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '<md-list>\n' +
     '  <md-list-item ng-repeat="workorder in list" ng-click="ctrl.selectWorkorder($event, workorder)" class="md-3-line workorder-item" ng-class="{active: ctrl.selectedWorkorderId === workorder.id}" >\n' +
     '  \n' +
-    '  \n' +
+    '<!-- \n' +
+    '  TODO: change class name according to the color: \n' +
+    '    "success" = green \n' +
+    '    danger = "red" \n' +
+    '    warning = "yellow"\n' +
+    '    no class = grey\n' +
+    '  -->\n' +
     '  <workorder-status class="success" status="workorder.status"></workorder-status>\n' +
     '\n' +
     '    <div class="md-list-item-text">\n' +
