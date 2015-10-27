@@ -27,6 +27,6 @@
     "mocha": "^2.2.5",
     "request": "^2.61.0",
     "should": "^7.0.4",
-    "fh-wfm-mediator": ">=0.0.6",
+    "fh-wfm-mediator": ">=0.0.6"
   }
 }
