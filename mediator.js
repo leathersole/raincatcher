@@ -23,9 +23,11 @@ mediator.request = function(topic, parameter, options) {
   topics.done = options.doneTopic || 'done:' + topic;
   topics.error = options.errorTopic || 'error:' + topic;
 
-  if (parameter) {
-     topics.done += ':' + parameter;
-     topics.error += ':' + parameter;
+  options.uid = options.uid || parameter;
+
+  if (options.uid) {
+     topics.done += ':' + options.uid;
+     topics.error += ':' + options.uid;
   }
 
   if (!options.timeout) {
