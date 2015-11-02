@@ -6,11 +6,15 @@ var q = require('q');
 
 var mediator = new Mediator();
 
-mediator.promise = function(topic) {
+mediator.promise = function() {
   var deferred = q.defer();
-  mediator.once(topic, function(data) {
+  var cb = function(data) {
     deferred.resolve(data);
-  });
+  };
+  var args = [];
+  Array.prototype.push.apply(args, arguments);
+  args.splice(1, 0, cb);
+  mediator.once.apply(mediator, args);
   return deferred.promise;
 }
 
