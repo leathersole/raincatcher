@@ -25,7 +25,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    warning = "yellow"\n' +
     '    no class = grey\n' +
     '  -->\n' +
-    '  <workorder-status class="success" status="workorder.status"></workorder-status>\n' +
+    '  <workorder-status class="" status="workorder.status"></workorder-status>\n' +
     '\n' +
     '    <div class="md-list-item-text">\n' +
     '      <h3>{{workorder.type}} - {{workorder.id}}</h3>\n' +
