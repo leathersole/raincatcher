@@ -18,7 +18,7 @@ mediator.promise = function() {
   return deferred.promise;
 }
 
-mediator.request = function(topic, parameter, options) {
+mediator.request = function(topic, parameters, options) {
   var topics = {}, subs = {}, complete = false, timeout;
   var deferred = q.defer();
   options = options || {};
@@ -27,11 +27,16 @@ mediator.request = function(topic, parameter, options) {
   topics.done = options.doneTopic || 'done:' + topic;
   topics.error = options.errorTopic || 'error:' + topic;
 
-  options.uid = options.uid || parameter;
-
+  var uid;
   if (options.uid) {
-     topics.done += ':' + options.uid;
-     topics.error += ':' + options.uid;
+    uid = options.uid;
+  } else if (parameters) {
+    uid = parameters instanceof Array ? parameters[0] : parameters;
+  }
+
+  if (uid) {
+     topics.done += ':' + uid;
+     topics.error += ':' + uid;
   }
 
   if (!options.timeout) {
@@ -55,7 +60,13 @@ mediator.request = function(topic, parameter, options) {
     deferred.reject(error);
   });
 
-  mediator.publish(topics.request, parameter);
+  var args = [topics.request];
+  if (parameters instanceof Array) {
+    Array.prototype.push.apply(args, parameters);
+  } else {
+    args.push(parameters);
+  }
+  mediator.publish.apply(mediator, args);
 
   timeout = setTimeout(function() {
     if (!complete) {
