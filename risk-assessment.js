@@ -2,7 +2,7 @@
 
 var ngModule = angular.module('wfm.risk-assessment', ['wfm.core.mediator', require('fh-wfm-component-signature')])
 
-require('./lib');
+require('./dist');
 
 ngModule.directive('riskAssessment', function($templateCache, mediator) {
   return {
