@@ -13,7 +13,7 @@ ngModule.directive('signatureForm', function($templateCache, $document, $timeout
     restrict: 'E'
   , template: $templateCache.get('wfm-template/signature-form.tpl.html')
   , scope: {
-      model: '=value',
+      value: '=',
       options: '='
     }
   , link: function (scope, element, attrs, ctrl) {
@@ -33,8 +33,7 @@ ngModule.directive('signatureForm', function($templateCache, $document, $timeout
       var self = this;
       self.submit = function(element) {
         var canvas = element[0].getElementsByTagName('canvas')[0];
-        // $scope.model = $scope.model || {};
-        $scope.model.signature = canvas.toDataURL();
+        $scope.value = canvas.toDataURL();
       }
     }
   , controllerAs: 'ctrl'
