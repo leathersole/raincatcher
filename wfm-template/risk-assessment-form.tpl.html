@@ -1,46 +1,24 @@
-<!--
-  <ion-item class="risk-assessment">
- -->
-  
   <div layout="column" ng-show="riskAssessmentStep === 0" layout-margin layout-padding class="risk-assesssment">
-<!-- 
-  <i class="icon ion-alert-circled"></i>
-      <md-icon md-font-set="material-icons">place</md-icon>
-  -->
       <h2 class="md-title">Risk assessment complete?</h2>
-      <p class="md-body-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> 
-        
+      <p class="md-body-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
       <p class="md-body-1">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-     
-     <!--   
-      <md-button class="md-raised md-primary" ng-click="ctrl.answerComplete($event, true)">Yes</md-button>
-      <md-button class="md-raised md-warn" ng-click="ctrl.answerComplete($event, false)">No</md-button>
-    -->
-    
+
     <div class="workflow-actions md-padding md-whiteframe-z4">
       <md-button class="md-primary md-warn" ng-click="ctrl.answerComplete($event, true)">No</md-button>
       <md-button class="md-primary" ng-click="ctrl.answerComplete($event, true)">Yes</md-button>
     </div><!-- workflow-actions-->
-    
-    
+
   </div>
-  
+
   <div layout="column" ng-if="riskAssessmentStep == 1" layout-margin layout-padding>
-   
+
     <h3 class="md-title">Signature</h3>
     <p class="md-caption">Draw your signature inside the square</p>
-    <risk-assessment-signature></risk-assessment-signature>
+    <signature-form value="ctrl.model.signature"></signature-form>
 
     <div class="workflow-actions md-padding md-whiteframe-z4">
       <md-button class="md-primary md-hue-1">Back</md-button>
       <md-button class="md-primary" ng-click="ctrl.done($event)">Continue</md-button>
     </div><!-- workflow-actions-->
   </div>
-
-  
-  
-  
-  
-<!--
-</ion-item>
--->

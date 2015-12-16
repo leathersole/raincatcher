@@ -25,7 +25,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    <md-list-item class="md-2-line with-image">\n' +
     '      <md-icon md-font-set="material-icons">gesture</md-icon>\n' +
     '      <div class="md-list-item-text">\n' +
-    '        <h3><img src="{{riskAssessment.signature}}"></img></h3>\n' +
+    '        <h3><signature value="riskAssessment.signature"></signature></h3>\n' +
     '        <p>Risk Assessment signature</p>\n' +
     '      </div>\n' +
     '    </md-list-item>\n' +
