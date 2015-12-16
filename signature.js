@@ -1,6 +1,6 @@
 'use strict';
 
-var canvasDrawr = require('./canvas-drawr');
+var canvasDrawr = require('./lib/canvas-drawr');
 
 module.exports = 'wfm.component.signature';
 
@@ -8,38 +8,51 @@ var ngModule = angular.module('wfm.component.signature', ['wfm.core.mediator'])
 
 require('./dist');
 
-ngModule.directive('signatureForm', function($templateCache, mediator) {
+ngModule.directive('signatureForm', function($templateCache, $document, $timeout, mediator) {
   return {
     restrict: 'E'
   , template: $templateCache.get('wfm-template/signature-form.tpl.html')
   , scope: {
+      model: '=value',
+      options: '='
     }
-  , controller: function($element, $scope) {
+  , link: function (scope, element, attrs, ctrl) {
+      var options = scope.options || {};
+      var drawr = new canvasDrawr.CanvasDrawr(element, options, $document);
+
+      var $canvas = angular.element(element[0].getElementsByTagName('canvas')[0]);
+      $timeout(function() {
+        $canvas.on('blur', function() {
+          scope.$apply(function() {
+            ctrl.submit(element);
+          })
+        });
+      })
+    }
+  , controller: function($scope) {
       var self = this;
-      self.done = function(event) {
-        var canvas = $element[0].getElementsByTagName('canvas')[0];
-        self.model.signature = canvas.toDataURL();
-        mediator.publish('workflow:step:done', self.model);
-        event.preventDefault();
-        event.stopPropagation();
-      };
+      self.submit = function(element) {
+        var canvas = element[0].getElementsByTagName('canvas')[0];
+        // $scope.model = $scope.model || {};
+        $scope.model.signature = canvas.toDataURL();
+      }
     }
   , controllerAs: 'ctrl'
   };
 })
 
-ngModule.directive('signature', function($templateCache, $document, $injector, mediator) {
-
+ngModule.directive('signature', function($templateCache) {
   return {
     restrict: 'E'
-  , template:
+  , template: $templateCache.get('wfm-template/signature.tpl.html')
   , scope: {
-      options: '='
+      value: '='
     }
-  , link: function (scope, element, attrs) {
-      var options = scope.options || {};
-      var drawr = new canvasDrawr.CanvasDrawr(element, options, $document);
+  , controller: function($scope) {
+      var self = this;
+      self.signature = $scope.value;
     }
+  , controllerAs: 'ctrl'
   };
 })
 ;

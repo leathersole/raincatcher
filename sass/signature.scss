@@ -6,6 +6,10 @@
   border: 1px solid $divider-text-color;
 }
 
+.signature-form canvas:focus {
+  outline: 0;
+}
+
 .signature .with-image {
   height: auto;
   p {

@@ -8,7 +8,7 @@ try {
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/signature-form.tpl.html',
     '<div class="signature-form">\n' +
-    '  <canvas></canvas>\n' +
+    '  <canvas tabindex="0"></canvas>\n' +
     '</div>\n' +
     '');
 }]);
