@@ -208,7 +208,7 @@ On the client, when using the Mediator API:
 ```javascript
 angular.module('app', [
 , require('fh-wfm-mediator')
-, require('fh-wfm-workorder/lib/angular/workorder-rest')
+, require('fh-wfm-workorder/lib/angular/mediator/workorder-rest')
 ...
 ])
 ```
