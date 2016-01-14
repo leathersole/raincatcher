@@ -4,61 +4,45 @@ A workorder module for FeedHenry WFM.
 
 ## Client-side usage
 
-## Dependencies
-This module depends on the [fh-wfm-mediator](https://www.npmjs.com/package/fh-wfm-mediator) WFM module.
-
-### Using the Mediator-based API in an angular.js client (via broswerify)
+### Client-side usage (via broswerify)
 
 #### Setup
 This module is packaged in a CommonJS format, exporting the name of the Angular namespace.  The module can be included in an angular.js as follows:
 
 ```javascript
 angular.module('app', [
-, require('fh-wfm-mediator')
 , require('fh-wfm-workorder')
 ...
 ])
 ```
 
-#### Client side events
-The module listens for, and responds with the following mediator events:
-
-| Listens for | Responds with |
-| ----------- | ------------- |
-| `workorder:load` | `done:workorder:load` |
-| `workorders:load` | `done:workorders:load` |
-| `workorder:save` | `done:workorder:save` |
-| `workorder:save` | `done:workorder:save` |
-| `workorder:create` | `done:workorder:create` |
-| `workorder:new` | `done:workorder:new` |
-|  | `workorder:selected` |
-|  | `workorder:edited` |
-
 #### Integration
 
 ##### Angular controller
-Events can be broadcast and listened for in angular controllers using the fh-wfm-mediator API.
+A sync manager must first be initialized using the `workorderSync.managerPromise`.  This can be placed in the `resolve` config of a `ui-router` controlled application (see below).
 
-Example:
-```javascript
-.controller('WorkorderFormController', function ($state, mediator, workorder) {
-  var self = this;
+##### `workorderSync` API
+These workorderSync API methods all return Promises:
 
-  self.workorder = workorder;
-
-  mediator.subscribe('workorder:edited', function(workorder) {
-    mediator.publish('workorder:save', workorder);
-    mediator.once('done:workorder:save', function(workorder) {
-      $state.go('app.workorder', {
-        workorderId: workorder.id
-      });
-    })
-  });
-})
-```
+| workorderSync method | Description |
+| -------------------- | ----------- |
+| `workorderSync.manager.list` | list all workorders |
+| `workorderSync.manager.create(workorder)` | create a workorder |
+| `workorderSync.manager.read(workorderId)` | read a workorder |
+| `workorderSync.manager.update(workorder)` | update a workorder |
 
 ##### Ui-router integration
 This module provides nice integration with the [ui-router](https://github.com/angular-ui/ui-router) project.
+
+Initialize the sync manager using the managerPromise, making the `workorderManager` available for injection in child states:
+
+```javascript
+resolve: {
+  workorderManager: function(workorderSync) {
+    return workorderSync.managerPromise;
+  }
+},
+```
 
 Listen to events to trigger navigation:
 
@@ -79,38 +63,12 @@ Use the ui-router `resolve` API to pre-load data before rendering a page:
       templateUrl: '/app/workorder/workorder.tpl.html',
       controller: 'WorkorderController as ctrl',
       resolve: {
-        workorder: function(mediator, $stateParams) {
-          mediator.publish('workorder:load', $stateParams.workorderId);
-          return mediator.promise('done:workorder:load');
+        workorder: function(workorderManager, $stateParams) {
+          return workorderManager.read($stateParams.workorderId);
         }
       }
     })
 ```
-### Using the Angular service directly (via broswerify)
-
-An Angular service API is also provided to directly expose the methods backing the Mediator event.
-
-To use the angular service, declare a dependency, and inject the service as follows:
-
-```javascript
-angular.module('app', [
-, require('fh-wfm-workorder/lib/angular/ng-modules/sync-service'), ... ])
-
-.controller('WorkorderCtrl', function(workorderSync) {
-  ...
-}
-
-```
-
-#### `workorderSync` API
-The workorderSync API methods all return Promises.
-
-| workorderSync method | Description |
-| -------------------- | ----------- |
-| `workorderSync.list` | list all workorders |
-| `workorderSync.create(workorder)` | create a workorder |
-| `workorderSync.read(workorderId)` | read a workorder |
-| `workorderSync.update(workorder)` | update a workorder |
 
 ## Usage in an express backend
 
@@ -203,18 +161,6 @@ module.exports = function(mediator) {
 
 By default the above usage instructions uses the FeedHenry sync functionality to co-ordinate the clients with the cloud.  Alternatively, one can use a REST API for cloud and client co-oridnation.  This is achieved by changing only which files are included:
 
-On the client, when using the Mediator API:
-
-```javascript
-angular.module('app', [
-, require('fh-wfm-mediator')
-, require('fh-wfm-workorder/lib/angular/mediator/workorder-rest')
-...
-])
-```
-
-or when using the Angular service directly:
-
 ```javascript
 angular.module('app', [
 , require('fh-wfm-workorder/lib/angular/ng-modules/rest-service')
@@ -235,4 +181,4 @@ var express = require('express')
 require('fh-wfm-workorder/lib/router')(mediator, app);
 ````
 
-Neither the clinet, nor the server-side APIs differ with this change.
+Neither the client nor the server-side APIs differ with this change.
