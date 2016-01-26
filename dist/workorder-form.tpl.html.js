@@ -45,6 +45,12 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '     </md-select>\n' +
     '  </md-input-container>\n' +
     '  <md-input-container>\n' +
+    '    <label for="workorderType">Assignee</label>\n' +
+    '    <md-select ng-model="ctrl.model.assignee" name="assignee" placeholder="Assignee" id="assignee">\n' +
+    '       <md-option ng-repeat="worker in ctrl.workers" value="{{worker.id}}">{{worker.name}} ({{worker.position}})</md-option>\n' +
+    '     </md-select>\n' +
+    '  </md-input-container>\n' +
+    '  <md-input-container>\n' +
     '    <label for="inputTitle">Title</label>\n' +
     '    <input type="text" id="inputTitle" name="title" placeholder="Title" ng-model="ctrl.model.title" required>\n' +
     '    <div ng-messages="workorderForm.title.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">\n' +

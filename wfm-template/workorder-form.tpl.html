@@ -36,6 +36,12 @@
      </md-select>
   </md-input-container>
   <md-input-container>
+    <label for="workorderType">Assignee</label>
+    <md-select ng-model="ctrl.model.assignee" name="assignee" placeholder="Assignee" id="assignee">
+       <md-option ng-repeat="worker in ctrl.workers" value="{{worker.id}}">{{worker.name}} ({{worker.position}})</md-option>
+     </md-select>
+  </md-input-container>
+  <md-input-container>
     <label for="inputTitle">Title</label>
     <input type="text" id="inputTitle" name="title" placeholder="Title" ng-model="ctrl.model.title" required>
     <div ng-messages="workorderForm.title.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">
