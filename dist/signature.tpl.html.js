@@ -7,6 +7,6 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/signature.tpl.html',
-    '<img src="{{ctrl.signature}}"></img>\n' +
+    '<img ng-src="{{ctrl.signature}}"></img>\n' +
     '');
 }]);
