@@ -1,0 +1,33 @@
+{
+  "name": "fh-wfm-message",
+  "version": "0.0.13",
+  "description": "An workorder module for WFM",
+  "main": "message.js",
+  "scripts": {
+    "build": "wfm-template-build -m 'wfm.message.directives'",
+    "watch": "wfm-template-build -w -m 'wfm.message.directives'",
+    "test": "mocha test/router.spec.js"
+  },
+  "keywords": [
+    "wfm",
+    "message"
+  ],
+  "author": "Brian Leathem",
+  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
+  "dependencies": {
+    "angular-messages": "^1.4.7",
+    "express": "^4.13.3",
+    "fh-wfm-sync": ">=0.0.2",
+    "fh-wfm-template-build": ">=0.0.3",
+    "lodash": "^3.10.1",
+    "ng-feedhenry": "^0.2.53",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.13.3",
+    "mocha": "^2.2.5",
+    "request": "^2.61.0",
+    "should": "^7.0.4",
+    "fh-wfm-mediator": ">=0.0.7"
+  }
+}
