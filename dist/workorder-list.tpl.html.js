@@ -17,18 +17,22 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '<md-list>\n' +
     '  <md-list-item ng-repeat="workorder in list" ng-click="ctrl.selectWorkorder($event, workorder)" class="md-3-line workorder-item" ng-class="{active: ctrl.selectedWorkorderId === workorder.id}" >\n' +
-    '  \n' +
-    '<!-- \n' +
-    '  TODO: change class name according to the color: \n' +
-    '    "success" = green \n' +
-    '    danger = "red" \n' +
+    '\n' +
+    '<!--\n' +
+    '  TODO: change class name according to the color:\n' +
+    '    "success" = green\n' +
+    '    danger = "red"\n' +
     '    warning = "yellow"\n' +
     '    no class = grey\n' +
     '  -->\n' +
     '  <workorder-status class="" status="workorder.status"></workorder-status>\n' +
     '\n' +
     '    <div class="md-list-item-text">\n' +
-    '      <h3>{{workorder.type}} - {{workorder.id}}</h3>\n' +
+    '      <h3>\n' +
+    '        {{workorder.type}} -\n' +
+    '        <span ng-if="workorder.id">{{workorder.id}}</span>\n' +
+    '        <span ng-if="! workorder.id" style="font-style: italic;">&lt;local&gt;</span>\n' +
+    '      </h3>\n' +
     '      <h4>{{workorder.title}}</h4>\n' +
     '      <p>{{workorder.address}}</p>\n' +
     '    </div>\n' +
