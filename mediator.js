@@ -27,14 +27,14 @@ mediator.request = function(topic, parameters, options) {
   topics.done = options.doneTopic || 'done:' + topic;
   topics.error = options.errorTopic || 'error:' + topic;
 
-  var uid;
-  if (options.uid) {
+  var uid = null;
+  if (_.has(options, 'uid')) {
     uid = options.uid;
   } else if (parameters) {
     uid = parameters instanceof Array ? parameters[0] : parameters;
   }
 
-  if (uid) {
+  if (uid !== null) {
      topics.done += ':' + uid;
      topics.error += ':' + uid;
   }
