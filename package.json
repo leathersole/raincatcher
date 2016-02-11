@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-risk-assessment",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A risk assessment module for WFM",
   "main": "risk-assessment.js",
   "scripts": {
