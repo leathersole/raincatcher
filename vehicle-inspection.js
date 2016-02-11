@@ -4,7 +4,7 @@ var _ = require('lodash');
 
 var ngModule = angular.module('wfm.vehicle-inspection', ['wfm.core.mediator']);
 
-require('./lib');
+require('./dist');
 
 ngModule.directive('vehicleInspection', function($templateCache, mediator) {
   return {
