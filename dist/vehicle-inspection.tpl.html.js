@@ -10,8 +10,6 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '  <md-subheader>Vehicle Inspection</md-subheader>\n' +
     '\n' +
-    '  <pre>{{vehicleInspection | json}}</pre>\n' +
-    '\n' +
     '  <md-list class="risk-assessment">\n' +
     '\n' +
     '    <md-list-item class="md-2-line" >\n' +
