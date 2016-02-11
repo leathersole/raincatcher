@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-vehicle-inspection",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An vehicle-inspection module for WFM",
   "main": "vehicle-inspection.js",
   "scripts": {
