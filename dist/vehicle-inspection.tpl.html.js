@@ -10,6 +10,8 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '  <md-subheader>Vehicle Inspection</md-subheader>\n' +
     '\n' +
+    '  <pre>{{vehicleInspection | json}}</pre>\n' +
+    '\n' +
     '  <md-list class="risk-assessment">\n' +
     '\n' +
     '    <md-list-item class="md-2-line" >\n' +
@@ -33,11 +35,11 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    </md-list-item>\n' +
     '\n' +
     '    <md-list-item class="md-2-line" >\n' +
-    '      <md-icon md-font-set="material-icons" ng-if="vehicleInspection.tires" class="success">check_circle</md-icon>\n' +
-    '      <md-icon md-font-set="material-icons" ng-if="! vehicleInspection.tires" class="danger">cancel</md-icon>\n' +
+    '      <md-icon md-font-set="material-icons" ng-if="vehicleInspection.lights" class="success">check_circle</md-icon>\n' +
+    '      <md-icon md-font-set="material-icons" ng-if="! vehicleInspection.lights" class="danger">cancel</md-icon>\n' +
     '      <div class="md-list-item-text">\n' +
-    '        <h3 ng-if="vehicleInspection.tires">Pass</h3>\n' +
-    '        <h3 ng-if="! vehicleInspection.tires">Fail</h3>\n' +
+    '        <h3 ng-if="vehicleInspection.lights">Pass</h3>\n' +
+    '        <h3 ng-if="! vehicleInspection.lights">Fail</h3>\n' +
     '        <p>Lights</p>\n' +
     '      </div>\n' +
     '    </md-list-item>\n' +

@@ -29,8 +29,8 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    </div>\n' +
     '    <div flex layout-align="start start">\n' +
     '      <md-radio-group layout ng-model="ctrl.model.tires">\n' +
-    '        <md-radio-button value="Fail" >Fail</md-radio-button>\n' +
-    '        <md-radio-button value="Pass"> Pass </md-radio-button>\n' +
+    '        <md-radio-button ng-value="false" >Fail</md-radio-button>\n' +
+    '        <md-radio-button ng-value="true"> Pass </md-radio-button>\n' +
     '      </md-radio-group>\n' +
     '    </div>\n' +
     '  </div>\n' +
@@ -46,8 +46,8 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    </div>\n' +
     '    <div flex layout-align="start start">\n' +
     '      <md-radio-group layout ng-model="ctrl.model.lights">\n' +
-    '        <md-radio-button value="Fail" >Fail</md-radio-button>\n' +
-    '        <md-radio-button value="Pass"> Pass </md-radio-button>\n' +
+    '        <md-radio-button ng-value="false">Fail</md-radio-button>\n' +
+    '        <md-radio-button ng-value="true"> Pass </md-radio-button>\n' +
     '      </md-radio-group>\n' +
     '    </div>\n' +
     '  </div>\n' +

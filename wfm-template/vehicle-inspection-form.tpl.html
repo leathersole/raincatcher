@@ -20,8 +20,8 @@
     </div>
     <div flex layout-align="start start">
       <md-radio-group layout ng-model="ctrl.model.tires">
-        <md-radio-button value="Fail" >Fail</md-radio-button>
-        <md-radio-button value="Pass"> Pass </md-radio-button>
+        <md-radio-button ng-value="false" >Fail</md-radio-button>
+        <md-radio-button ng-value="true"> Pass </md-radio-button>
       </md-radio-group>
     </div>
   </div>
@@ -37,8 +37,8 @@
     </div>
     <div flex layout-align="start start">
       <md-radio-group layout ng-model="ctrl.model.lights">
-        <md-radio-button value="Fail" >Fail</md-radio-button>
-        <md-radio-button value="Pass"> Pass </md-radio-button>
+        <md-radio-button ng-value="false">Fail</md-radio-button>
+        <md-radio-button ng-value="true"> Pass </md-radio-button>
       </md-radio-group>
     </div>
   </div>

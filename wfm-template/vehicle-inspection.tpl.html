@@ -1,6 +1,8 @@
 
   <md-subheader>Vehicle Inspection</md-subheader>
 
+  <pre>{{vehicleInspection | json}}</pre>
+
   <md-list class="risk-assessment">
 
     <md-list-item class="md-2-line" >
@@ -24,11 +26,11 @@
     </md-list-item>
 
     <md-list-item class="md-2-line" >
-      <md-icon md-font-set="material-icons" ng-if="vehicleInspection.tires" class="success">check_circle</md-icon>
-      <md-icon md-font-set="material-icons" ng-if="! vehicleInspection.tires" class="danger">cancel</md-icon>
+      <md-icon md-font-set="material-icons" ng-if="vehicleInspection.lights" class="success">check_circle</md-icon>
+      <md-icon md-font-set="material-icons" ng-if="! vehicleInspection.lights" class="danger">cancel</md-icon>
       <div class="md-list-item-text">
-        <h3 ng-if="vehicleInspection.tires">Pass</h3>
-        <h3 ng-if="! vehicleInspection.tires">Fail</h3>
+        <h3 ng-if="vehicleInspection.lights">Pass</h3>
+        <h3 ng-if="! vehicleInspection.lights">Fail</h3>
         <p>Lights</p>
       </div>
     </md-list-item>
