@@ -60,21 +60,21 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  <md-input-container>\n' +
     '    <label for="inputAddress">Address</label>\n' +
     '    <input type="text"  id="inputAddress" name="address" placeholder="Address" ng-model="ctrl.model.address" required>\n' +
-    '    <div ng-messages="workorderForm.address.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">\n' +
+    '    <div ng-messages="workorderForm.address.$error" ng-show="ctrl.submitted || workorderForm.address.$dirty">\n' +
     '      <div ng-message="required">An address is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
     '  <md-input-container>\n' +
     '    <label for="inputFinishDate" >Finish Date</label>\n' +
     '    <input type="date"  id="inputFinishDate" name="finishDate" ng-model="ctrl.model.finishDate" required>\n' +
-    '    <div ng-messages="workorderForm.finishDate.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">\n' +
+    '    <div ng-messages="workorderForm.finishDate.$error" ng-show="ctrl.submitted || workorderForm.finishDate.$dirty">\n' +
     '      <div ng-message="required">A finish date is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
     '  <md-input-container>\n' +
     '    <label for="inputFinishTime" >Finish Time</label>\n' +
     '    <input type="time"  id="inputFinishTime" name="finishTime" ng-model="ctrl.model.finishTime" required>\n' +
-    '    <div ng-messages="workorderForm.finishTime.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">\n' +
+    '    <div ng-messages="workorderForm.finishTime.$error" ng-show="ctrl.submitted || workorderForm.finishTime.$dirty">\n' +
     '      <div ng-message="required">A finish time is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
@@ -82,7 +82,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    <label for="inputSummary">Summary</label>\n' +
     '    <textarea  id="inputSummary" name="summary" placeholder="Summary" ng-model="ctrl.model.summary" required md-maxlength="150"></textarea>\n' +
     '\n' +
-    '    <div ng-messages="workorderForm.summary.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">\n' +
+    '    <div ng-messages="workorderForm.summary.$error" ng-show="ctrl.submitted || workorderForm.summary.$dirty">\n' +
     '      <div ng-message="required">A summary date is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
