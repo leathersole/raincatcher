@@ -25,6 +25,11 @@ ngModule.directive('vehicleInspectionForm', function($templateCache, mediator) {
   , controller: function() {
     var self = this;
     self.model = {};
+    self.back = function(event) {
+      mediator.publish('workflow:step:back');
+      event.preventDefault();
+      event.stopPropagation();
+    }
     self.done = function(event) {
       mediator.publish('workflow:step:done', self.model);
       event.preventDefault();
