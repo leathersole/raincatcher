@@ -34,6 +34,11 @@ ngModule.directive('riskAssessmentForm', function($templateCache, mediator) {
         event.preventDefault();
         event.stopPropagation();
       };
+      self.back = function(event) {
+        mediator.publish('workflow:step:back');
+        event.preventDefault();
+        event.stopPropagation();
+      }
       self.done = function(event) {
         mediator.publish('workflow:step:done', self.model);
         event.preventDefault();
