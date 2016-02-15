@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-component-signature",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A signature component for FeedHenry WFM.",
   "main": "signature.js",
   "scripts": {
