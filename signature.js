@@ -18,7 +18,10 @@ ngModule.directive('signatureForm', function($templateCache, $document, $timeout
     }
   , link: function (scope, element, attrs, ctrl) {
       var options = scope.options || {};
-      var drawr = new canvasDrawr.CanvasDrawr(element, options, $document);
+      console.log('touch support', 'ontouchstart' in $document[0]);
+      var drawr = 'ontouchstart' in $document[0]
+        ? new canvasDrawr.CanvasDrawr(element, options, $document)
+        : new canvasDrawr.CanvasDrawrMouse(element, options, $document);
 
       var $canvas = angular.element(element[0].getElementsByTagName('canvas')[0]);
       $timeout(function() {
