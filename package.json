@@ -11,7 +11,7 @@
     "build"
   ],
   "author": "Brian Leathem",
-  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
+  "license": "SEE LICENSE IN LICENSE.txt",
   "dependencies": {
     "lodash": "^3.10.1",
     "minimist": "^1.1.3",
