@@ -13,7 +13,7 @@
     "workorder"
   ],
   "author": "Brian Leathem",
-  "license": "Copyright (c) 2015 FeedHenry Ltd, All Rights Reserved.",
+  "license": "SEE LICENSE IN LICENSE.txt",
   "dependencies": {
     "angular-messages": "^1.4.7",
     "express": "^4.13.3",
