@@ -1,0 +1,19 @@
+{
+  "name": "fh-wfm-map",
+  "version": "0.0.0",
+  "description": "A map module for FeedHenry WFM",
+  "main": "map.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feedhenry-staff/wfm-map.git"
+  },
+  "keywords": [
+    "wfm",
+    "map"
+  ],
+  "author": "Brian Leathem",
+  "license": "SEE LICENSE IN LICENSE.txt"
+}
