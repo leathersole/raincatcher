@@ -61,6 +61,20 @@
     </div>
   </md-input-container>
   <md-input-container>
+    <label for="inputAddress">Lattitude</label>
+    <input type="text"  id="inputLattitude" name="lattitude" ng-model="ctrl.model.location[0]" required>
+    <div ng-messages="workorderForm.lattitude.$error" ng-show="ctrl.submitted || workorderForm.lattitude.$dirty">
+      <div ng-message="required">An lattitude is required.</div>
+    </div>
+  </md-input-container>
+  <md-input-container>
+    <label for="inputAddress">Longitude</label>
+    <input type="text"  id="inputLattitude" name="longitude" ng-model="ctrl.model.location[1]" required>
+    <div ng-messages="workorderForm.longitude.$error" ng-show="ctrl.submitted || workorderForm.longitude.$dirty">
+      <div ng-message="required">An longitude is required.</div>
+    </div>
+  </md-input-container>
+  <md-input-container>
     <label for="inputFinishDate">Finish Date</label>
     <input type="date"  id="inputFinishDate" name="finishDate" ng-model="ctrl.model.finishDate" required>
     <div ng-messages="workorderForm.finishDate.$error" ng-show="ctrl.submitted || workorderForm.finishDate.$dirty">

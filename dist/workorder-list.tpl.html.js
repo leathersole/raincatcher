@@ -1,8 +1,3 @@
-/**
-* CONFIDENTIAL
-* Copyright 2016 Red Hat, Inc. and/or its affiliates.
-* This is unpublished proprietary source code of Red Hat.
-**/
 var ngModule;
 try {
   ngModule = angular.module('wfm.workorder.directives');
@@ -12,6 +7,11 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/workorder-list.tpl.html',
+    '<!--\n' +
+    ' CONFIDENTIAL\n' +
+    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
+    ' This is unpublished proprietary source code of Red Hat.\n' +
+    '-->\n' +
     '<md-toolbar>\n' +
     '  <div class="md-toolbar-tools">\n' +
     '    <h3>\n' +

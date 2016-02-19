@@ -1,8 +1,3 @@
-/**
-* CONFIDENTIAL
-* Copyright 2016 Red Hat, Inc. and/or its affiliates.
-* This is unpublished proprietary source code of Red Hat.
-**/
 var ngModule;
 try {
   ngModule = angular.module('wfm.workorder.directives');
@@ -12,6 +7,11 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/workorder-form.tpl.html',
+    '<!--\n' +
+    ' CONFIDENTIAL\n' +
+    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
+    ' This is unpublished proprietary source code of Red Hat.\n' +
+    '-->\n' +
     '<md-toolbar class="content-toolbar md-primary">\n' +
     '  <div class="md-toolbar-tools">\n' +
     '    <h3>{{ctrl.model.id ? \'Update\' : \'Create\'}} work order ID {{ctrl.model.id}}</h3>\n' +
@@ -67,6 +67,20 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    <input type="text"  id="inputAddress" name="address" ng-model="ctrl.model.address" required>\n' +
     '    <div ng-messages="workorderForm.address.$error" ng-show="ctrl.submitted || workorderForm.address.$dirty">\n' +
     '      <div ng-message="required">An address is required.</div>\n' +
+    '    </div>\n' +
+    '  </md-input-container>\n' +
+    '  <md-input-container>\n' +
+    '    <label for="inputAddress">Lattitude</label>\n' +
+    '    <input type="text"  id="inputLattitude" name="lattitude" ng-model="ctrl.model.location[0]" required>\n' +
+    '    <div ng-messages="workorderForm.lattitude.$error" ng-show="ctrl.submitted || workorderForm.lattitude.$dirty">\n' +
+    '      <div ng-message="required">An lattitude is required.</div>\n' +
+    '    </div>\n' +
+    '  </md-input-container>\n' +
+    '  <md-input-container>\n' +
+    '    <label for="inputAddress">Longitude</label>\n' +
+    '    <input type="text"  id="inputLattitude" name="longitude" ng-model="ctrl.model.location[1]" required>\n' +
+    '    <div ng-messages="workorderForm.longitude.$error" ng-show="ctrl.submitted || workorderForm.longitude.$dirty">\n' +
+    '      <div ng-message="required">An longitude is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
     '  <md-input-container>\n' +
