@@ -33,8 +33,8 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  </md-input-container>\n' +
     '  -->\n' +
     '\n' +
-    '\n' +
-    '  <md-input-container>\n' +
+    '<div layout-gt-sm="row">\n' +
+    '  <md-input-container class="md-block" flex-gt-sm>\n' +
     '    <label for="workorderType">Type</label>\n' +
     '    <md-select ng-model="ctrl.model.type" name="workorderType" id="workorderType">\n' +
     '       <md-option value="Job Order">Job Order</md-option>\n' +
@@ -43,61 +43,73 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '       <md-option value="Type 04">Type 04</md-option>\n' +
     '     </md-select>\n' +
     '  </md-input-container>\n' +
-    '  <md-input-container>\n' +
+    '\n' +
+    '  <md-input-container class="md-block" flex-gt-sm>\n' +
     '    <label for="workflow">Workflow</label>\n' +
     '    <md-select ng-model="ctrl.model.workflowId" name="workflow" id="workflow">\n' +
     '       <md-option ng-repeat="workflow in ctrl.workflows" value="{{workflow.id}}">{{workflow.id}} - {{workflow.title}}</md-option>\n' +
     '     </md-select>\n' +
     '  </md-input-container>\n' +
-    '  <md-input-container>\n' +
+    '</div>\n' +
+    '\n' +
+    '  <md-input-container class="md-block">\n' +
     '    <label for="assignee">Assignee</label>\n' +
     '    <md-select ng-model="ctrl.model.assignee" name="assignee" id="assignee">\n' +
     '       <md-option ng-repeat="worker in ctrl.workers" value="{{worker.id}}">{{worker.name}} ({{worker.position}})</md-option>\n' +
     '     </md-select>\n' +
     '  </md-input-container>\n' +
-    '  <md-input-container>\n' +
+    '\n' +
+    '  <md-input-container class="md-block">\n' +
     '    <label>Title</label>\n' +
     '    <input type="text" id="inputTitle" name="title" ng-model="ctrl.model.title" required>\n' +
     '    <div ng-messages="workorderForm.title.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">\n' +
     '      <div ng-message="required">A title is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
-    '  <md-input-container>\n' +
+    '\n' +
+    '  <md-input-container class="md-block">\n' +
     '    <label for="inputAddress">Address</label>\n' +
     '    <input type="text"  id="inputAddress" name="address" ng-model="ctrl.model.address" required>\n' +
     '    <div ng-messages="workorderForm.address.$error" ng-show="ctrl.submitted || workorderForm.address.$dirty">\n' +
     '      <div ng-message="required">An address is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
-    '  <md-input-container>\n' +
+    '\n' +
+    '<div layout-gt-sm="row">\n' +
+    '  <md-input-container class="md-block" flex-gt-sm>\n' +
     '    <label for="inputAddress">Lattitude</label>\n' +
     '    <input type="text"  id="inputLattitude" name="lattitude" ng-model="ctrl.model.location[0]" required>\n' +
     '    <div ng-messages="workorderForm.lattitude.$error" ng-show="ctrl.submitted || workorderForm.lattitude.$dirty">\n' +
     '      <div ng-message="required">An lattitude is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
-    '  <md-input-container>\n' +
+    '  <md-input-container class="md-block" flex-gt-sm>\n' +
     '    <label for="inputAddress">Longitude</label>\n' +
     '    <input type="text"  id="inputLattitude" name="longitude" ng-model="ctrl.model.location[1]" required>\n' +
     '    <div ng-messages="workorderForm.longitude.$error" ng-show="ctrl.submitted || workorderForm.longitude.$dirty">\n' +
     '      <div ng-message="required">An longitude is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
-    '  <md-input-container>\n' +
+    '</div>\n' +
+    '\n' +
+    '<div layout-gt-sm="row">\n' +
+    '  <md-input-container class="md-block" flex-gt-sm>\n' +
     '    <label for="inputFinishDate">Finish Date</label>\n' +
     '    <input type="date"  id="inputFinishDate" name="finishDate" ng-model="ctrl.model.finishDate" required>\n' +
     '    <div ng-messages="workorderForm.finishDate.$error" ng-show="ctrl.submitted || workorderForm.finishDate.$dirty">\n' +
     '      <div ng-message="required">A finish date is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
-    '  <md-input-container>\n' +
+    '  <md-input-container class="md-block" flex-gt-sm>\n' +
     '    <label for="inputFinishTime" >Finish Time</label>\n' +
     '    <input type="time"  id="inputFinishTime" name="finishTime" ng-model="ctrl.model.finishTime" required>\n' +
     '    <div ng-messages="workorderForm.finishTime.$error" ng-show="ctrl.submitted || workorderForm.finishTime.$dirty">\n' +
     '      <div ng-message="required">A finish time is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
-    '  <md-input-container ng-class="{ \'has-error\' : workorderForm.summary.$invalid && !workorderForm.summary.$pristine }">\n' +
+    '</div>\n' +
+    '\n' +
+    '  <md-input-container class="md-block" ng-class="{ \'has-error\' : workorderForm.summary.$invalid && !workorderForm.summary.$pristine }">\n' +
     '    <label for="inputSummary">Summary</label>\n' +
     '    <textarea  id="inputSummary" name="summary" ng-model="ctrl.model.summary" required md-maxlength="150"></textarea>\n' +
     '\n' +
