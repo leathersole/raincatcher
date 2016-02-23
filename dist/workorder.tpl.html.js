@@ -50,10 +50,10 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    <md-divider></md-divider>\n' +
     '    </md-list-item>\n' +
     '\n' +
-    '    <md-list-item class="md-2-line" >\n' +
+    '    <md-list-item class="md-2-line" ng-show="assignee && assignee.name">\n' +
     '      <md-icon md-font-set="material-icons">person</md-icon>\n' +
     '      <div class="md-list-item-text">\n' +
-    '        <h3>{{workorder.assignee}}</h3>\n' +
+    '        <h3>{{assignee.name}}</h3>\n' +
     '        <p>Asignee</p>\n' +
     '      </div>\n' +
     '    <md-divider></md-divider>\n' +
