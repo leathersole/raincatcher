@@ -1,8 +1,3 @@
-/**
-* CONFIDENTIAL
-* Copyright 2016 Red Hat, Inc. and/or its affiliates.
-* This is unpublished proprietary source code of Red Hat.
-**/
 var ngModule;
 try {
   ngModule = angular.module('wfm.risk-assessment');
@@ -12,7 +7,12 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/risk-assessment-form.tpl.html',
-    '  <div layout="column" ng-show="riskAssessmentStep === 0" layout-margin layout-padding class="risk-assesssment">\n' +
+    '<!--\n' +
+    ' CONFIDENTIAL\n' +
+    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
+    ' This is unpublished proprietary source code of Red Hat.\n' +
+    '-->\n' +
+    '  <div ng-show="riskAssessmentStep === 0" layout-padding class="risk-assesssment">\n' +
     '      <h2 class="md-title">Risk assessment complete?</h2>\n' +
     '      <p class="md-body-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n' +
     '\n' +
@@ -25,7 +25,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '  </div>\n' +
     '\n' +
-    '  <div layout="column" ng-if="riskAssessmentStep == 1" layout-margin layout-padding>\n' +
+    '  <div ng-if="riskAssessmentStep == 1" layout-padding>\n' +
     '\n' +
     '    <h3 class="md-title">Signature</h3>\n' +
     '    <p class="md-caption">Draw your signature inside the square</p>\n' +
