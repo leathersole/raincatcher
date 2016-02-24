@@ -52,21 +52,26 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  </md-input-container>\n' +
     '</div>\n' +
     '\n' +
+    '<div>\n' +
     '  <md-input-container class="md-block">\n' +
     '    <label for="assignee">Assignee</label>\n' +
     '    <md-select ng-model="ctrl.model.assignee" name="assignee" id="assignee">\n' +
     '       <md-option ng-repeat="worker in ctrl.workers" value="{{worker.id}}">{{worker.name}} ({{worker.position}})</md-option>\n' +
     '     </md-select>\n' +
     '  </md-input-container>\n' +
+    '</div>\n' +
     '\n' +
+    '<div>\n' +
     '  <md-input-container class="md-block">\n' +
     '    <label>Title</label>\n' +
     '    <input type="text" id="inputTitle" name="title" ng-model="ctrl.model.title" required>\n' +
-    '    <div ng-messages="workorderForm.title.$error" ng-show="ctrl.submitted || workorderForm.title.$dirty">\n' +
+    '    <div ng-messages="workorderForm.title.$error" ng-if="ctrl.submitted || workorderForm.title.$dirty">\n' +
     '      <div ng-message="required">A title is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
+    '</div>\n' +
     '\n' +
+    '<div>\n' +
     '  <md-input-container class="md-block">\n' +
     '    <label for="inputAddress">Address</label>\n' +
     '    <input type="text"  id="inputAddress" name="address" ng-model="ctrl.model.address" required>\n' +
@@ -74,6 +79,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '      <div ng-message="required">An address is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
+    '</div>\n' +
     '\n' +
     '<div layout-gt-sm="row">\n' +
     '  <md-input-container class="md-block" flex-gt-sm>\n' +
@@ -109,14 +115,16 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  </md-input-container>\n' +
     '</div>\n' +
     '\n' +
+    '<div>\n' +
     '  <md-input-container class="md-block" ng-class="{ \'has-error\' : workorderForm.summary.$invalid && !workorderForm.summary.$pristine }">\n' +
     '    <label for="inputSummary">Summary</label>\n' +
-    '    <textarea  id="inputSummary" name="summary" ng-model="ctrl.model.summary" required md-maxlength="150"></textarea>\n' +
+    '    <textarea id="inputSummary" name="summary" ng-model="ctrl.model.summary" required md-maxlength="150"></textarea>\n' +
     '\n' +
     '    <div ng-messages="workorderForm.summary.$error" ng-show="ctrl.submitted || workorderForm.summary.$dirty">\n' +
     '      <div ng-message="required">A summary date is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
+    '</div>\n' +
     '\n' +
     '  <md-button type="submit" class="md-raised md-primary">{{ctrl.model.id ? \'Update\' : \'Create\'}} Workorder</md-button>\n' +
     '</form>\n' +

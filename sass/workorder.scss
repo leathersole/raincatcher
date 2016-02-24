@@ -33,3 +33,7 @@ $warning: #FFC107; // amber 500
 .md-long-text{
   margin: 0!important;
 }
+
+md-input-container .md-errors-spacer {
+    min-height: 0;
+}
