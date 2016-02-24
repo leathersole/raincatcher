@@ -3,6 +3,7 @@
 * Copyright 2016 Red Hat, Inc. and/or its affiliates.
 * This is unpublished proprietary source code of Red Hat.
 **/
+/*
 .vehicle-inspection-form {
   md-radio-button {
     display: inline;
@@ -13,6 +14,12 @@
       margin: 5px;
     }
   }
+}
+
+*/
+
+wfm-inspection-row{
+  padding: 16px;
 }
 
 .vehicle-inspection-portal {

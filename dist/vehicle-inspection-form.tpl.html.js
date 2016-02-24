@@ -1,8 +1,3 @@
-/**
-* CONFIDENTIAL
-* Copyright 2016 Red Hat, Inc. and/or its affiliates.
-* This is unpublished proprietary source code of Red Hat.
-**/
 var ngModule;
 try {
   ngModule = angular.module('wfm.workorder');
@@ -12,8 +7,13 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/vehicle-inspection-form.tpl.html',
-    '  <div layout>\n' +
-    '    <div flex="40" layout layout-align="start center" style="padding-left: 16px;">\n' +
+    '<!--\n' +
+    ' CONFIDENTIAL\n' +
+    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
+    ' This is unpublished proprietary source code of Red Hat.\n' +
+    '-->\n' +
+    '  <div layout="row" class="wfm-inspection-row">\n' +
+    '    <div flex="40" layout="row" layout-align="start center">\n' +
     '      <span class="md-body-2">\n' +
     '        <md-icon md-font-set="material-icons">local_gas_station</md-icon>\n' +
     '        Fuel (%)\n' +
@@ -25,8 +25,8 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '    <md-divider></md-divider>\n' +
     '\n' +
-    '  <div layout>\n' +
-    '    <div flex="30" layout  layout-margin layout-padding layout-align="start center">\n' +
+    '  <div layout="row" class="wfm-inspection-row">\n' +
+    '    <div flex="30" layout="row" layout-align="start center">\n' +
     '      <span class="md-body-2">\n' +
     '        <md-icon md-font-set="material-icons">album</md-icon>\n' +
     '        Tires\n' +
@@ -42,8 +42,8 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '    <md-divider></md-divider>\n' +
     '\n' +
-    '  <div layout>\n' +
-    '    <div flex="30" layout  layout-margin layout-padding layout-align="start center">\n' +
+    '  <div layout="row" class="wfm-inspection-row">\n' +
+    '    <div flex="30" layout="row" layout-align="start center">\n' +
     '      <span class="md-body-2">\n' +
     '        <md-icon md-font-set="material-icons">brightness_low</md-icon>\n' +
     '        Lights\n' +
