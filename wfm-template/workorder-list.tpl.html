@@ -11,6 +11,11 @@
   </div>
 </md-toolbar>
 
+<form action="#" class="persistent-search">
+  <label for="search"><i class="material-icons">search</i></label>
+  <input type="text" id="search" placeholder="Search">
+</form>
+
 <md-list>
   <md-list-item ng-repeat="workorder in list" ng-click="ctrl.selectWorkorder($event, workorder)" class="md-3-line workorder-item" ng-class="{active: ctrl.selectedWorkorderId === workorder.id}" >
 
