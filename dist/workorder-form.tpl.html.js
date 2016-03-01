@@ -21,6 +21,11 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '      </md-tooltip>\n' +
     '      <workorder-status status="ctrl.workorder.status"></workorder-status>\n' +
     '    </md-button>\n' +
+    '\n' +
+    '    <span flex></span>\n' +
+    '    <md-button class="md-icon-button" aria-label="Close" ng-click="ctrl.selectWorkorder($event, ctrl.model)">\n' +
+    '      <md-icon md-font-set="material-icons">close</md-icon>\n' +
+    '    </md-button>\n' +
     '  </div>\n' +
     '</md-toolbar>\n' +
     '\n' +
