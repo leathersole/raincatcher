@@ -35,7 +35,7 @@ mediator.request = function(topic, parameters, options) {
   var uid = null;
   if (_.has(options, 'uid')) {
     uid = options.uid;
-  } else if (parameters) {
+  } else if (typeof parameters !== "undefined" && parameters !== null) {
     uid = parameters instanceof Array ? parameters[0] : parameters;
   }
 
