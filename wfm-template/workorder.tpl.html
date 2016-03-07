@@ -27,7 +27,7 @@
     <md-list-item class="md-2-line" >
       <md-icon md-font-set="material-icons">event</md-icon>
       <div class="md-list-item-text">
-        <h3>{{workorder.finishTimestamp | date:'yyyy-MM-dd' }}</h3>
+        <h3>{{workorder.startTimestamp | date:'yyyy-MM-dd' }}</h3>
         <p>Finish Date</p>
       </div>
     </md-list-item>
@@ -36,7 +36,7 @@
     <md-list-item class="md-2-line" >
       <md-icon md-font-set="material-icons">schedule</md-icon>
       <div class="md-list-item-text">
-        <h3>{{workorder.finishTimestamp | date:'HH:mm:ss Z' }}</h3>
+        <h3>{{workorder.startTimestamp | date:'HH:mm:ss Z' }}</h3>
         <p>Finish Time</p>
       </div>
     </md-list-item>
