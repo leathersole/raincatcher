@@ -5,6 +5,18 @@
 -->
   <md-list>
 
+    <md-list-item class="md-2-line" >
+      <md-icon>
+      <workorder-status status="status"></workorder-status>
+    </md-icon>
+        <div class="md-list-item-text">
+           <h3>{{status || "New"}}</h3>
+           <p>Status</p>
+        </div>
+      </md-list-item>
+    </md-button>
+    <md-divider></md-divider>
+
     <md-list-item class="md-2-line md-long-text">
       <md-icon md-font-set="material-icons">place</md-icon>
       <div class="md-list-item-text">
@@ -15,6 +27,7 @@
       </div>
     </md-list-item>
     <md-divider></md-divider>
+
     <md-list-item class="md-2-line" >
       <md-icon md-font-set="material-icons">assignment</md-icon>
       <div class="md-list-item-text">

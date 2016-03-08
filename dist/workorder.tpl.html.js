@@ -14,6 +14,18 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '-->\n' +
     '  <md-list>\n' +
     '\n' +
+    '    <md-list-item class="md-2-line" >\n' +
+    '      <md-icon>\n' +
+    '      <workorder-status status="status"></workorder-status>\n' +
+    '    </md-icon>\n' +
+    '        <div class="md-list-item-text">\n' +
+    '           <h3>{{status || "New"}}</h3>\n' +
+    '           <p>Status</p>\n' +
+    '        </div>\n' +
+    '      </md-list-item>\n' +
+    '    </md-button>\n' +
+    '    <md-divider></md-divider>\n' +
+    '\n' +
     '    <md-list-item class="md-2-line md-long-text">\n' +
     '      <md-icon md-font-set="material-icons">place</md-icon>\n' +
     '      <div class="md-list-item-text">\n' +
@@ -24,6 +36,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '      </div>\n' +
     '    </md-list-item>\n' +
     '    <md-divider></md-divider>\n' +
+    '\n' +
     '    <md-list-item class="md-2-line" >\n' +
     '      <md-icon md-font-set="material-icons">assignment</md-icon>\n' +
     '      <div class="md-list-item-text">\n' +
