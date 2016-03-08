@@ -22,11 +22,16 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '<form action="#" class="persistent-search">\n' +
     '  <label for="search"><i class="material-icons">search</i></label>\n' +
-    '  <input type="text" id="search" placeholder="Search">\n' +
+    '  <input type="text" name="search" placeholder="Search" ng-model="searchValue" ng-change="ctrl.applyFilter(searchValue)">\n' +
     '</form>\n' +
     '\n' +
     '<md-list>\n' +
-    '  <md-list-item ng-repeat="workorder in ctrl.workorders" ng-click="ctrl.selectWorkorder($event, workorder)" class="md-3-line workorder-item" ng-class="{active: ctrl.selected.id === workorder.id}" >\n' +
+    '  <md-list-item\n' +
+    '    ng-repeat="workorder in ctrl.workorders"\n' +
+    '    ng-click="ctrl.selectWorkorder($event, workorder)"\n' +
+    '    ng-class="{active: ctrl.selected.id === workorder.id}"\n' +
+    '    class="md-3-line workorder-item"\n' +
+    '  >\n' +
     '<!--\n' +
     '  TODO: change class name according to the color:\n' +
     '    "success" = green\n' +

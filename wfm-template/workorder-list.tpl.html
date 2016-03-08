@@ -13,11 +13,16 @@
 
 <form action="#" class="persistent-search">
   <label for="search"><i class="material-icons">search</i></label>
-  <input type="text" id="search" placeholder="Search">
+  <input type="text" name="search" placeholder="Search" ng-model="searchValue" ng-change="ctrl.applyFilter(searchValue)">
 </form>
 
 <md-list>
-  <md-list-item ng-repeat="workorder in ctrl.workorders" ng-click="ctrl.selectWorkorder($event, workorder)" class="md-3-line workorder-item" ng-class="{active: ctrl.selected.id === workorder.id}" >
+  <md-list-item
+    ng-repeat="workorder in ctrl.workorders"
+    ng-click="ctrl.selectWorkorder($event, workorder)"
+    ng-class="{active: ctrl.selected.id === workorder.id}"
+    class="md-3-line workorder-item"
+  >
 <!--
   TODO: change class name according to the color:
     "success" = green
