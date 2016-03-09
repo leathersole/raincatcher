@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-schedule",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "An schedule module for WFM",
   "main": "schedule.js",
   "scripts": {
