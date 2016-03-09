@@ -1,9 +1,9 @@
+#!/usr/bin/env node
 /**
 * CONFIDENTIAL
 * Copyright 2016 Red Hat, Inc. and/or its affiliates.
 * This is unpublished proprietary source code of Red Hat.
 **/
-#!/usr/bin/env node
 
 var argv = require('minimist')(process.argv.slice(2))
   , build = require('./build')
