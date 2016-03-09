@@ -52,7 +52,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '          <table>\n' +
     '            <tr><th ng-repeat="hour in [\'7am\', \'8am\', \'9am\', \'10am\', \'11am\', \'12pm\', \'1pm\', \'2pm\', \'3pm\', \'4pm\', \'5pm\', \'6pm\', \'7pm\']">{{hour}}</th></tr>\n' +
     '            <tr ng-repeat="worker in ctrl.workers">\n' +
-    '              <td ng-repeat="hour in [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]">\n' +
+    '              <td ng-repeat="hour in [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]" droppable="true">\n' +
     '                <span ng-if="ctrl.timegrid[worker.id][hour]" class="wfm-chip wfm-chip-no-picture" style="width:300px">\n' +
     '                  <span class="wfm-chip-name">{{ctrl.timegrid[worker.id][hour].title}}</span>\n' +
     '                </span>\n' +
@@ -70,7 +70,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '        Workorders\n' +
     '      </h3>\n' +
     '    </div>\n' +
-    '    <span ng-repeat="workorder in ctrl.workorders" class="wfm-chip wfm-chip-no-picture">\n' +
+    '    <span ng-repeat="workorder in ctrl.workorders" class="wfm-chip wfm-chip-no-picture" draggable="true">\n' +
     '      <span class="wfm-chip-name">{{workorder.type}} #{{workorder.id}}</span>\n' +
     '    </span>\n' +
     '  </div>\n' +
