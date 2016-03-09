@@ -13,7 +13,7 @@ function buildTemplates(moduleName) {
   if (!moduleName) {
     throw new Error('buildTemplates must be invoked with a moduleName parameter');
   }
-  fs.readdir('wfm-template', function(err, files) {
+  fs.readdir('lib/template', function(err, files) {
     fs.mkdir('dist', '0775', function(err) {
       if (err && err.code != 'EEXIST') {
         console.log(err);
@@ -35,7 +35,7 @@ function buildTemplates(moduleName) {
 }
 
 function buildTemplate(moduleName, file) {
-  var template = 'wfm-template/' + file;
+  var template = 'lib/template/' + file;
   var inputFile =  './' + template;
   var outputFile = 'dist/' + file + '.js';
   var moduleVar = 'ngModule';
@@ -43,7 +43,7 @@ function buildTemplate(moduleName, file) {
   console.log('Processing template:', inputFile);
 
   fs.readFile(inputFile, 'utf8', function(err, content) {
-    var inputAlias = template;
+    var inputAlias = 'wfm-template/' + file;
     inputAlias = inputAlias.replace(/\\/g, '/');
     var output = html2js(inputAlias, content, moduleName, moduleVar);
 

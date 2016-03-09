@@ -24,11 +24,11 @@ if (argv.w || argv.watch) {
 if (moduleName) {
   build(moduleName);
   if (watching) {
-    watch('./wfm-template', function(file) {
+    watch('./lib/template', function(file) {
       build(moduleName);
     });
   }
 } else {
-  console.error('Usage: build -m <module name> \nOptions:\n  -m, --module <module name>   If module name is provided, template will be packaged under this module.\n  -w, --watch Watch the wfm-template folder, trigger the build on changes.');
+  console.error('Usage: build -m <module name> \nOptions:\n  -m, --module <module name>   If module name is provided, template will be packaged under this module.\n  -w, --watch Watch the lib/template folder, trigger the build on changes.');
   process.exit();
 }
