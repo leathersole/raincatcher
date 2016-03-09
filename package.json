@@ -1,0 +1,23 @@
+{
+  "name": "fh-wfm-schedule",
+  "version": "0.0.0",
+  "description": "An schedule module for WFM",
+  "main": "schedule.js",
+  "scripts": {
+    "build": "wfm-template-build -m 'wfm.schedule.directives'",
+    "watch": "wfm-template-build -w -m 'wfm.schedule.directives'",
+    "test": "mocha test/router.spec.js"
+  },
+  "keywords": [
+    "wfm",
+    "schedule"
+  ],
+  "author": "Brian Leathem",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "devDependencies": {
+    "fh-wfm-template-build": "0.0.3"
+  },
+  "dependencies": {
+    "fh-wfm-template-build": "0.0.4"
+  }
+}
