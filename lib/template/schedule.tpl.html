@@ -10,7 +10,7 @@ This is unpublished proprietary source code of Red Hat.
     </h3>
 
     <span flex></span>
-    <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+    <md-datepicker ng-model="ctrl.scheduleDate" md-placeholder="Enter date" ng-change="ctrl.dateChange()"></md-datepicker>
     <!--
     <md-button class="md-icon-button" aria-label="Favorite">
     <md-icon md-font-set="material-icons">date_range</md-icon>

@@ -19,7 +19,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    </h3>\n' +
     '\n' +
     '    <span flex></span>\n' +
-    '    <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>\n' +
+    '    <md-datepicker ng-model="ctrl.scheduleDate" md-placeholder="Enter date" ng-change="ctrl.dateChange()"></md-datepicker>\n' +
     '    <!--\n' +
     '    <md-button class="md-icon-button" aria-label="Favorite">\n' +
     '    <md-icon md-font-set="material-icons">date_range</md-icon>\n' +
