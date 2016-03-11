@@ -20,11 +20,11 @@
 <div class="messages">
 
   <md-list>
-    <md-list-item class="md-3-line new" ng-repeat="message in list" ng-click="ctrl.selectMessage($event, message)" ng-class="{active: ctrl.selectedMessageId === message.id}">
-      <img ng-src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg" class="md-avatar" alt="Daisy" />
+    <md-list-item class="md-3-line new" ng-repeat="message in ctrl.list" ng-click="ctrl.selectMessage($event, message)" class="md-3-line workorder-item" ng-class="{active: ctrl.selectedMessageId === message.id}">
+      <img ng-src="{{message.sender.avatar}}" class="md-avatar" alt="{{message.sender.name}}" />
       <div class="md-list-item-text" layout="column">
         <span class="md-caption time-stamp">13 mins ago</span>
-        <h3>Trever Worke</h3>
+        <h3>{{message.sender.name}}</h3>
         <h4>{{message.subject}}</h4>
         <p>{{message.content}}</p>
       </div>

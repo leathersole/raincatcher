@@ -1,8 +1,3 @@
-/**
-* CONFIDENTIAL
-* Copyright 2016 Red Hat, Inc. and/or its affiliates.
-* This is unpublished proprietary source code of Red Hat.
-**/
 var ngModule;
 try {
   ngModule = angular.module('wfm.message.directives');
@@ -12,6 +7,11 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/message-list.tpl.html',
+    '<!--\n' +
+    ' CONFIDENTIAL\n' +
+    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
+    ' This is unpublished proprietary source code of Red Hat.\n' +
+    '-->\n' +
     '<md-toolbar>\n' +
     '  <div class="md-toolbar-tools">\n' +
     '    <h3>\n' +
@@ -29,11 +29,11 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '<div class="messages">\n' +
     '\n' +
     '  <md-list>\n' +
-    '    <md-list-item class="md-3-line new" ng-repeat="message in list" ng-click="ctrl.selectMessage($event, message)" ng-class="{active: ctrl.selectedMessageId === message.id}">\n' +
-    '      <img ng-src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg" class="md-avatar" alt="Daisy" />\n' +
+    '    <md-list-item class="md-3-line new" ng-repeat="message in ctrl.list" ng-click="ctrl.selectMessage($event, message)" class="md-3-line workorder-item" ng-class="{active: ctrl.selectedMessageId === message.id}">\n' +
+    '      <img ng-src="{{message.sender.avatar}}" class="md-avatar" alt="{{message.sender.name}}" />\n' +
     '      <div class="md-list-item-text" layout="column">\n' +
     '        <span class="md-caption time-stamp">13 mins ago</span>\n' +
-    '        <h3>Trever Worke</h3>\n' +
+    '        <h3>{{message.sender.name}}</h3>\n' +
     '        <h4>{{message.subject}}</h4>\n' +
     '        <p>{{message.content}}</p>\n' +
     '      </div>\n' +
@@ -54,5 +54,6 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    </div>\n' +
     '    <md-divider></md-divider>\n' +
     '  </md-list-item>\n' +
-    '</md-list>');
+    '</md-list>\n' +
+    '');
 }]);
