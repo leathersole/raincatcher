@@ -6,7 +6,7 @@
   "scripts": {
     "build": "wfm-template-build -m 'wfm.workorder.directives'",
     "watch": "wfm-template-build -w -m 'wfm.workorder.directives'",
-    "test": "mocha test/router.spec.js"
+    "test": "mocha test/**/*.spec.js"
   },
   "keywords": [
     "wfm",
