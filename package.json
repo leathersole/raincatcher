@@ -5,8 +5,7 @@
   "main": "message.js",
   "scripts": {
     "build": "wfm-template-build -m 'wfm.message.directives'",
-    "watch": "wfm-template-build -w -m 'wfm.message.directives'",
-    "test": "mocha test/router.spec.js"
+    "watch": "wfm-template-build -w -m 'wfm.message.directives'"
   },
   "keywords": [
     "wfm",
