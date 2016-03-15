@@ -15,6 +15,7 @@
   "author": "Brian Leathem",
   "license": "SEE LICENSE IN LICENSE.txt",
   "dependencies": {
+    "fh-wfm-template-build": "0.0.4",
     "lodash": "^3.10.1"
   },
   "devDependencies": {
