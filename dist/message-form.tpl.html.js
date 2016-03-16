@@ -32,14 +32,14 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  <md-input-container class="md-block">\n' +
     '    <label for="To">To</label>\n' +
     '    <md-select ng-model="ctrl.model.receiver" name="receiver" id="receiver">\n' +
-    '       <md-option ng-repeat="worker in ctrl.workers" value="{{worker.id}}">{{worker.name}} ({{worker.position}})</md-option>\n' +
+    '       <md-option ng-repeat="worker in ctrl.workers" value="{{worker}}">{{worker.name}} ({{worker.position}})</md-option>\n' +
     '     </md-select>\n' +
     '  </md-input-container>\n' +
     '</div>\n' +
     '\n' +
     '<div>\n' +
     '  <md-input-container class="md-block">\n' +
-    '    <label>Title</label>\n' +
+    '    <label>Subject</label>\n' +
     '    <input type="text" id="inputSubject" name="subject" ng-model="ctrl.model.subject" required>\n' +
     '    <div ng-messages="messageForm.subject.$error" ng-if="ctrl.submitted || messageForm.subject.$dirty">\n' +
     '      <div ng-message="required">A subject is required.</div>\n' +

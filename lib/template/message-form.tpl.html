@@ -23,14 +23,14 @@
   <md-input-container class="md-block">
     <label for="To">To</label>
     <md-select ng-model="ctrl.model.receiver" name="receiver" id="receiver">
-       <md-option ng-repeat="worker in ctrl.workers" value="{{worker.id}}">{{worker.name}} ({{worker.position}})</md-option>
+       <md-option ng-repeat="worker in ctrl.workers" value="{{worker}}">{{worker.name}} ({{worker.position}})</md-option>
      </md-select>
   </md-input-container>
 </div>
 
 <div>
   <md-input-container class="md-block">
-    <label>Title</label>
+    <label>Subject</label>
     <input type="text" id="inputSubject" name="subject" ng-model="ctrl.model.subject" required>
     <div ng-messages="messageForm.subject.$error" ng-if="ctrl.submitted || messageForm.subject.$dirty">
       <div ng-message="required">A subject is required.</div>
