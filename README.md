@@ -7,6 +7,7 @@ An implementation of the mediator pattern for use with WFM modules.
 | --- | --- |
 | `mediator#publish( channel, [data] )` | Publish data to a channel |
 | `mediator#subscribe( channel, callback )` | Subscribe to events in a channel |
+| `mediator#subscribeForScope( channel, scope, callback )` | Subscribe to events in a channel and unsubscribe when the scope is destroyed|
 | `mediator#remove( channel, [identifier] )` | Unsubscribe to events in a channel |
 | `mediator#once( channel, callback )` | A one-time subscribtion to events in a channel |
 | `mediator#promise( channel )` | A promise-based API for `mediator#once` |
