@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-workorder",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "An workorder module for WFM",
   "main": "workorder.js",
   "scripts": {
