@@ -19,10 +19,11 @@ angular.module('wfm.core.mediator', ['ng'])
   };
 
   mediator.subscribeForScope = function(topic,scope,fn) {
+    var subscriber = mediator.subscribe(topic,fn);
     scope.$on("$destroy", function() {
-      mediator.remove(topic);
+      mediator.remove(topic, subscriber.id);
     });
-    mediator.subscribe(topic,fn);
+
   };
 
   return mediator;
