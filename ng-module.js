@@ -18,6 +18,14 @@ angular.module('wfm.core.mediator', ['ng'])
     return $q.when(promise);
   };
 
+  mediator.subscribeForScope = function(topic,scope,fn) {
+    var subscriber = mediator.subscribe(topic,fn);
+    scope.$on("$destroy", function() {
+      mediator.remove(topic, subscriber.id);
+    });
+
+  };
+
   return mediator;
 });
 

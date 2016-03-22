@@ -13,6 +13,14 @@ An implementation of the mediator pattern for use with WFM modules.
 
 ## Usage in an Angular.js client
 
+### API
+
+Besides the above operations, the current operations are available :
+
+| Method | Description |
+| --- | --- |
+| `mediator#subscribeForScope( channel, scope, callback )` | Subscribe to events in a channel and unsubscribe when the scope is destroyed|
+ 
 ### Setup
 This module is packaged in a CommonJS format, exporting the name of the Angular namespace.  The module can be included in an angular.js as follows:
 
