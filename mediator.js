@@ -22,12 +22,7 @@ mediator.promise = function() {
   mediator.once.apply(mediator, args);
   return deferred.promise;
 }
-mediator.subscribeForScope = function(topic,scope,fn) {
-  scope.$on("$destroy", function() {
-    mediator.remove(topic);
-  });
-  mediator.subscribe(topic,fn);
-};
+
 mediator.request = function(topic, parameters, options) {
   var topics = {}, subs = {}, complete = false, timeout;
   var deferred = q.defer();

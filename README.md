@@ -7,13 +7,20 @@ An implementation of the mediator pattern for use with WFM modules.
 | --- | --- |
 | `mediator#publish( channel, [data] )` | Publish data to a channel |
 | `mediator#subscribe( channel, callback )` | Subscribe to events in a channel |
-| `mediator#subscribeForScope( channel, scope, callback )` | Subscribe to events in a channel and unsubscribe when the scope is destroyed|
 | `mediator#remove( channel, [identifier] )` | Unsubscribe to events in a channel |
 | `mediator#once( channel, callback )` | A one-time subscribtion to events in a channel |
 | `mediator#promise( channel )` | A promise-based API for `mediator#once` |
 
 ## Usage in an Angular.js client
 
+### API
+
+Besides the above operations, the current operations are available :
+
+| Method | Description |
+| --- | --- |
+| `mediator#subscribeForScope( channel, scope, callback )` | Subscribe to events in a channel and unsubscribe when the scope is destroyed|
+ 
 ### Setup
 This module is packaged in a CommonJS format, exporting the name of the Angular namespace.  The module can be included in an angular.js as follows:
 
