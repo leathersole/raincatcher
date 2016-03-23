@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-analytics",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A analytics module for WFM.",
   "main": "lib/analytics.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "author": "scm.blanc@gmail.com",
   "license": "SEE LICENSE IN LICENSE.txt",
-  "dependencies" : {
+  "dependencies": {
     "c3": "^0.4.10"
   },
   "devDependencies": {
