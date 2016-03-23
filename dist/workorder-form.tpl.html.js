@@ -26,6 +26,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  </div>\n' +
     '</md-toolbar>\n' +
     '\n' +
+    '<div class="wfm-maincol-scroll">\n' +
     '<form name="workorderForm" ng-submit="ctrl.done(workorderForm.$valid)" novalidate layout-padding layout-margin>\n' +
     '\n' +
     '  <!--\n' +
@@ -130,5 +131,6 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '  <md-button type="submit" class="md-raised md-primary">{{ctrl.model.id ? \'Update\' : \'Create\'}} Workorder</md-button>\n' +
     '</form>\n' +
+    '</div>\n' +
     '');
 }]);
