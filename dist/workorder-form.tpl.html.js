@@ -26,7 +26,6 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  </div>\n' +
     '</md-toolbar>\n' +
     '\n' +
-    '<div class="wfm-maincol-scroll">\n' +
     '<form name="workorderForm" ng-submit="ctrl.done(workorderForm.$valid)" novalidate layout-padding layout-margin>\n' +
     '\n' +
     '  <!--\n' +
@@ -49,9 +48,12 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '  <md-input-container class="md-block" flex-gt-sm>\n' +
     '    <label for="workflow">Workflow</label>\n' +
-    '    <md-select ng-model="ctrl.model.workflowId" name="workflow" id="workflow">\n' +
+    '    <md-select ng-model="ctrl.model.workflowId" name="workflow" id="workflow" required>\n' +
     '       <md-option ng-repeat="workflow in ctrl.workflows" value="{{workflow.id}}">{{workflow.id}} - {{workflow.title}}</md-option>\n' +
     '     </md-select>\n' +
+    '     <div ng-messages="workorderForm.workflow.$error" ng-if="ctrl.submitted || workorderForm.workflow.$dirty">\n' +
+    '       <div ng-message="required">A workflow is required.</div>\n' +
+    '     </div>\n' +
     '  </md-input-container>\n' +
     '</div>\n' +
     '\n' +
@@ -131,6 +133,5 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '  <md-button type="submit" class="md-raised md-primary">{{ctrl.model.id ? \'Update\' : \'Create\'}} Workorder</md-button>\n' +
     '</form>\n' +
-    '</div>\n' +
     '');
 }]);
