@@ -21,7 +21,7 @@
 
   <md-list>
     <md-list-item class="md-3-line" ng-repeat="message in ctrl.list | reverse" ng-click="ctrl.selectMessage($event, message)" class="md-3-line workorder-item"
-     ng-class="{active: ctrl.selectedMessageId === message.id, new: message.status === 'unread'}">
+     ng-class="{active: ctrl.selected.id === message.id, new: message.status === 'unread'}">
       <img ng-src="{{message.sender.avatar}}" class="md-avatar" alt="{{message.sender.name}}" />
       <div class="md-list-item-text" layout="column">
         <!--<span class="md-caption time-stamp">13 mins ago</span>-->

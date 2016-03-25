@@ -30,7 +30,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '  <md-list>\n' +
     '    <md-list-item class="md-3-line" ng-repeat="message in ctrl.list | reverse" ng-click="ctrl.selectMessage($event, message)" class="md-3-line workorder-item"\n' +
-    '     ng-class="{active: ctrl.selectedMessageId === message.id, new: message.status === \'unread\'}">\n' +
+    '     ng-class="{active: ctrl.selected.id === message.id, new: message.status === \'unread\'}">\n' +
     '      <img ng-src="{{message.sender.avatar}}" class="md-avatar" alt="{{message.sender.name}}" />\n' +
     '      <div class="md-list-item-text" layout="column">\n' +
     '        <!--<span class="md-caption time-stamp">13 mins ago</span>-->\n' +
