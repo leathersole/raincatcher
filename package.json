@@ -2,7 +2,7 @@
   "name": "fh-wfm-message",
   "version": "0.0.1",
   "description": "An message module for WFM",
-  "main": "message.js",
+  "main": "lib/angular/message-ng.js",
   "scripts": {
     "build": "wfm-template-build -m 'wfm.message.directives'",
     "watch": "wfm-template-build -w -m 'wfm.message.directives'"
@@ -17,13 +17,13 @@
     "angular-messages": "^1.4.7",
     "express": "^4.13.3",
     "fh-wfm-sync": ">=0.0.4",
-    "fh-wfm-template-build": "0.0.4",
     "lodash": "^3.10.1",
     "ng-feedhenry": "^0.2.53",
     "q": "^1.4.1"
   },
   "devDependencies": {
     "body-parser": "^1.13.3",
+    "fh-wfm-template-build": "0.0.5",
     "mocha": "^2.2.5",
     "request": "^2.61.0",
     "should": "^7.0.4",
