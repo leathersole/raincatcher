@@ -3,9 +3,9 @@
   "version": "0.0.5",
   "description": "A build tool for WFM modules",
   "bin": {
-    "wfm-template-build": "./cli.js"
+    "wfm-template-build": "./lib/cli.js"
   },
-  "main": "build.js",
+  "main": "lib/build.js",
   "keywords": [
     "wfm",
     "build"
