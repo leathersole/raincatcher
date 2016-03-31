@@ -2,7 +2,7 @@
   "name": "fh-wfm-risk-assessment",
   "version": "0.0.5",
   "description": "A risk assessment module for WFM",
-  "main": "risk-assessment.js",
+  "main": "lib/angular/risk-assessment-ng",
   "scripts": {
     "build": "wfm-template-build -m 'wfm.risk-assessment'",
     "watch": "wfm-template-build -w -m 'wfm.risk-assessment'"
@@ -21,6 +21,6 @@
   },
   "devDependencies": {
     "fh-wfm-mediator": ">=0.0.6",
-    "fh-wfm-template-build": "0.0.3"
+    "fh-wfm-template-build": "0.0.5"
   }
 }
