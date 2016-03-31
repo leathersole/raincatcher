@@ -5,15 +5,20 @@
 **/
 'use strict';
 
-var _ = require('lodash');
-var html2js = require('ng-html2js');
-var fs = require('fs');
+var _ = require('lodash'),
+    fs = require('fs'),
+    html2js = require('ng-html2js');
+
+var templateDir = 'lib/angular/template';
 
 function buildTemplates(moduleName) {
   if (!moduleName) {
     throw new Error('buildTemplates must be invoked with a moduleName parameter');
   }
-  fs.readdir('lib/template', function(err, files) {
+  fs.readdir(templateDir, function(err, files) {
+    if (err) {
+      console.error('Error reading files from', templateDir);
+    }
     fs.mkdir('dist', '0775', function(err) {
       if (err && err.code != 'EEXIST') {
         console.log(err);
@@ -35,7 +40,7 @@ function buildTemplates(moduleName) {
 }
 
 function buildTemplate(moduleName, file) {
-  var template = 'lib/template/' + file;
+  var template = templateDir + '/' + file;
   var inputFile =  './' + template;
   var outputFile = 'dist/' + file + '.js';
   var moduleVar = 'ngModule';
