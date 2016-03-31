@@ -44,5 +44,5 @@ Inject the `mediator` service to broadcast and subscribe to events
 Require the module to get an instance of the mediator.  Be sure to use that same instance throughout the application to maintain a single list of subscribers.
 
 ```javascript
-mediator = require('fh-wfm-mediator/mediator')
+mediator = require('fh-wfm-mediator/lib/mediator')
 ```

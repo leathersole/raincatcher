@@ -2,7 +2,7 @@
   "name": "fh-wfm-mediator",
   "version": "0.0.9",
   "description": "An implementation of the mediator pattern for use with WFM",
-  "main": "ng-module.js",
+  "main": "lib/angular/mediator-ng.js",
   "keywords": [
     "wfm",
     "mediator"
