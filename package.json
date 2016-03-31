@@ -2,10 +2,10 @@
   "name": "fh-wfm-vehicle-inspection",
   "version": "0.0.5",
   "description": "An vehicle-inspection module for WFM",
-  "main": "vehicle-inspection.js",
+  "main": "lib/angular/vehicle-inspection-ng.js",
   "scripts": {
-    "build": "wfm-template-build -m 'wfm.workorder'",
-    "watch": "wfm-template-build -w -m 'wfm.workorder'"
+    "build": "wfm-template-build -m 'wfm.vehicle-inspection'",
+    "watch": "wfm-template-build -w -m 'wfm.vehicle-inspection'"
   },
   "keywords": [
     "wfm",
@@ -15,11 +15,10 @@
   "license": "SEE LICENSE IN LICENSE.txt",
   "dependencies": {
     "express": "^4.13.3",
-    "fh-wfm-template-build": "0.0.4",
     "lodash": "^3.10.1"
   },
   "devDependencies": {
     "fh-wfm-mediator": ">=0.0.6",
-    "fh-wfm-template-build": ">=0.0.3"
+    "fh-wfm-template-build": "0.0.5"
   }
 }
