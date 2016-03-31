@@ -5,7 +5,7 @@
 **/
 'use strict';
 
-var mediator = require('fh-wfm-mediator/mediator')
+var mediator = require('fh-wfm-mediator/lib/mediator')
   , should = require('should')
   ;
 

@@ -79,7 +79,7 @@ The server-side component of this WFM module exports a function that takes expre
 var express = require('express')
   , app = express()
   , mbaasExpress = mbaasApi.mbaasExpress()
-  , mediator = require('fh-wfm-mediator/mediator')
+  , mediator = require('fh-wfm-mediator/lib/mediator')
   ;
 
 // configure the express app
@@ -173,7 +173,7 @@ On the server, once must also activate the workorder router:
 ```javascript
 var express = require('express')
   , app = express()
-  , mediator = require('fh-wfm-mediator/mediator')
+  , mediator = require('fh-wfm-mediator/lib/mediator')
   ;
 
 ...

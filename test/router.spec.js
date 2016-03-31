@@ -11,7 +11,7 @@ var request = require('request')
   , bodyParser = require('body-parser')
   , http = require('http')
   , should = require('should')
-  , mediator = require('fh-wfm-mediator/mediator')
+  , mediator = require('fh-wfm-mediator/lib/mediator')
   , config = require('../lib/config')
   , _ = require('lodash')
   ;
