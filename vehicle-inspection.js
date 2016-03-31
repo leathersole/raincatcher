@@ -31,12 +31,12 @@ ngModule.directive('vehicleInspectionForm', function($templateCache, mediator) {
     var self = this;
     self.model = {};
     self.back = function(event) {
-      mediator.publish('workflow:step:back');
+      mediator.publish('wfm:workflow:step:back');
       event.preventDefault();
       event.stopPropagation();
     }
     self.done = function(event) {
-      mediator.publish('workflow:step:done', self.model);
+      mediator.publish('wfm:workflow:step:done', self.model);
       event.preventDefault();
       event.stopPropagation();
     }
