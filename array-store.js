@@ -88,7 +88,7 @@ ArrayStore.prototype.listen = function(topicPrefix, mediator) {
   var self = this;
   self.mediator = mediator;
 
-  self.topic.create = topicPrefix + self.datasetId + ':create';
+  self.topic.create = "wfm:" + topicPrefix + self.datasetId + ':create';
   console.log('Subscribing to mediator topic:', self.topic.create);
   self.subscription.create = mediator.subscribe(self.topic.create, function(object, ts) {
     self.create(object, ts).then(function(object) {
@@ -96,7 +96,7 @@ ArrayStore.prototype.listen = function(topicPrefix, mediator) {
     });
   });
 
-  self.topic.load = topicPrefix + self.datasetId + ':load';
+  self.topic.load = "wfm:" + topicPrefix + self.datasetId + ':read';
   console.log('Subscribing to mediator topic:', self.topic.load);
   self.subscription.load = mediator.subscribe(self.topic.load, function(id) {
     self.read(id).then(function(object) {
@@ -104,7 +104,7 @@ ArrayStore.prototype.listen = function(topicPrefix, mediator) {
     });
   });
 
-  self.topic.save = topicPrefix + self.datasetId + ':save';
+  self.topic.save = "wfm:" + topicPrefix + self.datasetId + ':update';
   console.log('Subscribing to mediator topic:', self.topic.save);
   self.subscription.save = mediator.subscribe(self.topic.save, function(object) {
     self.update(object).then(function(object) {
@@ -112,7 +112,7 @@ ArrayStore.prototype.listen = function(topicPrefix, mediator) {
     });
   });
 
-  self.topic.delete = topicPrefix + self.datasetId + ':delete';
+  self.topic.delete = "wfm:" + topicPrefix + self.datasetId + ':delete';
   console.log('Subscribing to mediator topic:', self.topic.delete);
   self.subscription.delete = mediator.subscribe(self.topic.delete, function(object) {
     self.delete(object).then(function(object) {
@@ -120,7 +120,7 @@ ArrayStore.prototype.listen = function(topicPrefix, mediator) {
     });
   });
 
-  self.topic.list = topicPrefix + self.datasetId + ':list:load';
+  self.topic.list = "wfm:" + topicPrefix + self.datasetId + ':list';
   console.log('Subscribing to mediator topic:', self.topic.list);
   self.subscription.list = mediator.subscribe(self.topic.list, function(queryParams) {
     var filter = queryParams && queryParams.filter || {};
