@@ -2,7 +2,7 @@
   "name": "fh-wfm-component-signature",
   "version": "0.0.6",
   "description": "A signature component for FeedHenry WFM.",
-  "main": "signature.js",
+  "main": "lib/angular/signature-ng.js",
   "scripts": {
     "build": "wfm-template-build -m 'wfm.component.signature'",
     "watch": "wfm-template-build -w -m 'wfm.component.signature'"
@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "fh-wfm-mediator": "0.0.7",
-    "fh-wfm-template-build": "0.0.3"
+    "fh-wfm-template-build": "0.0.5"
   }
 }
