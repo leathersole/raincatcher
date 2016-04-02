@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-component-signature",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A signature component for FeedHenry WFM.",
   "main": "lib/angular/signature-ng.js",
   "scripts": {
@@ -15,11 +15,10 @@
   "author": "Brian Leathem",
   "license": "SEE LICENSE IN LICENSE.txt",
   "dependencies": {
-    "fh-wfm-template-build": "0.0.4",
-    "lodash": "^3.10.1"
+    "lodash": "4.7.0"
   },
   "devDependencies": {
-    "fh-wfm-mediator": "0.0.7",
-    "fh-wfm-template-build": "0.0.5"
+    "fh-wfm-mediator": "0.0.10",
+    "fh-wfm-template-build": "0.0.7"
   }
 }
