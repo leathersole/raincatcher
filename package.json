@@ -11,9 +11,9 @@
   "author": "scm.blanc@gmail.com",
   "license": "SEE LICENSE IN LICENSE.txt",
   "dependencies": {
-    "c3": "^0.4.10"
+    "c3": "0.4.10"
   },
   "devDependencies": {
-    "fh-wfm-template-build": "0.0.5"
+    "fh-wfm-template-build": "0.0.7"
   }
 }
