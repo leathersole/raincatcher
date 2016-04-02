@@ -3,6 +3,7 @@
 * Copyright 2016 Red Hat, Inc. and/or its affiliates.
 * This is unpublished proprietary source code of Red Hat.
 **/
+
 .messages{
   .md-avatar{
     margin-top: 0!important;
@@ -22,7 +23,6 @@
     top: 0;
     color: $secondary-text-color;
   }
-
   md-list-item md-divider[md-inset] {
     left: 72px;
     width: calc(100% - 72px);
@@ -40,3 +40,8 @@
   }
 }
 
+.wfm-portal{
+  .message-header{
+    line-height: 32px;
+  }
+}
