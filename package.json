@@ -1,15 +1,14 @@
 {
-  "name": "fh-wfm-component-signature",
+  "name": "fh-wfm-signature",
   "version": "0.0.8",
   "description": "A signature component for FeedHenry WFM.",
   "main": "lib/angular/signature-ng.js",
   "scripts": {
-    "build": "wfm-template-build -m 'wfm.component.signature'",
-    "watch": "wfm-template-build -w -m 'wfm.component.signature'"
+    "build": "wfm-template-build -m 'wfm.signature'",
+    "watch": "wfm-template-build -w -m 'wfm.signature'"
   },
   "keywords": [
     "wfm",
-    "component",
     "signature"
   ],
   "author": "Brian Leathem",
