@@ -7,7 +7,7 @@ A signature component for FeedHenry WFM.
 Require the browserify dependency as an angular module
 ```javascript
 angular.module('app', [
-, require('fh-wfm-component-signature')
+, require('fh-wfm-signature')
 ...
 ])
 ```
