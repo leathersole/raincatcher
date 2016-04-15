@@ -59,6 +59,7 @@
       border-bottom: 1px solid $divider-text-color;
       height: 55px;
       position: relative;
+      z-index: 0;
       .wfm-chip{
         position: absolute;
         top:50%;
@@ -68,6 +69,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        z-index: 2;
       }
     }
   }

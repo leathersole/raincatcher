@@ -51,13 +51,13 @@ This is unpublished proprietary source code of Red Hat.
     </table>
   </div>
 
-  <div flex="30" class="wfm-scheduler-workorders">
+  <div flex="30" class="wfm-scheduler-workorders" id="workorders-list" droppable="true">
     <div class="wfm-toolbar-sm">
       <h3 class="md-subhead">
         Workorders
       </h3>
     </div>
-    <span ng-repeat="workorder in ctrl.workorders" class="wfm-chip wfm-chip-no-picture" draggable="true" data-workorderId="{{workorder.id}}">
+    <span ng-repeat="workorder in ctrl.workorders | filter:workOrderfilter" class="wfm-chip wfm-chip-no-picture" draggable="true" data-workorderId="{{workorder.id}}">
       <schedule-workorder-chip workorder="workorder"></schedule-workorder-chip>
     </span>
   </div>
