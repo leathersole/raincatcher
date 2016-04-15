@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-risk-assessment",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A risk assessment module for WFM",
   "main": "lib/angular/risk-assessment-ng",
   "scripts": {
