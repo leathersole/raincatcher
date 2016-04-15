@@ -17,7 +17,7 @@
   "dependencies": {
     "angular-messages": "1.5.3",
     "express": "4.13.4",
-    "fh-wfm-sync": "0.0.6",
+    "fh-wfm-sync": "0.0.9",
     "lodash": "4.7.0",
     "ng-feedhenry": "0.2.53",
     "q": "1.4.1"
@@ -28,6 +28,6 @@
     "mocha": "2.4.5",
     "request": "2.69.0",
     "should": "8.3.0",
-    "fh-wfm-mediator": "0.0.10"
+    "fh-wfm-mediator": "0.0.12"
   }
 }
