@@ -43,16 +43,5 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  </md-list>\n' +
     '\n' +
     '</div>\n' +
-    '\n' +
-    '\n' +
-    '\n' +
-    '<md-list>\n' +
-    '  <md-list-item class="md-2-line" ng-click="navigateTo(\'app.message.detail\', {messageId: message.id})" ng-repeat="message in ctrl.messages">\n' +
-    '    <div class="md-list-item-text">\n' +
-    '      <h3>{{user.title}}</h3>\n' +
-    '    </div>\n' +
-    '    <md-divider></md-divider>\n' +
-    '  </md-list-item>\n' +
-    '</md-list>\n' +
     '');
 }]);
