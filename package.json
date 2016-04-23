@@ -17,7 +17,7 @@
   "dependencies": {
     "angular-messages": "1.5.3",
     "express": "4.13.4",
-    "fh-wfm-sync": "0.0.9",
+    "fh-wfm-sync": "0.0.10",
     "lodash": "4.7.0",
     "ng-feedhenry": "0.2.53",
     "q": "1.4.1"
