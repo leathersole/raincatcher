@@ -5,6 +5,9 @@
 -->
 <md-toolbar class="content-toolbar">
   <div class="md-toolbar-tools">
+    <md-button ng-click="ctrl.closeMessage($event, ctrl.message)" hide-gt-sm class="md-icon-button">
+      <md-icon aria-label="Close" md-font-set="material-icons">close</md-icon>
+    </md-button>
     <h3>
      {{ctrl.message.subject}}
     </h3>

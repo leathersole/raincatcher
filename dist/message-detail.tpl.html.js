@@ -14,6 +14,9 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '-->\n' +
     '<md-toolbar class="content-toolbar">\n' +
     '  <div class="md-toolbar-tools">\n' +
+    '    <md-button ng-click="ctrl.closeMessage($event, ctrl.message)" hide-gt-sm class="md-icon-button">\n' +
+    '      <md-icon aria-label="Close" md-font-set="material-icons">close</md-icon>\n' +
+    '    </md-button>\n' +
     '    <h3>\n' +
     '     {{ctrl.message.subject}}\n' +
     '    </h3>\n' +
