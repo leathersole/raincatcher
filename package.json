@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-map",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A map module for FeedHenry WFM",
   "main": "lib/angular/map-ng.js",
   "scripts": {
