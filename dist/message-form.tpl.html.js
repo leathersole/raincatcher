@@ -14,20 +14,18 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '-->\n' +
     '<md-toolbar class="content-toolbar md-primary">\n' +
     '  <div class="md-toolbar-tools">\n' +
-    '    <h3>New message</h3>\n' +
+    '    <h3>New messagetest</h3>\n' +
     '  </div>\n' +
     '</md-toolbar>\n' +
+    '<div class="wfm-maincol-scroll">\n' +
     '\n' +
     '<form name="messageForm" ng-submit="ctrl.done(messageForm.$valid)" novalidate layout-padding layout-margin>\n' +
-    '\n' +
     '  <!--\n' +
     '  <md-input-container>\n' +
     '    <label for="messageState">Status</label>\n' +
     '    <input type="text" id="inputmessageType" name="messageStatus" ng-model="ctrl.model.status" disabled="true">\n' +
     '  </md-input-container>\n' +
     '  -->\n' +
-    '\n' +
-    '\n' +
     '<div>\n' +
     '  <md-input-container class="md-block" ng-class="{ \'has-error\' : messageForm.receiver.$invalid && !messageForm.receiver.$pristine }">\n' +
     '    <label for="selectReceiver">To</label>\n' +
@@ -63,5 +61,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '  <md-button type="submit" class="md-raised md-primary">Send message</md-button>\n' +
     '</form>\n' +
+    '\n' +
+    '</div>\n' +
     '');
 }]);

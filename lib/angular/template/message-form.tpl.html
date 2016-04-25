@@ -5,20 +5,18 @@
 -->
 <md-toolbar class="content-toolbar md-primary">
   <div class="md-toolbar-tools">
-    <h3>New message</h3>
+    <h3>New messagetest</h3>
   </div>
 </md-toolbar>
+<div class="wfm-maincol-scroll">
 
 <form name="messageForm" ng-submit="ctrl.done(messageForm.$valid)" novalidate layout-padding layout-margin>
-
   <!--
   <md-input-container>
     <label for="messageState">Status</label>
     <input type="text" id="inputmessageType" name="messageStatus" ng-model="ctrl.model.status" disabled="true">
   </md-input-container>
   -->
-
-
 <div>
   <md-input-container class="md-block" ng-class="{ 'has-error' : messageForm.receiver.$invalid && !messageForm.receiver.$pristine }">
     <label for="selectReceiver">To</label>
@@ -54,3 +52,5 @@
 
   <md-button type="submit" class="md-raised md-primary">Send message</md-button>
 </form>
+
+</div>
