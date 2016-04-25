@@ -14,7 +14,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '-->\n' +
     '<md-toolbar class="content-toolbar md-primary">\n' +
     '  <div class="md-toolbar-tools">\n' +
-    '    <h3>New messagetest</h3>\n' +
+    '    <h3>New message</h3>\n' +
     '  </div>\n' +
     '</md-toolbar>\n' +
     '<div class="wfm-maincol-scroll">\n' +
