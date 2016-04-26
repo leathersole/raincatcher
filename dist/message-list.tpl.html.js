@@ -20,7 +20,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  </div>\n' +
     '</md-toolbar>\n' +
     '\n' +
-    '<form action="#" class="persistent-search">\n' +
+    '<form action="#" class="persistent-search"  hide-xs hide-sm>\n' +
     '  <label for="search"><i class="material-icons">search</i></label>\n' +
     '  <input type="text" id="search" placeholder="Search">\n' +
     '</form>\n' +
