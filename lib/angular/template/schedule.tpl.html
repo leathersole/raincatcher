@@ -57,7 +57,7 @@ This is unpublished proprietary source code of Red Hat.
         Workorders
       </h3>
     </div>
-    <span ng-repeat="workorder in ctrl.workorders | filter:workOrderfilter" class="wfm-chip wfm-chip-no-picture" draggable="true" data-workorderId="{{workorder.id}}">
+    <span ng-repeat="workorder in ctrl.workorders | filter:workorderFilter" class="wfm-chip wfm-chip-no-picture" draggable="true" data-workorderId="{{workorder.id}}">
       <schedule-workorder-chip workorder="workorder"></schedule-workorder-chip>
     </span>
   </div>

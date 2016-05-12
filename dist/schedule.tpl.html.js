@@ -66,7 +66,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '        Workorders\n' +
     '      </h3>\n' +
     '    </div>\n' +
-    '    <span ng-repeat="workorder in ctrl.workorders | filter:workOrderfilter" class="wfm-chip wfm-chip-no-picture" draggable="true" data-workorderId="{{workorder.id}}">\n' +
+    '    <span ng-repeat="workorder in ctrl.workorders | filter:workorderFilter" class="wfm-chip wfm-chip-no-picture" draggable="true" data-workorderId="{{workorder.id}}">\n' +
     '      <schedule-workorder-chip workorder="workorder"></schedule-workorder-chip>\n' +
     '    </span>\n' +
     '  </div>\n' +
