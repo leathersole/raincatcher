@@ -26,7 +26,6 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  </div>\n' +
     '</md-toolbar>\n' +
     '\n' +
-    '<div class="wfm-maincol-scroll">\n' +
     '<form name="workorderForm" ng-submit="ctrl.done(workorderForm.$valid)" novalidate layout-padding layout-margin>\n' +
     '\n' +
     '  <!--\n' +
@@ -90,14 +89,14 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '<div layout-gt-sm="row">\n' +
     '  <md-input-container class="md-block" flex-gt-sm>\n' +
     '    <label for="inputAddress">Lattitude</label>\n' +
-    '    <input type="text"  id="inputLattitude" name="lattitude" ng-model="ctrl.model.location[0]" required>\n' +
+    '    <input type="number"  id="inputLattitude" name="lattitude" ng-model="ctrl.model.location[0]" required>\n' +
     '    <div ng-messages="workorderForm.lattitude.$error" ng-show="ctrl.submitted || workorderForm.lattitude.$dirty">\n' +
     '      <div ng-message="required">An lattitude is required.</div>\n' +
     '    </div>\n' +
     '  </md-input-container>\n' +
     '  <md-input-container class="md-block" flex-gt-sm>\n' +
     '    <label for="inputAddress">Longitude</label>\n' +
-    '    <input type="text"  id="inputLattitude" name="longitude" ng-model="ctrl.model.location[1]" required>\n' +
+    '    <input type="number"  id="inputLattitude" name="longitude" ng-model="ctrl.model.location[1]" required>\n' +
     '    <div ng-messages="workorderForm.longitude.$error" ng-show="ctrl.submitted || workorderForm.longitude.$dirty">\n' +
     '      <div ng-message="required">An longitude is required.</div>\n' +
     '    </div>\n' +
@@ -134,6 +133,5 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '\n' +
     '  <md-button type="submit" class="md-raised md-primary">{{ctrl.model.id ? \'Update\' : \'Create\'}} Workorder</md-button>\n' +
     '</form>\n' +
-    '</div">\n' +
     '');
 }]);
