@@ -40,7 +40,8 @@ schedule-workorder-chip {
     text-overflow: ellipsis;
   }
 }
-.wfm-scheduler-calendar{
+.wfm-scheduler-calendar {
+  position: absolute;
   overflow-x: scroll;
   table{
     table-layout: fixed;
@@ -64,22 +65,31 @@ schedule-workorder-chip {
       height: 55px;
       position: relative;
       z-index: 0;
-      .wfm-chip{
-        position: absolute;
-        top:50%;
-        left: 0;
-        transform: translateY(-50%);
-        min-width: 100px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        z-index: 2;
-      }
     }
   }
+
+  .wfm-chip{
+    position: absolute;
+    transform: translateY(50%);
+    min-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 2;
+  }
+
 }
 
-.wfm-scheduler-workorders{
+.wfm-scheduler-scheduled {
+  // visibility: hidden;
+  // display:none;
+}
+
+.wfm-scheduler-scheduled * {
+  // visibility: : block;
+}
+
+.wfm-scheduler-unscheduled {
   border-left: 1px solid $divider-text-color;
   .wfm-chip{
     display: block;
@@ -97,7 +107,7 @@ schedule-workorder-chip {
     margin: 0;
     line-height: 36px;
   }
-  .wfm-scheduler-workorders &{
+  .wfm-scheduler-unscheduled &{
     background: $primary-color;
     color: $white-secondary-text-color;
     box-shadow: inset 0 4px 6px $divider-text-color;

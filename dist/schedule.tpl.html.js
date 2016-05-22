@@ -55,12 +55,13 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '              <td ng-repeat="hour in [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]" droppable="true" data-hour="{{hour}}" data-workerId="{{worker.id}}"></td>\n' +
     '            </tr>\n' +
     '          </table>\n' +
+    '          <div class="wfm-scheduler-scheduled"></div>\n' +
     '        </td>\n' +
     '      </tr>\n' +
     '    </table>\n' +
     '  </div>\n' +
     '\n' +
-    '  <div flex="30" class="wfm-scheduler-workorders" id="workorders-list" droppable="true">\n' +
+    '  <div flex="30" class="wfm-scheduler-unscheduled" id="workorders-list" droppable="true">\n' +
     '    <div class="wfm-toolbar-sm">\n' +
     '      <h3 class="md-subhead">\n' +
     '        Workorders\n' +
