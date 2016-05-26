@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-analytics",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A analytics module for WFM.",
   "main": "lib/angular/analytics-ng.js",
   "scripts": {
