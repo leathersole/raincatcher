@@ -1,6 +1,9 @@
 # FeedHenry WFM workorder
 
-A workorder module for FeedHenry WFM.
+This module contains a workorder model representation and its related services :
+- Backend services
+- Frontend services
+- Frontend UI templates
 
 ## Client-side usage
 
@@ -19,7 +22,17 @@ angular.module('app', [
 #### Integration
 
 ##### Angular controller
-A sync manager must first be initialized using the `workorderSync.managerPromise`.  This can be placed in the `resolve` config of a `ui-router` controlled application (see below).
+A sync manager must first be initialized using the `workorderSync.createManager()`.  This can be placed, for instance, in the `resolve` config of a `ui-router` controlled application.
+
+```javascript
+resolve: {
+  workorderManager: function(workorderSync) {
+    return workorderSync.createManager();
+  }
+}
+```
+For a more complete example, please check the [demo portal app](https://github.com/feedhenry-staff/wfm-portal/blob/master/src/app/main.js).
+
 
 ##### `workorderSync` API
 These workorderSync API methods all return Promises:
@@ -31,44 +44,16 @@ These workorderSync API methods all return Promises:
 | `workorderSync.manager.read(workorderId)` | read a workorder |
 | `workorderSync.manager.update(workorder)` | update a workorder |
 
-##### Ui-router integration
-This module provides nice integration with the [ui-router](https://github.com/angular-ui/ui-router) project.
+#### Workorder directives
 
-Initialize the sync manager using the managerPromise, making the `workorderManager` available for injection in child states:
+| Name | Attributes |
+| ---- | ----------- |
+| workorder-list | workorders, resultMap, selectedModel |
+| workorder | workorder, assignee, status |
+| workorder-form | value, workflows, workers |
+| workorder-status | status |
+| workorder-sunbmission-result | result, step |
 
-```javascript
-resolve: {
-  workorderManager: function(workorderSync) {
-    return workorderSync.managerPromise;
-  }
-},
-```
-
-Listen to events to trigger navigation:
-
-```javascript
-.run(function($state, mediator) {
-  mediator.subscribe('workorder:selected', function(workorder) {
-    $state.go('app.workorder', {
-      workorderId: workorder.id
-    });
-  });
-})
-```
-
-Use the ui-router `resolve` API to pre-load data before rendering a page:
-```javascript
-.state('app.workorder', {
-      url: '/workorder/:workorderId',
-      templateUrl: '/app/workorder/workorder.tpl.html',
-      controller: 'WorkorderController as ctrl',
-      resolve: {
-        workorder: function(workorderManager, $stateParams) {
-          return workorderManager.read($stateParams.workorderId);
-        }
-      }
-    })
-```
 
 ## Usage in an express backend
 
@@ -87,8 +72,7 @@ var express = require('express')
 
 // setup the wfm workorder sync server
 require('fh-wfm-workorder/server')(mediator, app, mbaasExpress);
-// setup the wfm routes
-require('fh-wfm-workflow/router')(mediator, app);
+
 ```
 
 ### Server side events
@@ -96,89 +80,30 @@ the module broadcasts, and listens for the following events
 
 | Listens for | Responds with |
 | ----------- | ------------- |
-| `workorders:load` | `done:workorders:load` |
-| `workorder:load` | `done:workorder:load` |
-| `workorder:save` | `done:workorder:save` |
-| `workorder:create` | `done:workorder:create` |
+| `wfm:workorder:list` | `done:wfm:workorder:list` |
+| `wfm:workorder:read` | `done:wfm:workorder:read` |
+| `wfm:workorder:update` | `done:wfm:workorder:update` |
+| `wfm:workorder:create` | `done:wfm:workorder:create` |
 
-### Integrating
-The application will listen for the above events, and respond with the appropriate data attached to the corresponding response event.
+### Integration
 
-Example:
+Check this [demo cloud application](https://github.com/feedhenry-staff/wfm-cloud/blob/master/lib/app/workorder.js)
+
+### Workorder data structure example
 
 ```javascript
-var _ = require('lodash');
 
-var workorders = [
-  { id: 1276001, type: 'Job Order', title: 'Footpath in disrepair', status: 'In Progress', address: '118 N Peoria @N Chicago, IL 60607', summary: 'Please remove damaged kerb and SUPPLY AND FIX 1X DROP KERB CENTRE BN 125 X 150 cart away from site outside number 3.'},
-  { id: 1276231, type: 'Job Order', title: 'Road in disrepair', status: 'Complete', address: '2116 Sussex Dr. @Redmond, WA 60607', summary: 'Please remove damaged kerb and SUPPLY AND FIX 1X DROP KERB CENTRE BN 125 X 150 cart away from site outside number 3.'},
-  { id: 1276712, type: 'Job Order', title: 'Driveway in disrepair', status: 'Aborted', address: '18 Curve Cr. @San Jose, CA 60607', summary: 'Please remove damaged kerb and SUPPLY AND FIX 1X DROP KERB CENTRE BN 125 X 150 cart away from site outside number 3.'},
-  { id: 1262134, type: 'Job Order', title: 'Door in disrepair', status: 'On Hold', address: '623 Ferry St. @Boise, ID 60607', summary: 'Please remove damaged kerb and SUPPLY AND FIX 1X DROP KERB CENTRE BN 125 X 150 cart away from site outside number 3.'},
-  { id: 12623122, type: 'Job Order', title: 'Roof in disrepair', status: 'Unassigned', address: '5528 Closed loop @Boston, MA 60607', summary: 'Please remove damaged kerb and SUPPLY AND FIX 1X DROP KERB CENTRE BN 125 X 150 cart away from site outside number 3.'},
-  { id: 12623122, type: 'Job Order', title: 'House in disrepair', status: 'New', address: '364 Driver way @Portland, OR 60607', summary: 'Please remove damaged kerb and SUPPLY AND FIX 1X DROP KERB CENTRE BN 125 X 150 cart away from site outside number 3.'}
-];
+  {
+     id: 1276001,
+     workflowId: '1339',
+     assignee: '156340',
+     type: 'Job Order',
+     title: 'Footpath in disrepair',
+     status: 'New',
+     startTimestamp: '2015-10-22T14:00:00Z',
+     address: '1795 Davie St, Vancouver, BC V6G 2M9',
+     location: [49.287227, -123.141489],
+     summary: 'Please remove damaged kerb and SUPPLY AND FIX 1X DROP KERB CENTRE BN 125 X 150 cart away from site outside number 3.'
+  }
 
-module.exports = function(mediator) {
-  console.log('Subscribing to mediator topic: workorders:load');
-  mediator.subscribe('workorders:load', function() {
-    setTimeout(function() {
-      mediator.publish('done:workorders:load', workorders);
-    }, 0);
-  });
-
-  mediator.subscribe('workorder:load', function(id) {
-    setTimeout(function() {
-      var workorder = _.find(workorders, function(_workorder) {
-        return _workorder.id == id;
-      });
-      mediator.publish('done:workorder:load:' + id, workorder);
-    }, 0);
-  });
-
-  mediator.subscribe('workorder:save', function(workorder) {
-    setTimeout(function() {
-      var index = _.findIndex(workorders, function(_workorder) {
-        return _workorder.id == workorder.id;
-      });
-      workorders[index] = workorder;
-      console.log('Saved workorder:', workorder);
-      mediator.publish('done:workorder:save:' + workorder.id, workorder);
-    }, 0);
-  });
-
-  mediator.subscribe('workorder:create', function(workorder) {
-    setTimeout(function() {
-      workorder.id = workorders.length;
-      workorders.push(workorder);
-      console.log('Created workorder:', workorder);
-      mediator.publish('done:workorder:create:' + workorder.createdTs, workorder);
-    }, 0);
-  });
-}
 ```
-
-## Using a REST API instead of $fh.sync
-
-By default the above usage instructions uses the FeedHenry sync functionality to co-ordinate the clients with the cloud.  Alternatively, one can use a REST API for cloud and client co-oridnation.  This is achieved by changing only which files are included:
-
-```javascript
-angular.module('app', [
-, require('fh-wfm-workorder/lib/angular/ng-modules/rest-service')
-...
-])
-```
-
-On the server, once must also activate the workorder router:
-
-```javascript
-var express = require('express')
-  , app = express()
-  , mediator = require('fh-wfm-mediator/lib/mediator')
-  ;
-
-...
-
-require('fh-wfm-workorder/lib/router')(mediator, app);
-````
-
-Neither the client nor the server-side APIs differ with this change.
