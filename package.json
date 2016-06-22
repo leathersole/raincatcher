@@ -12,7 +12,7 @@
     "risk-assessment"
   ],
   "author": "Brian Leathem",
-  "license": "SEE LICENSE IN LICENSE.txt",
+  "license": "MIT",
   "dependencies": {
     "express": "4.13.4",
     "fh-wfm-signature": "0.0.10",
