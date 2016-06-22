@@ -8,7 +8,7 @@
     "mediator"
   ],
   "author": "Brian Leathem",
-  "license": "SEE LICENSE IN LICENSE.txt",
+  "license": "MIT",
   "dependencies": {
     "lodash": "^4.7.0",
     "mediator-js": "^0.9.9",
