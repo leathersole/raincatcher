@@ -1,17 +1,12 @@
 var ngModule;
 try {
-  ngModule = angular.module('wfm.workorder');
+  ngModule = angular.module('wfm.vehicle-inspection');
 } catch (e) {
-  ngModule = angular.module('wfm.workorder', []);
+  ngModule = angular.module('wfm.vehicle-inspection', []);
 }
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/vehicle-inspection-form.tpl.html',
-    '<!--\n' +
-    ' CONFIDENTIAL\n' +
-    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
-    ' This is unpublished proprietary source code of Red Hat.\n' +
-    '-->\n' +
     '  <div layout="row" class="wfm-inspection-row">\n' +
     '    <div flex="40" layout="row" layout-align="start center">\n' +
     '      <span class="md-body-2">\n' +
