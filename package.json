@@ -13,7 +13,7 @@
     "workorder"
   ],
   "author": "Brian Leathem",
-  "license": "SEE LICENSE IN LICENSE.txt",
+  "license": "MIT",
   "dependencies": {
     "angular-messages": "1.5.3",
     "express": "4.13.4",
