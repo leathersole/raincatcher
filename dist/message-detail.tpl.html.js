@@ -7,11 +7,6 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/message-detail.tpl.html',
-    '<!--\n' +
-    ' CONFIDENTIAL\n' +
-    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
-    ' This is unpublished proprietary source code of Red Hat.\n' +
-    '-->\n' +
     '<md-toolbar class="content-toolbar">\n' +
     '  <div class="md-toolbar-tools">\n' +
     '    <md-button ng-click="ctrl.closeMessage($event, ctrl.message)" hide-gt-sm class="md-icon-button">\n' +

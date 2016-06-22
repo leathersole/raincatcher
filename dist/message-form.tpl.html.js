@@ -7,11 +7,6 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/message-form.tpl.html',
-    '<!--\n' +
-    ' CONFIDENTIAL\n' +
-    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
-    ' This is unpublished proprietary source code of Red Hat.\n' +
-    '-->\n' +
     '<md-toolbar class="content-toolbar md-primary">\n' +
     '  <div class="md-toolbar-tools">\n' +
     '    <h3>New message</h3>\n' +
