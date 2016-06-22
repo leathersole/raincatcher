@@ -13,7 +13,7 @@
     "schedule"
   ],
   "author": "Brian Leathem",
-  "license": "SEE LICENSE IN LICENSE.txt",
+  "license": "MIT",
   "devDependencies": {
     "fh-wfm-template-build": "0.0.7"
   },
