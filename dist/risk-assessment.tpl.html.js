@@ -7,11 +7,6 @@ try {
 
 ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/risk-assessment.tpl.html',
-    '<!--\n' +
-    ' CONFIDENTIAL\n' +
-    ' Copyright 2016 Red Hat, Inc. and/or its affiliates.\n' +
-    ' This is unpublished proprietary source code of Red Hat.\n' +
-    '-->\n' +
     '  <md-subheader>Risk Assessment</md-subheader>\n' +
     '\n' +
     '  <md-list class="risk-assessment">\n' +
