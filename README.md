@@ -1,4 +1,4 @@
-# FeedHenry WFM Analytics
+# FeedHenry WFM Analytics [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-analytics.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-analytics)
 
 This module contains a set of Angular directives to represent analytics with flow and charts.
 

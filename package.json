@@ -5,8 +5,7 @@
   "main": "lib/angular/analytics-ng.js",
   "scripts": {
     "build": "wfm-template-build -m 'wfm.analytics.directives'",
-    "watch": "wfm-template-build -w -m 'wfm.analytics.directives'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "wfm-template-build -w -m 'wfm.analytics.directives'"
   },
   "author": "scm.blanc@gmail.com",
   "license": "MIT",
