@@ -1,4 +1,4 @@
-# FeedHenry WFM template build
+# FeedHenry WFM template build [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-template-build.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-template-build)
 
 A tool for building FeedHenry WFM angular directive's templates.
 
