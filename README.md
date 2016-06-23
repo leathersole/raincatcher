@@ -1,4 +1,4 @@
-# FeedHenry WFM workorder
+# FeedHenry WFM workorder [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-workorder.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-workorder)
 
 This module contains a workorder model representation and its related services :
 - Backend services
