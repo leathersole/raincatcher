@@ -1,4 +1,4 @@
-# FeedHenry WFM message
+# FeedHenry WFM message [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-message.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-message)
 
 This module contains a message model representation and its related services :
 - Backend services
