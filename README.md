@@ -1,4 +1,4 @@
-# FeedHenry WFM Map
+# FeedHenry WFM Map [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-map.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-map)
 
 This module provides an Angular directive to represent workorders on a map.
 
