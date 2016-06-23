@@ -28,12 +28,7 @@
   <workorder-status class="" status="ctrl.resultMap[workorder.id].status"></workorder-status>
 
     <div class="md-list-item-text">
-      <h3>
-        {{workorder.type}} -
-        <span ng-if="workorder.id">{{workorder.id}}</span>
-        <span ng-if="! workorder.id" style="font-style: italic;">&lt;local&gt;</span>
-      </h3>
-      <h4>{{workorder.title}}</h4>
+      <h3>{{workorder.title}}</h3>
       <p>{{workorder.address}}</p>
     </div>
     <md-divider></md-divider>

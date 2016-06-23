@@ -37,12 +37,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '  <workorder-status class="" status="ctrl.resultMap[workorder.id].status"></workorder-status>\n' +
     '\n' +
     '    <div class="md-list-item-text">\n' +
-    '      <h3>\n' +
-    '        {{workorder.type}} -\n' +
-    '        <span ng-if="workorder.id">{{workorder.id}}</span>\n' +
-    '        <span ng-if="! workorder.id" style="font-style: italic;">&lt;local&gt;</span>\n' +
-    '      </h3>\n' +
-    '      <h4>{{workorder.title}}</h4>\n' +
+    '      <h3>{{workorder.title}}</h3>\n' +
     '      <p>{{workorder.address}}</p>\n' +
     '    </div>\n' +
     '    <md-divider></md-divider>\n' +

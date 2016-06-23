@@ -9,7 +9,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
   $templateCache.put('wfm-template/workorder-form.tpl.html',
     '<md-toolbar class="content-toolbar md-primary">\n' +
     '  <div class="md-toolbar-tools">\n' +
-    '    <h3>{{ctrl.model.id ? \'Update\' : \'Create\'}} work order ID {{ctrl.model.id}}</h3>\n' +
+    '    <h3>{{ctrl.model.id ? \'Update\' : \'Create\'}} workorder</h3>\n' +
     '    <md-button class="md-icon-button" aria-label="{{ctrl.status}}">\n' +
     '      <workorder-status status="ctrl.status"></workorder-status>\n' +
     '    </md-button>\n' +
