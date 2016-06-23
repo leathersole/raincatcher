@@ -1,4 +1,4 @@
-# FeedHenry WFM Schedule
+# FeedHenry WFM Schedule [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-schedule.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-schedule)
 
 This module contains a set of Angular directives to manage a scheduler to schedule workorders.
 

@@ -5,8 +5,7 @@
   "main": "lib/angular/schedule-ng.js",
   "scripts": {
     "build": "wfm-template-build -m 'wfm.schedule.directives'",
-    "watch": "wfm-template-build -w -m 'wfm.schedule.directives'",
-    "test": "mocha test/router.spec.js"
+    "watch": "wfm-template-build -w -m 'wfm.schedule.directives'"
   },
   "keywords": [
     "wfm",
