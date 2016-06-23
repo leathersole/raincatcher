@@ -25,7 +25,7 @@ ngModule.run(['$templateCache', function ($templateCache) {
     '    ng-repeat="workorder in ctrl.workorders"\n' +
     '    ng-click="ctrl.selectWorkorder($event, workorder)"\n' +
     '    ng-class="{active: ctrl.selected.id === workorder.id}"\n' +
-    '    class="md-3-line workorder-item"\n' +
+    '    class="md-2-line workorder-item"\n' +
     '  >\n' +
     '<!--\n' +
     '  TODO: change class name according to the color:\n' +
