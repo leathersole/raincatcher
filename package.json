@@ -17,7 +17,7 @@
     "lodash": "4.7.0"
   },
   "devDependencies": {
-    "fh-wfm-mediator": "0.0.12",
-    "fh-wfm-template-build": "0.0.7"
+    "fh-wfm-mediator": "0.0.13",
+    "fh-wfm-template-build": "0.0.8"
   }
 }
