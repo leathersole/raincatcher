@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-signature",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A signature component for FeedHenry WFM.",
   "main": "lib/angular/signature-ng.js",
   "scripts": {
