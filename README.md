@@ -1,6 +1,6 @@
-# FeedHenry WFM mediator [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-mediator.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-mediator)
+# FeedHenry RainCatcher mediator [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-mediator.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-mediator)
 
-An implementation of the mediator pattern for use with WFM modules.
+An implementation of the mediator pattern for use with RainCatcher modules.
 
 ## API
 | Method | Description |
