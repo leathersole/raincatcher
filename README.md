@@ -1,4 +1,4 @@
-# FeedHenry WFM Analytics [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-analytics.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-analytics)
+# FeedHenry RainCatcher Analytics [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-analytics.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-analytics)
 
 This module contains a set of Angular directives to represent analytics with flow and charts.
 
@@ -24,4 +24,4 @@ angular.module('app', [
 | analytics-barchart | workorders |
 | analytics-areachart | workorders |
 
-For a more complete example, please check the [demo portal app](https://github.com/feedhenry-staff/wfm-portal/tree/master/src/app/analytics).
+For a more complete example, please check the [demo portal app](https://github.com/feedhenry-raincatcher/raincatcher-demo-portal/tree/master/src/app/analytics).
