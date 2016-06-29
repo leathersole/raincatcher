@@ -1,10 +1,10 @@
-# FeedHenry WFM template build [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-template-build.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-template-build)
+# FeedHenry RainCatcher template build [![Build Status](https://travis-ci.org/feedhenry-raincatcher/raincatcher-template-build.png)](https://travis-ci.org/feedhenry-raincatcher/raincatcher-template-build)
 
-A tool for building FeedHenry WFM angular directive's templates.
+A tool for building FeedHenry RainCatcher angular directive's templates.
 
 ## Usage
 
-Inside a WFM Module, in the `package.json` add  :
+Inside a RainCatcher Module, in the `package.json` add  :
 
 ```
 "scripts": {
