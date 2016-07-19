@@ -11,7 +11,7 @@
   "author": "bleathem@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "fh-wfm-template-build": "0.0.8"
+    "fh-wfm-template-build": "0.0.9"
   },
   "dependencies": {
     "q": "1.4.1"
