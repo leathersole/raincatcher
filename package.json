@@ -24,10 +24,10 @@
   },
   "devDependencies": {
     "body-parser": "1.15.0",
-    "fh-wfm-template-build": "0.0.8",
+    "fh-wfm-template-build": "0.0.9",
     "mocha": "2.4.5",
     "request": "2.69.0",
     "should": "8.3.0",
-    "fh-wfm-mediator": "0.0.13"
+    "fh-wfm-mediator": "0.0.14"
   }
 }
