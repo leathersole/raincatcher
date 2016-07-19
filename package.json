@@ -13,6 +13,6 @@
     "c3": "0.4.11"
   },
   "devDependencies": {
-    "fh-wfm-template-build": "0.0.8"
+    "fh-wfm-template-build": "0.0.9"
   }
 }
