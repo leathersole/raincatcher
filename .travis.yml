@@ -1,3 +1,9 @@
+language: node_js
+node_js:
+  - '0.10'
+  - '4'
+sudo: false
+install: npm install
 services:
   - docker
 scripts:
