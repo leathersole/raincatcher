@@ -3,6 +3,9 @@
   "version": "0.0.14",
   "description": "An implementation of the mediator pattern for use with WFM",
   "main": "lib/angular/mediator-ng.js",
+  "scripts": {
+    "test": "grunt"
+  },
   "keywords": [
     "wfm",
     "mediator"
@@ -14,5 +17,9 @@
     "mediator-js": "^0.9.9",
     "q": "^1.4.1",
     "shortid": "^2.2.6"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
   }
 }
