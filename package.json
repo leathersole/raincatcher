@@ -5,7 +5,8 @@
   "main": "lib/angular/vehicle-inspection-ng.js",
   "scripts": {
     "build": "wfm-template-build -m 'wfm.vehicle-inspection'",
-    "watch": "wfm-template-build -w -m 'wfm.vehicle-inspection'"
+    "watch": "wfm-template-build -w -m 'wfm.vehicle-inspection'",
+    "test": "grunt"
   },
   "keywords": [
     "wfm",
@@ -19,6 +20,8 @@
   },
   "devDependencies": {
     "fh-wfm-mediator": "0.0.14",
-    "fh-wfm-template-build": "0.0.9"
+    "fh-wfm-template-build": "0.0.9",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
   }
 }
