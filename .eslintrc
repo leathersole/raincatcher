@@ -1,6 +1,7 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "browser": true
   },
   "extends": "eslint:recommended",
   "rules": {
@@ -26,7 +27,7 @@
     "curly": ["error", "all"]
   },
   "globals": {
-    "angular": false,
+    "angular": false
   }
 }
 
