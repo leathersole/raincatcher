@@ -6,12 +6,14 @@
   "scripts": {
     "build": "wfm-template-build -m 'wfm.camera.directives'",
     "watch": "wfm-template-build -w -m 'wfm.camera.directives'",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "grunt eslint"
   },
   "author": "bleathem@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "fh-wfm-template-build": "0.0.9"
+    "fh-wfm-template-build": "0.0.9",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
   },
   "dependencies": {
     "q": "1.4.1"
