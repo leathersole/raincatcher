@@ -5,7 +5,8 @@
   "main": "lib/angular/risk-assessment-ng",
   "scripts": {
     "build": "wfm-template-build -m 'wfm.risk-assessment'",
-    "watch": "wfm-template-build -w -m 'wfm.risk-assessment'"
+    "watch": "wfm-template-build -w -m 'wfm.risk-assessment'",
+    "test": "grunt"
   },
   "keywords": [
     "wfm",
@@ -20,6 +21,8 @@
   },
   "devDependencies": {
     "fh-wfm-mediator": "0.0.14",
-    "fh-wfm-template-build": "0.0.9"
+    "fh-wfm-template-build": "0.0.9",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
   }
 }
