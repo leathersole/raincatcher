@@ -1,7 +1,7 @@
 services:
   - docker
 before_install:
-- npm install -g npm@2.13.5
+  - npm install -g npm@2.13.5
   - npm install -g nsp
 install: npm install
 script:
