@@ -16,9 +16,10 @@
   "license": "MIT",
   "dependencies": {
     "angular-messages": "1.5.3",
-    "express": "4.13.4",
+    "express": "4.14.0",
     "fh-wfm-sync": "0.0.12",
     "lodash": "4.7.0",
+    "moment": "^2.15.1",
     "ng-feedhenry": "0.2.53",
     "q": "1.4.1"
   },
