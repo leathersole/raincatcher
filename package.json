@@ -5,6 +5,9 @@
   "bin": {
     "wfm-template-build": "./lib/cli.js"
   },
+  "scripts": {
+    "test": "grunt"
+  },
   "main": "lib/build.js",
   "keywords": [
     "wfm",
@@ -17,5 +20,9 @@
     "minimist": "1.2.0",
     "ng-html2js": "2.0.0",
     "node-watch": "0.3.5"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
   }
 }
