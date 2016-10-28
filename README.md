@@ -2,7 +2,7 @@
 
 A tool for building FeedHenry RainCatcher angular directive's templates.
 
-## Usage
+## Usage NPM
 
 Inside a RainCatcher Module, in the `package.json` add  :
 
@@ -27,3 +27,44 @@ Inside your module you can now watch for template changes :
 npm run watch  
 
 ```
+
+## Usage Grunt
+Add the dependency to your project using npm:
+
+    npm install --save-dev fh-wfm-template-build
+
+Load the plugin by adding it to your Gruntfile.js:
+
+    grunt.loadNpmTasks('fh-wfm-template-build');
+
+Add a configuration to your Gruntfile.js :
+
+    grunt.initConfig({
+      wfmTemplate: {
+        module: "wfm.<module-name>.directives",
+        templateDir: "lib/angular/template'
+      }
+    })
+
+There two target available to be run `build` and `watch`:
+
+    $ grunt wfmTemplate:build
+
+    $ grunt wfmTemplate:watch
+
+If you require different module names for `build` and `watch` you can add specific configurations
+for each target in `Gruntfile.js`. For example:
+
+      wfmTemplate: {
+        module: "wfm.<module-name>.directives",
+        templateDir: "lib/angular/template',
+        build: {
+          module: "some other module name",
+        }
+      }
+
+The module configuration `module` is an option you can also specify it on the command line like:
+
+    $ $ grunt wfm_watch --module=<module name>
+
+This will override any option specified in Gruntfile.js

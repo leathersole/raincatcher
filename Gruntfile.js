@@ -5,6 +5,7 @@ module.exports = function(grunt) {
       src: ["lib/**/*.js"]
     }
   });
+  grunt.loadTasks('tasks');
   grunt.loadNpmTasks("grunt-eslint");
   grunt.registerTask('default', ['eslint']);
 };

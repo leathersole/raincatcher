@@ -11,7 +11,8 @@
   "main": "lib/build.js",
   "keywords": [
     "wfm",
-    "build"
+    "build",
+    "gruntplugin"
   ],
   "author": "Brian Leathem",
   "license": "MIT",
