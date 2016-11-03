@@ -21,7 +21,8 @@ module.exports = function(grunt) {
     if (this.target === 'build') {
       build(moduleName);
     } else if (this.target === 'watch') {
-      watch('./' + taskConfig.templateDir || 'lib/angular/template', () => build(templateDir));
+      const templateDir = taskConfig.templateDir || 'lib/angular/template';
+      watch('./' + templateDir, () => build(templateDir));
     } else {
       usage(grunt, this.name);
     }
