@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-result",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "dependencies": {
     "angular-messages": {
       "version": "1.5.3",
