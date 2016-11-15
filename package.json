@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-camera",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A camera module for WFM.",
   "main": "lib/angular/camera-ng.js",
   "scripts": {
