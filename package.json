@@ -20,7 +20,7 @@
   "devDependencies": {
     "eslint-config-angular": "^0.5.0",
     "eslint-plugin-angular": "^1.4.1",
-    "fh-wfm-mediator": "0.0.14",
+    "fh-wfm-mediator": "0.0.15",
     "fh-wfm-template-build": "0.0.9",
     "grunt": "^1.0.1",
     "grunt-eslint": "^18.0.0"
