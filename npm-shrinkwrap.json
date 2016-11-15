@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-workorder",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "dependencies": {
     "angular-messages": {
       "version": "1.5.3",
