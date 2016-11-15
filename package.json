@@ -20,7 +20,7 @@
     "fh-wfm-sync": "0.0.12",
     "lodash": "4.7.0",
     "moment": "^2.15.1",
-    "ng-feedhenry": "0.2.53",
+    "ng-feedhenry": "0.3.0",
     "q": "1.4.1"
   },
   "devDependencies": {
