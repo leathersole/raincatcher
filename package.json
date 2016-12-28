@@ -8,7 +8,8 @@
     "url": "https://github.com/feedhenry-raincatcher/raincatcher-mediator.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "grunt",
+    "vuln": "nsp check"
   },
   "keywords": [
     "wfm",
@@ -39,6 +40,7 @@
     "sinon-as-promised": "^4.0.2",
     "sinon-chai": "^2.8.0",
     "sinon-promise": "^0.1.3",
-    "sinon-stub-promise": "^4.0.0"
+    "sinon-stub-promise": "^4.0.0",
+    "nsp": "^2.6.2"
   }
 }
