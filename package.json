@@ -9,6 +9,10 @@
     "test": "grunt"
   },
   "main": "lib/build.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-template-build.git"
+  },
   "keywords": [
     "wfm",
     "build",
