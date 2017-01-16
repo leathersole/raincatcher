@@ -3,6 +3,10 @@
   "version": "0.0.27",
   "description": "An workorder module for WFM",
   "main": "lib/angular/workorder-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-workorder.git"
+  },
   "scripts": {
     "build": "wfm-template-build -m 'wfm.workorder.directives'",
     "watch": "wfm-template-build -w -m 'wfm.workorder.directives'",
