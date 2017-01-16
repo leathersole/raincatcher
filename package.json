@@ -3,6 +3,10 @@
   "version": "0.0.14",
   "description": "A risk assessment module for WFM",
   "main": "lib/angular/risk-assessment-ng",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-risk-assessment.git"
+  },
   "scripts": {
     "build": "wfm-template-build -m 'wfm.risk-assessment'",
     "watch": "wfm-template-build -w -m 'wfm.risk-assessment'",
