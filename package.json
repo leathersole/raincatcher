@@ -3,6 +3,10 @@
   "version": "0.0.16",
   "description": "A result module for WFM, for working with the results of pushing a workorder through a workflow",
   "main": "lib/angular/result-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-result.git"
+  },
   "scripts": {
     "build": "wfm-template-build -m 'wfm.result.directives'",
     "watch": "wfm-template-build -w -m 'wfm.result.directives'",
