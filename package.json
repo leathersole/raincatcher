@@ -3,6 +3,10 @@
   "version": "0.0.8",
   "description": "A camera module for WFM.",
   "main": "lib/angular/camera-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-camera.git"
+  },
   "scripts": {
     "build": "wfm-template-build -m 'wfm.camera.directives'",
     "watch": "wfm-template-build -w -m 'wfm.camera.directives'",
