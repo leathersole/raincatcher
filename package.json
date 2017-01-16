@@ -3,6 +3,10 @@
   "version": "0.0.7",
   "description": "A analytics module for WFM.",
   "main": "lib/angular/analytics-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-analytics.git"
+  },
   "scripts": {
     "build": "wfm-template-build -m 'wfm.analytics.directives'",
     "watch": "wfm-template-build -w -m 'wfm.analytics.directives'",
