@@ -3,6 +3,10 @@
   "version": "0.0.12",
   "description": "An vehicle-inspection module for WFM",
   "main": "lib/angular/vehicle-inspection-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-vehicle-inspection.git"
+  },
   "scripts": {
     "build": "wfm-template-build -m 'wfm.vehicle-inspection'",
     "watch": "wfm-template-build -w -m 'wfm.vehicle-inspection'",
