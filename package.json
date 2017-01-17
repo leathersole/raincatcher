@@ -3,6 +3,10 @@
   "version": "0.0.15",
   "description": "A signature component for FeedHenry WFM.",
   "main": "lib/angular/signature-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-signature.git"
+  },
   "scripts": {
     "build": "wfm-template-build -m 'wfm.signature'",
     "watch": "wfm-template-build -w -m 'wfm.signature'",
