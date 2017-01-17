@@ -3,6 +3,10 @@
   "version": "0.0.15",
   "description": "An message module for WFM",
   "main": "lib/angular/message-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-message.git"
+  },
   "scripts": {
     "build": "wfm-template-build -m 'wfm.message.directives'",
     "watch": "wfm-template-build -w -m 'wfm.message.directives'",
