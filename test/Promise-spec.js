@@ -51,9 +51,7 @@ describe('Promise',function() {
     var successCB = sinon.spy();
     var errorCB = sinon.spy();
     mediator.promise(TEST_CHANNEL).then(successCB, errorCB);
-    var rejectedData = Promise.reject({
-      error: 'Boromir died'
-    }).delay(1);
+    var rejectedData = Promise.reject(new Error('Boromir died')).delay(1);
     mediator.publish(TEST_CHANNEL,rejectedData);
     setTimeout(function() {
       sinon.assert.notCalled(successCB);
