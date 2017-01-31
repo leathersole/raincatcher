@@ -1,7 +1,6 @@
 var mediator = require('../lib/mediator');
 
 var sinon = require('sinon');
-require('sinon-as-promised');
 
 describe('Once',function() {
 

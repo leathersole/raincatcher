@@ -1,17 +1,7 @@
 var mediator = require('../lib/mediator');
 
 var sinon = require('sinon');
-var chai = require('chai');
-var chaiAsPromised = require('chai-as-promised');
-var sinonChai = require('sinon-chai');
 var Promise = require('bluebird');
-var sinonStubPromised = require('sinon-stub-promise');
-
-chai.should();
-chai.use(chaiAsPromised);
-chai.use(sinonChai);
-
-sinonStubPromised(sinon);
 
 sinon.config = {
   useFakeTimers: false

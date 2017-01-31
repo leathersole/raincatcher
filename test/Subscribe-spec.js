@@ -1,8 +1,7 @@
 var mediator = require('../lib/mediator');
 
-var assert = require('assert');
+var assert = require('chai').assert;
 var sinon = require('sinon');
-require('sinon-as-promised');
 
 describe('Subscribe',function() {
   const TEST_CHANNEL = "test_channel";
