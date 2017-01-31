@@ -1,29 +1,23 @@
-/**
- * Created by spriadka on 1/5/17.
- */
-
-
 var mediator = require('../lib/mediator');
 
-var assert = require('assert');
 var sinon = require('sinon');
 require('sinon-as-promised');
 
-describe('Once',function () {
+describe('Once',function() {
 
-    const TEST_CHANNEL = "once:channel";
+  const TEST_CHANNEL = "once:channel";
 
-    it('Should be registered only once',function(){
-        var CB = sinon.spy();
-        mediator.once(TEST_CHANNEL,CB);
-        mediator.publish(TEST_CHANNEL,"sample_data");
-        sinon.assert.calledOnce(CB);
-        mediator.publish(TEST_CHANNEL,"should not be subscribed");
-        sinon.assert.calledOnce(CB);
-        mediator.publish("not:even:valid:channel",{
-            username: 'Gandalf',
-            message: 'You shall not pass'
-        });
-        sinon.assert.calledOnce(CB);
+  it('Should be registered only once',function() {
+    var CB = sinon.spy();
+    mediator.once(TEST_CHANNEL,CB);
+    mediator.publish(TEST_CHANNEL,"sample_data");
+    sinon.assert.calledOnce(CB);
+    mediator.publish(TEST_CHANNEL,"should not be subscribed");
+    sinon.assert.calledOnce(CB);
+    mediator.publish("not:even:valid:channel",{
+      username: 'Gandalf',
+      message: 'You shall not pass'
     });
+    sinon.assert.calledOnce(CB);
+  });
 });
