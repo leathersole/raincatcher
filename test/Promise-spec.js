@@ -21,47 +21,44 @@ describe('Promise',function() {
   const TEST_CHANNEL = "promise:channel";
 
   it('Should call delayed callback',function(done) {
-    this.timeout(5000);
     var promiseCB = sinon.stub();
     mediator.promise(TEST_CHANNEL).then(promiseCB);
-    var promised = Promise.delay(500,"WUHU");
-    mediator.publish(TEST_CHANNEL,promised);
+    var promised = Promise.delay(1, "WUHU");
+    mediator.publish(TEST_CHANNEL, promised);
     setTimeout(function() {
       sinon.assert.called(promiseCB);
       sinon.assert.calledWith(promiseCB.getCall(0),"WUHU");
       done();
-    },2000);
+    }, 3);
   });
 
   it('Should be called only once',function(done) {
-    this.timeout(5000);
     var promiseCB = sinon.stub();
     mediator.promise(TEST_CHANNEL).then(promiseCB);
-    var promised = Promise.delay(500,{
+    var promised = Promise.delay(1, {
       goodCharacters: ['Frodo','Aragorn','Legolas'],
       evilOnes: ['Sauron','Saruman']
     });
-    mediator.publish(TEST_CHANNEL,promised);
-    mediator.publish(TEST_CHANNEL,['Another','Set','Of','Data','That','Should','Not','Be','Accepted']);
+    mediator.publish(TEST_CHANNEL, promised);
+    mediator.publish(TEST_CHANNEL, ['Another','Set','Of','Data','That','Should','Not','Be','Accepted']);
     setTimeout(function() {
       sinon.assert.callCount(promiseCB,1);
       done();
-    },2000);
+    }, 3);
   });
 
   it('Should call error callback',function(done) {
-    this.timeout(5000);
     var successCB = sinon.spy();
     var errorCB = sinon.spy();
-    mediator.promise(TEST_CHANNEL).then(successCB,errorCB);
+    mediator.promise(TEST_CHANNEL).then(successCB, errorCB);
     var rejectedData = Promise.reject({
       error: 'Boromir died'
-    }).delay(500);
+    }).delay(1);
     mediator.publish(TEST_CHANNEL,rejectedData);
     setTimeout(function() {
       sinon.assert.notCalled(successCB);
       sinon.assert.callCount(errorCB,1);
       done();
-    },2000);
+    }, 3);
   });
 });
