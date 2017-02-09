@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-vehicle-inspection",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "An vehicle-inspection module for WFM",
   "main": "lib/angular/vehicle-inspection-ng.js",
   "repository": {
