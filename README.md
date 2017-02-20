@@ -2,6 +2,10 @@
 
 A tool for building FeedHenry RainCatcher angular directive's templates.
 
+## Instalation
+
+    npm install -g fh-wfm-template-build
+
 ## Usage NPM
 
 Inside a RainCatcher Module, in the `package.json` add  :
