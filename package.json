@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-message",
-  "version": "0.0.16",
+  "version": "0.1.0-alpha.1",
   "description": "An message module for WFM",
   "main": "lib/angular/message-ng.js",
   "repository": {
