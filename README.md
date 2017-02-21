@@ -54,6 +54,149 @@ These messageSync API methods all return Promises:
 | message-form | value, workers |
 | message-detail | message |
 
+### Topic Subscriptions
+
+#### wfm:messages:create
+
+##### Description
+
+Creating a new Message
+
+##### Example
+
+
+```javascript
+var parameters = {
+  messageToCreate: {
+    //A Valid JSON Object
+  },
+  //Optional topic unique identifier.
+  topicUid: "uniquetopicid"
+}
+
+mediator.publish("wfm:messages:create", parameters);
+```
+
+#### wfm:messages:read
+
+##### Description
+
+Read a single Message
+
+##### Example
+
+
+```javascript
+var parameters = {
+  id: "messageId",
+  //Optional topic unique identifier.
+  topicUid: "uniquetopicid"
+}
+
+mediator.publish("wfm:messages:read", parameters);
+```
+
+#### wfm:messages:update
+
+##### Description
+
+Update a single Message
+
+##### Example
+
+
+```javascript
+var parameters = {
+  messageToUpdate: {
+    ...
+    id: "messageId"
+    ...
+  },
+  //Optional topic unique identifier.
+  topicUid: "uniquetopicid"
+}
+
+mediator.publish("wfm:messages:update", parameters);
+```
+
+
+#### wfm:messages:remove
+
+##### Description
+
+Remove a single Message
+
+##### Example
+
+
+```javascript
+var parameters = {
+  id: "messageId",
+  //Optional topic unique identifier.
+  topicUid: "uniquetopicid"
+}
+
+mediator.publish("wfm:messages:remove", parameters);
+```
+
+
+#### wfm:messages:list
+
+##### Description
+
+List All Messages
+
+##### Example
+
+
+```javascript
+var parameters = {
+  //Optional topic unique identifier.
+  topicUid: "uniquetopicid"
+}
+
+mediator.publish("wfm:messages:list", parameters);
+```
+
+
+### Published Topics
+
+The following topics are published by this module. Developers are free to implement these topics subscribers, or use a module that already has these subscribers implement (E.g. the [raincatcher-sync](https://github.com/feedhenry-raincatcher/raincatcher-sync) module).
+
+
+| Topic         | Description           |
+| ------------- |:-------------:| 
+| wfm:sync:messages:create              |   Create a new item in the sync `messages` collection |
+| wfm:sync:messages:update              |   Update an existing item in the sync `messages` collection |
+| wfm:sync:messages:list              |   List all items in the sync `messages` collection |
+| wfm:sync:messages:remove              |   Remove an existing item from the sync `messages` collection |
+| wfm:sync:messages:read              |   Read a single item from the sync `messages` collection |
+| wfm:sync:messages:start              |   Start the sync process for sync `messages` collection |
+| wfm:sync:messages:stop              |   Stop the sync process for sync `messages` collection |
+| wfm:sync:messages:force_sync        |   Force a sync cycle from client to cloud for sync `messages` collection |
+
+
+### Topic Subscriptions
+
+| Topic         | Description           |
+| ------------- |:-------------:| 
+| done:wfm:sync:messages:create        |   A message was created in the `messages` dataset |
+| error:wfm:sync:messages:create        |   An error occurred when creating an item in the `messages` dataset. |
+| done:wfm:sync:messages:update        |   A message was updated in the `messages` dataset |
+| error:wfm:sync:messages:update        |   An error occurred when updating an item in the `messages` dataset. |
+| done:wfm:sync:messages:list        |   A list of the items in the `messages` dataset completed |
+| error:wfm:sync:messages:list        |   An error occurred when listing items in the `messages` dataset. |
+| done:wfm:sync:messages:remove        |   A message was removed from the `messages` dataset |
+| error:wfm:sync:messages:remove        |   An error occurred when removing an item in the `messages` dataset. |
+| done:wfm:sync:messages:read        |   A item was read correctly from the `messages` dataset |
+| error:wfm:sync:messages:read        |   An error occurred when reading an item in the `messages` dataset. |
+| done:wfm:sync:messages:start        |   The sync process started for the `messages` dataset. |
+| error:wfm:sync:messages:start        |   An error occurred when starting the `messages` dataset. |
+| done:wfm:sync:messages:stop        |   The sync process stopped for the `messages` dataset. |
+| error:wfm:sync:messages:stop        |   An error occurred when stopping the `messages` dataset sync process. |
+| done:wfm:sync:messages:force_sync        |  A force sync process completed for the `messages` dataset. |
+| error:wfm:sync:messages:force_sync        |   An error occurred when forcing the sync process for the `messages` dataset. |
+
 ## Usage in an express backend
 
 ### Setup
