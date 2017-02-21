@@ -7,9 +7,7 @@ This module contains a message model representation and its related services :
 
 ## Client-side usage
 
-### Client-side usage (via broswerify)
-
-#### Setup
+### Setup
 This module is packaged in a CommonJS format, exporting the name of the Angular namespace.  The module can be included in an angular.js as follows:
 
 ```javascript
@@ -19,9 +17,12 @@ angular.module('app', [
 ])
 ```
 
-#### Integration
+### Integration
 
-##### Angular controller
+#### Angular Service
+
+This module publishes and subscribes to sync
+
 A sync manager must first be initialized using the `messageSync.createManager()`.  This can be placed, for instance, in the `resolve` config of a `ui-router` controlled application.
 
 ```javascript
@@ -34,7 +35,7 @@ resolve: {
 For a more complete example, please check the [demo portal app](https://github.com/feedhenry-staff/wfm-portal/blob/master/src/app/main.js).
 
 
-##### `messageSync` API
+#### `messageSync` API
 These messageSync API methods all return Promises:
 
 | messageSync method | Description |
@@ -43,8 +44,9 @@ These messageSync API methods all return Promises:
 | `messageSync.manager.create(message)` | create a message |
 | `messageSync.manager.read(messageId)` | read a message |
 | `messageSync.manager.update(message)` | update a message |
+| `messageSync.manager.delete(message)` | delete a message |
 
-#### message directives
+### message directives
 
 | Name | Attributes |
 | ---- | ----------- |
@@ -75,7 +77,7 @@ require('fh-wfm-message/server')(mediator, app, mbaasExpress);
 ### Server side events
 the module broadcasts, and listens for the following events
 
-| Listens for | Responds with |
+| Subscribes To | Responds with |
 | ----------- | ------------- |
 | `wfm:message:list` | `done:wfm:message:list` |
 | `wfm:message:read` | `done:wfm:message:read` |
