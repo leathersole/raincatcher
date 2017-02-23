@@ -17,13 +17,12 @@ module.exports = function(grunt) {
     const taskConfig = grunt.config.get(this.name);
     const moduleName = getAndCheckModuleName(this, grunt, taskConfig);
     const outputDir = getAndCheckOutputDir(this, grunt, taskConfig);
+    const templateDir = taskConfig.templateDir || 'lib/angular/template';
     this.async();
-
     if (this.target === 'build') {
-      build(moduleName, outputDir);
+      build(moduleName, outputDir, templateDir);
     } else if (this.target === 'watch') {
-      const templateDir = taskConfig.templateDir || 'lib/angular/template';
-      const outputDir = taskConfig.templateDir || 'lib/angular/template';
+      build(moduleName, outputDir, templateDir);
       watch('./' + templateDir, () => build(moduleName, outputDir, templateDir));
     } else {
       usage(grunt, this.name);
@@ -44,7 +43,7 @@ function getAndCheckOutputDir(task, grunt, taskConfig) {
   let outputDir = grunt.option('outputDir') || task.data.outputDir || taskConfig.outputDir;
   grunt.log.debug("--outputDir=" + outputDir);
   if (!outputDir) {
-    usage(grunt, task.name);
+    outputDir = "dist";
   }
   return outputDir;
 };
