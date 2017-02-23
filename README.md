@@ -46,7 +46,8 @@ Add a configuration to your Gruntfile.js :
     grunt.initConfig({
       wfmTemplate: {
         module: "wfm.<module-name>.directives",
-        templateDir: "lib/angular/template'
+        templateDir: "lib/angular/template',
+        outputDir: "dist"
       }
     })
 
@@ -55,17 +56,6 @@ There two target available to be run `build` and `watch`:
     $ grunt wfmTemplate:build
 
     $ grunt wfmTemplate:watch
-
-If you require different module names for `build` and `watch` you can add specific configurations
-for each target in `Gruntfile.js`. For example:
-
-      wfmTemplate: {
-        module: "wfm.<module-name>.directives",
-        templateDir: "lib/angular/template',
-        build: {
-          module: "some other module name",
-        }
-      }
 
 The module configuration `module` is an option you can also specify it on the command line like:
 
