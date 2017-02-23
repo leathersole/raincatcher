@@ -16,18 +16,19 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('wfmTemplate', 'A build tool for WFM modules', function() {
     const taskConfig = grunt.config.get(this.name);
     const moduleName = getAndCheckModuleName(this, grunt, taskConfig);
+    const outputDir = getAndCheckOutputDir(this, grunt, taskConfig);
     this.async();
 
     if (this.target === 'build') {
-      build(moduleName);
+      build(moduleName, outputDir);
     } else if (this.target === 'watch') {
       const templateDir = taskConfig.templateDir || 'lib/angular/template';
-      watch('./' + templateDir, () => build(templateDir));
+      const outputDir = taskConfig.templateDir || 'lib/angular/template';
+      watch('./' + templateDir, () => build(moduleName, outputDir, templateDir));
     } else {
       usage(grunt, this.name);
     }
   });
-
 };
 
 function getAndCheckModuleName(task, grunt, taskConfig) {
@@ -37,6 +38,15 @@ function getAndCheckModuleName(task, grunt, taskConfig) {
     usage(grunt, task.name);
   }
   return moduleName;
+};
+
+function getAndCheckOutputDir(task, grunt, taskConfig) {
+  let outputDir = grunt.option('outputDir') || task.data.outputDir || taskConfig.outputDir;
+  grunt.log.debug("--outputDir=" + outputDir);
+  if (!outputDir) {
+    usage(grunt, task.name);
+  }
+  return outputDir;
 };
 
 function usage(grunt, taskName) {
