@@ -1,0 +1,29 @@
+{
+  "name": "fh-wfm-schedule",
+  "version": "0.0.12",
+  "description": "An schedule module for WFM",
+  "main": "lib/angular/schedule-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-schedule.git"
+  },
+  "scripts": {
+    "build": "wfm-template-build -m 'wfm.schedule.directives'",
+    "watch": "wfm-template-build -w -m 'wfm.schedule.directives'",
+    "test": "grunt"
+  },
+  "keywords": [
+    "wfm",
+    "schedule"
+  ],
+  "author": "Brian Leathem",
+  "license": "MIT",
+  "devDependencies": {
+    "fh-wfm-template-build": "0.0.9",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
+  },
+  "dependencies": {
+    "lodash": "4.7.0"
+  }
+}
