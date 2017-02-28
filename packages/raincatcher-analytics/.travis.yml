@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - '0.10'
+  - '4.4'
+sudo: false
+services:
+  - docker
+before_install:
+  - npm install -g npm@2.13.5
+  - npm install -g grunt@0.4.5
+  - npm install -g grunt-cli
+  - npm install -g nsp
+install: npm install
+script:
+  - npm test
+  - nsp check; exit 0
+  - >-
+    bash <(curl
+    https://gist.githubusercontent.com/raincatcher-bot/01ac4cdb3b0770bdb58489dbc17ed6b6/raw/6205a628c3616f6736fd866d5f0fba0a781ec1e4/sonarqube.sh)
+notifications:
+  email: false
+  slack:
+    on_success: change
+    on_failure: always
+    rooms:
+      secure: >-
+        MQJs6SDGW0SYZKU2y2uhfL3iDSNq6SY8cuAuCp+cT9lsWRzIPVDZShyQux1KmZvhZU6D6WyV6K+ecw8t+lldKeBLZJQTd0z2iQ9d6CRh27AmJ4KHioEwERIDMmCBq/E57eggWJNrfqzNjkYsiNF1mc/bPsW5z0IyX+ineEyFcdn44SeP6pBhKBu4gxM76JaNpE5M4h5yjPHbjMGlycbOLsXf6lxoZ3zwWcI4aoJq9uWgLiD2KWwFK4S+aVCJKioF6zWIQfrRG3Edr68nECHcB8IBIioAwrCffkQlCAa365X4iUI/96sJl1AIGfkA/GEbBMtnIXv3lrYEaOELRHQRRerDnE+DCFWMUVDgB1eRCnGPGjJeXJpHG6BVc7Ga0jiMR6gZzCy8KsSfT/UQWExvTLlhjbXZsNDdap3SZY0bW2jh54M8U6W029qgQIQNQjLuaK84jxO2Cyw+vzddwiYqEyoEGZxgzQBbOvVVAlpHQPyKwkkxjQq8Ky8DSeH4ZZu5IfDU0UKzW575WMywkjSniOS8kG0YbaRBdJPnmnSAaEL3vS6vRqidWBNnaCks3TBX2XyPOL8wzBI9XxGcFL63retGKhOcYCIgdePAwnGY+A/2bz78unfUoSlE3peKVyLVtKg6n98Uub6RvxO3UDVM9vWYf40PWEXg2A7qEbUklCc=
+    on_pull_requests: false
