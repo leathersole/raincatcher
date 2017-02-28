@@ -1,0 +1,32 @@
+{
+  "name": "fh-wfm-mediator",
+  "version": "0.2.0-0",
+  "description": "An implementation of the mediator pattern for use with WFM",
+  "main": "lib/angular/mediator-ng.js",
+  "repository": "https://github.com/feedhenry-raincatcher/raincatcher-mediator",
+  "scripts": {
+    "test": "grunt",
+    "vuln": "nsp check"
+  },
+  "keywords": [
+    "wfm",
+    "mediator"
+  ],
+  "author": "Brian Leathem",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.7.0",
+    "mediator-js": "^0.9.9",
+    "bluebird": "^3.4.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^19.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "load-grunt-tasks": "^3.5.2",
+    "mocha": "^3.2.0",
+    "nsp": "^2.6.2",
+    "sinon": "^1.17.7"
+  }
+}
