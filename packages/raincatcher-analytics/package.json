@@ -1,0 +1,26 @@
+{
+  "name": "fh-wfm-analytics",
+  "version": "0.0.8",
+  "description": "A analytics module for WFM.",
+  "main": "lib/angular/analytics-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-analytics.git"
+  },
+  "scripts": {
+    "build": "wfm-template-build -m 'wfm.analytics.directives'",
+    "watch": "wfm-template-build -w -m 'wfm.analytics.directives'",
+    "test": "grunt eslint"
+  },
+  "author": "scm.blanc@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "c3": "0.4.11",
+    "lodash": "^4.16.4"
+  },
+  "devDependencies": {
+    "fh-wfm-template-build": "0.0.9",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
+  }
+}
