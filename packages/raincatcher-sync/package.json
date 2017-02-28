@@ -1,0 +1,48 @@
+{
+  "name": "fh-wfm-sync",
+  "version": "0.0.17",
+  "description": "An sync module for WFM",
+  "main": "lib/angular/sync-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-sync.git"
+  },
+  "scripts": {
+    "test-watch": "mochify --watch test/client/**/*.spec.js",
+    "test-debug": "mochify --debug test/client/**/*.spec.js",
+    "test-phantom": "mochify test/client/**/*.spec.js",
+    "test-wd": "mochify --wd test/client/**/*.spec.js",
+    "test-cover": "mochify --cover test/client/**/*.spec.js",
+    "test": "grunt && npm run phantom && npm run wd && npm run cover",
+    "test-server": "nodemon --watch test/server/**/*.js --watch sync-server.js --watch lib/sync-server.js test/server/test-server.js | bunyan",
+    "grunt-eslint": "grunt eslint"
+  },
+  "keywords": [
+    "wfm",
+    "sync"
+  ],
+  "author": "Sebastien Blanc, Brian Leathem",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "4.7.0",
+    "q": "1.4.1",
+    "rx": "4.1.0"
+  },
+  "devDependencies": {
+    "angular": "1.5.3",
+    "angular-mocks": "1.5.3",
+    "async": "1.5.0",
+    "bunyan": "1.8.0",
+    "config-chain": "1.1.10",
+    "cors": "2.7.1",
+    "dotenv": "2.0.0",
+    "express": "4.13.4",
+    "fh-mbaas-api": "5.14.2",
+    "fh-wfm-mediator": "0.0.15",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0",
+    "mochify": "2.17.0",
+    "nodemon": "1.9.1",
+    "should": "8.3.0"
+  }
+}
