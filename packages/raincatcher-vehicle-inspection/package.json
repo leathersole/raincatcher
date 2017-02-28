@@ -1,0 +1,31 @@
+{
+  "name": "fh-wfm-vehicle-inspection",
+  "version": "0.0.13",
+  "description": "An vehicle-inspection module for WFM",
+  "main": "lib/angular/vehicle-inspection-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-vehicle-inspection.git"
+  },
+  "scripts": {
+    "build": "wfm-template-build -m 'wfm.vehicle-inspection'",
+    "watch": "wfm-template-build -w -m 'wfm.vehicle-inspection'",
+    "test": "grunt"
+  },
+  "keywords": [
+    "wfm",
+    "workorder"
+  ],
+  "author": "Brian Leathem",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.14.0",
+    "lodash": "4.7.0"
+  },
+  "devDependencies": {
+    "fh-wfm-mediator": "0.0.15",
+    "fh-wfm-template-build": "0.0.9",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
+  }
+}
