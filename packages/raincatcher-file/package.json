@@ -1,0 +1,32 @@
+{
+  "name": "fh-wfm-file",
+  "version": "0.0.8",
+  "description": "A WFM module providing file support",
+  "main": "lib/angular/file-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-file.git"
+  },
+  "scripts": {
+    "test": "grunt eslint"
+  },
+  "keywords": [
+    "wfm",
+    "file"
+  ],
+  "author": "bleathem@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "base64-stream": "0.1.3",
+    "express": "4.14.0",
+    "lodash": "4.7.0",
+    "multer": "1.1.0",
+    "q": "1.4.1",
+    "through2": "2.0.1",
+    "uuid-js": "0.7.5"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
+  }
+}
