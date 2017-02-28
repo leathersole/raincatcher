@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - '0.10'
+  - '4.4'
+sudo: false
+before_install:
+  - npm install -g nsp
+install: npm install
+services:
+  - docker
+script:
+  - nsp check; exit 0
+  - npm run ci
+  - >-
+    bash <(curl
+    https://gist.githubusercontent.com/raincatcher-bot/01ac4cdb3b0770bdb58489dbc17ed6b6/raw/6205a628c3616f6736fd866d5f0fba0a781ec1e4/sonarqube.sh)
+notifications:
+  email: false
+  slack:
+    rooms:
+      secure: >-
+        l8Fjb9en5VrMFxqYSmHcWx47CSZffSsyddWDdKng80GbK6Dns/s9Nft+uHMn4K9wCwQn4XtkbvBAHznu8nRLT2UkC6Onqtm/qDfNOz4i9DLQujZmrGg+1W2qIorjxCP9CPCBcXHclLAQTBTcgygDp0m0HCMyKVPmgwc7eAqd9HlcqfI4W+Op3ztqJqF031EUG8/n5WIlYj7Sy41I5T/CTe6Z60jmdPvzkD+bQiwZFanRC1gSBVrIVvNMAcFv/Fv+db0NRUqtxDvkS+XuCZLmX5ztFJdl+xrB814isnJhUAL/Qn50wx++cPG/yHsFrmN4DvFQsm9egPlVObZn27JhkB+7rJzbhxML6CSD0jGfZvltGTnShO7p7OyXZeLXw+ETXBLUhv8WdCGGJq887pPwmwnQ5P+kZ6948zHro+7zBjyUc1TV6deK6NA/knfu5vLorqTe4F/s3NHW374Hsw58fG8o9/pb2dIuItbow4lgkBJo1LHyek4HnPt22BQdQ9r5c1g7Zpr8Zi+pIkxKf82qaLGYHguIBwSuSFzBZtTKixiBnzEuJp8RrM78CG4SxEHpStzN2TiivYOou7Y9fsuy1yvsmhOhwT4HK4/XmpKlqfanJtz5RiWYwgKTPOzCmL3y9TT31bQjYwQAKbVgQclL6xpBQ+wMb1nOwXSfGJJXB3U=
+    on_success: change
+    on_failure: always
+    on_pull_requests: false
+

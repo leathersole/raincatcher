@@ -1,0 +1,30 @@
+{
+  "name": "fh-wfm-push",
+  "version": "0.0.12",
+  "description": "An RainCatcher module to manage Push notification",
+  "main": "lib/angular/push-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-push.git"
+  },
+  "keywords": [
+    "wfm",
+    "push"
+  ],
+  "author": "Sebastien Blanc",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.7.0",
+    "fh-mbaas-api": "5.14.1",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0",
+    "grunt-fh-build": "1.0.2"
+  },
+  "scripts": {
+    "ci": "grunt",
+    "test": "grunt eslint"
+  }
+}
