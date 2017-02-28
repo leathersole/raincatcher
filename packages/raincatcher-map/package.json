@@ -1,0 +1,27 @@
+{
+  "name": "fh-wfm-map",
+  "version": "0.0.9",
+  "description": "A map module for FeedHenry WFM",
+  "main": "lib/angular/map-ng.js",
+  "scripts": {
+    "build": "wfm-template-build -m 'wfm.map.directives'",
+    "watch": "wfm-template-build -w -m 'wfm.map.directives'",
+    "test": "grunt eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feedhenry-staff/wfm-map.git"
+  },
+  "keywords": [
+    "wfm",
+    "map"
+  ],
+  "author": "Brian Leathem",
+  "license": "MIT",
+  "devDependencies": {
+    "fh-wfm-template-build": "0.0.9",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
+  },
+  "dependencies": {}
+}
