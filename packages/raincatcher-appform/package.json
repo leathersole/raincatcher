@@ -1,0 +1,44 @@
+{
+  "name": "fh-wfm-appform",
+  "version": "0.0.25",
+  "description": "An appform module for WFM",
+  "main": "lib/angular/appform-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-appform.git"
+  },
+  "scripts": {
+    "build": "wfm-template-build -m 'wfm.appform.directives'",
+    "watch": "wfm-template-build -w -m 'wfm.appform.directives'",
+    "test-watch": "mochify --watch test/client/**/*.spec.js",
+    "test-debug": "mochify --debug test/client/**/*.spec.js",
+    "test-phantom": "mochify test/client/**/*.spec.js",
+    "test-wd": "mochify --wd test/client/**/*.spec.js",
+    "test-cover": "mochify --cover test/client/**/*.spec.js",
+    "test-server": "node test/test-server.js | bunyan"
+  },
+  "keywords": [
+    "wfm",
+    "appform"
+  ],
+  "author": "Brian Leathem",
+  "license": "MIT",
+  "devDependencies": {
+    "async": "1.5.2",
+    "bunyan": "1.8.0",
+    "config-chain": "1.1.10",
+    "cors": "2.7.1",
+    "dotenv": "2.0.0",
+    "express": "4.13.4",
+    "fh-mbaas-api": "5.14.2",
+    "fh-wfm-mediator": "0.0.15",
+    "fh-wfm-template-build": "0.0.9",
+    "mochify": "2.17.0",
+    "should": "8.3.0"
+  },
+  "dependencies": {
+    "fh-wfm-signature": "0.0.15",
+    "lodash": "4.7.0",
+    "q": "1.4.1"
+  }
+}
