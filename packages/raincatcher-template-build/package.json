@@ -1,0 +1,33 @@
+{
+  "name": "fh-wfm-template-build",
+  "version": "0.2.1",
+  "description": "A build tool for WFM modules",
+  "bin": {
+    "wfm-template-build": "./lib/cli.js"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "main": "lib/build.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-template-build.git"
+  },
+  "keywords": [
+    "wfm",
+    "build",
+    "gruntplugin"
+  ],
+  "author": "Brian Leathem",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "4.7.0",
+    "minimist": "1.2.0",
+    "ng-html2js": "2.0.0",
+    "node-watch": "0.3.5"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
+  }
+}
