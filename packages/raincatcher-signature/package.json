@@ -1,0 +1,32 @@
+{
+  "name": "fh-wfm-signature",
+  "version": "0.0.16",
+  "description": "A signature component for FeedHenry WFM.",
+  "main": "lib/angular/signature-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-signature.git"
+  },
+  "scripts": {
+    "build": "wfm-template-build -m 'wfm.signature'",
+    "watch": "wfm-template-build -w -m 'wfm.signature'",
+    "test": "grunt"
+  },
+  "keywords": [
+    "wfm",
+    "signature"
+  ],
+  "author": "Brian Leathem",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "4.7.0"
+  },
+  "devDependencies": {
+    "eslint-config-angular": "^0.5.0",
+    "eslint-plugin-angular": "^1.4.1",
+    "fh-wfm-mediator": "0.0.15",
+    "fh-wfm-template-build": "0.0.9",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
+  }
+}
