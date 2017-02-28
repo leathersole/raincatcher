@@ -1,0 +1,39 @@
+{
+  "name": "fh-wfm-workorder",
+  "version": "0.0.28",
+  "description": "An workorder module for WFM",
+  "main": "lib/angular/workorder-ng.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feedhenry-raincatcher/raincatcher-workorder.git"
+  },
+  "scripts": {
+    "build": "wfm-template-build -m 'wfm.workorder.directives'",
+    "watch": "wfm-template-build -w -m 'wfm.workorder.directives'",
+    "test": "grunt && mocha test/**/*.spec.js"
+  },
+  "keywords": [
+    "wfm",
+    "workorder"
+  ],
+  "author": "Brian Leathem",
+  "license": "MIT",
+  "dependencies": {
+    "angular-messages": "1.5.3",
+    "express": "4.14.0",
+    "fh-wfm-sync": "0.0.16",
+    "lodash": "4.7.0",
+    "ng-feedhenry": "0.3.0",
+    "q": "1.4.1"
+  },
+  "devDependencies": {
+    "body-parser": "1.15.0",
+    "fh-wfm-mediator": "0.0.15",
+    "fh-wfm-template-build": "0.0.9",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^18.0.0",
+    "mocha": "2.4.5",
+    "request": "2.69.0",
+    "should": "8.3.0"
+  }
+}
