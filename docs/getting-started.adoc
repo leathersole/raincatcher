@@ -12,7 +12,7 @@ Raincatcher is a field workforce management (WFM) application that connects a bu
 Raincatcher Structure
 ~~~~~~~~~~~~~~~~~~~~~
 
-Raincatcher consists of a set of reusable modules that are designed to be included in your application using [browserify](http://browserify.org/). Raincatcher modules are packaged and distributed via [npm](https://www.npmjs.com/) and export one or more of:
+Raincatcher consists of a set of reusable modules that are designed to be included in your application using http://browserify.org/[browserify]. Raincatcher modules are packaged and distributed via https://www.npmjs.com/[npm] and export one or more of:
 
 * Angular.js directives or services providing client-side functionality
 for both the mobile and portal clients.
